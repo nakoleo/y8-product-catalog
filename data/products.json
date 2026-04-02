@@ -1,0 +1,240 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "id": "cleansing",
+      "label": "CLEANSING",
+      "labelTh": "ทำความสะอาด",
+      "tagline": "มากกว่าความสะอาด คือการเปิดประตูผิว",
+      "icon": "assets/icons/icon-cleansing.png",
+      "products": [
+        {
+          "id": "fine-antiacne",
+          "name": "FINE ANTI-ACNE",
+          "subname": "DETOXIFYING CLEANSING GEL",
+          "image": "assets/images/products/fine-antiacne.png",
+          "tags": [
+            { "label": "Detoxifying", "type": "dark" },
+            { "label": "Balancing", "type": "dark" },
+            { "label": "SLS-Free", "type": "light" },
+            { "label": "Hypoallergenic", "type": "light" }
+          ],
+          "howToUse": "บีบเจลในปริมาณที่เหมาะสม · ผสมน้ำนวดเบาๆ ให้ทั่วใบหน้า 30 วินาที · ล้างออก · ใช้ประจำ เช้า-เย็น"
+        },
+        {
+          "id": "y8-soap",
+          "name": "Y8 SOAP",
+          "subname": "ADVANCED SKIN CORRECTIVE SOAP",
+          "image": "assets/images/products/y8-soap.png",
+          "tags": [
+            { "label": "Micro-Peeling", "type": "dark" },
+            { "label": "4 สูตร", "type": "dark" },
+            { "label": "Natural 100%", "type": "light" },
+            { "label": "Food Grade", "type": "light" }
+          ],
+          "howToUse": "ทำให้สบู่เกิดฟองด้วยน้ำสะอาด · ฟอกให้ทั่วใบหน้าอย่างอ่อนโยน 30 วินาที · ล้างออก · ใช้ประจำ เช้า-เย็น"
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "id": "health-skin",
+      "label": "HEALTH SKIN",
+      "labelTh": "บำรุงผิว",
+      "tagline": "ยกระดับคุณภาพผิว — เสริมสุขภาพผิวให้แข็งแรงจากภายใน",
+      "icon": "assets/icons/icon-health-skin.png",
+      "products": [
+        {
+          "id": "lumitech",
+          "name": "LUMITECH™",
+          "subname": "UP MOIST SUPER BRIGHTENING SERUM",
+          "image": "assets/images/products/lumitech.png",
+          "tags": [
+            { "label": "In-vivo Tested", "type": "dark" },
+            { "label": "Brightening", "type": "dark" },
+            { "label": "8hr Moisture", "type": "light" },
+            { "label": "Hypoallergenic", "type": "light" }
+          ],
+          "howToUse": "หยดเซรั่ม 1-2 หยด · เกลี่ยให้ทั่วใบหน้าและลำคอ · ใช้ประจำ เช้า-เย็น"
+        },
+        {
+          "id": "sebotech",
+          "name": "SEBOTECH™",
+          "subname": "ACNE PORE CLEAR BALANCE SERUM",
+          "image": "assets/images/products/sebotech.png",
+          "tags": [
+            { "label": "4R Technology", "type": "dark" },
+            { "label": "Acne Reset", "type": "dark" },
+            { "label": "ECHIOSEB™", "type": "light" },
+            { "label": "IZAYOI™", "type": "light" }
+          ],
+          "howToUse": "หยดเซรั่ม 1-2 หยด · เกลี่ยให้ทั่วใบหน้าและลำคอ · ใช้ประจำ เช้า-เย็น"
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "id": "spot",
+      "label": "SPOT CORRECTIVE",
+      "labelTh": "แก้ไขเฉพาะจุด",
+      "tagline": "เก็บรายละเอียดเฉพาะจุด — ดูแลปัญหาผิวให้สมบูรณ์แบบ",
+      "icon": "assets/icons/icon-spot-corrective.png",
+      "products": [
+        {
+          "id": "melix14",
+          "name": "MELIX14™",
+          "subname": "SPOT CORRECTOR CREAM",
+          "image": "assets/images/products/melix14.png",
+          "tags": [
+            { "label": "Smart Melasma Mapping", "type": "dark" },
+            { "label": "4 Smart Functions", "type": "dark" },
+            { "label": "Dermatologist Tested", "type": "light" }
+          ],
+          "howToUse": "บีบครีมในปริมาณพอเหมาะ · ทาบางๆ เฉพาะบริเวณฝ้า กระ หรือจุดด่างดำ · ใช้ต่อเนื่อง เช้า-เย็น"
+        },
+        {
+          "id": "acne-x0",
+          "name": "ACNE X0",
+          "subname": "CLEAR SPOT GEL",
+          "image": "assets/images/products/acne-x0.png",
+          "tags": [
+            { "label": "3-in-1 Mechanism", "type": "dark" },
+            { "label": "Acne Control", "type": "dark" },
+            { "label": "Repair & Fade", "type": "light" }
+          ],
+          "howToUse": "บีบเจลในปริมาณพอเหมาะ · แต้มบางๆ เฉพาะบริเวณที่เป็นสิว เช้า-เย็น"
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "id": "sun",
+      "label": "SUN PROTECTION",
+      "labelTh": "กันแดด",
+      "tagline": "เสริมเกราะป้องกันผิว — อย่าปล่อยให้แสงแดดทำลายสิ่งที่คุณสร้างมา",
+      "icon": "assets/icons/icon-sun-protection.png",
+      "products": [
+        {
+          "id": "derma-calm",
+          "name": "DERMA CALM",
+          "subname": "SUN SHIELD ULTRA CLEAR UV SPF 50 PA++++",
+          "image": "assets/images/products/derma-calm.png",
+          "tags": [
+            { "label": "SPF 50 PA++++", "type": "dark" },
+            { "label": "Hybrid Sunscreen", "type": "dark" },
+            { "label": "Invisible Finish", "type": "light" },
+            { "label": "Hypoallergenic", "type": "light" }
+          ],
+          "howToUse": "บีบครีมกันแดด 2 ข้อนิ้ว · เกลี่ยบางๆ ทั่วใบหน้าและลำคอ · ทาก่อนออกแดดอย่างน้อย 15 นาที"
+        },
+        {
+          "id": "bio-youth",
+          "name": "BIO YOUTH",
+          "subname": "SUNSCREEN PROTECTION UV SPF 50+ PA++++",
+          "image": "assets/images/products/bio-youth.png",
+          "tags": [
+            { "label": "SPF 50+ PA++++", "type": "dark" },
+            { "label": "All-in-one", "type": "dark" },
+            { "label": "Primer + Foundation", "type": "light" }
+          ],
+          "howToUse": "บีบครีมกันแดดในปริมาณที่เหมาะสม · เกลี่ยบางๆ ทั่วใบหน้าและลำคอ · ทาก่อนออกแดดอย่างน้อย 15 นาที"
+        },
+        {
+          "id": "8x-blonde",
+          "name": "8X BLONDE",
+          "subname": "PERFECTING SUNSCREEN PROTECTION SPF 50+ PA++++",
+          "image": "assets/images/products/8x-blonde.jpg",
+          "tags": [
+            { "label": "SPF 50+ PA++++", "type": "dark" },
+            { "label": "8X Blonde Formula", "type": "dark" },
+            { "label": "Brightening", "type": "light" }
+          ],
+          "howToUse": "บีบเนื้อผลิตภัณฑ์ในปริมาณที่เหมาะสม · เกลี่ยให้ทั่วใบหน้าอย่างสม่ำเสมอ · ทาก่อนออกแดดอย่างน้อย 15 นาที"
+        }
+      ]
+    },
+    {
+      "step": 5,
+      "id": "cosmetics",
+      "label": "COSMETICS",
+      "labelTh": "เครื่องสำอาง",
+      "tagline": "เติมเต็มลุคสวย โดยไม่ทำร้ายผิว — SKINCARE FINISHING",
+      "icon": "assets/icons/icon-cosmetics.png",
+      "products": [
+        {
+          "id": "skincare-powder",
+          "name": "SKINCARE POWDER",
+          "subname": "TRANSLUCENT SETTING POWDER",
+          "image": "assets/images/products/skincare-powder.png",
+          "tags": [
+            { "label": "Rice Extract", "type": "dark" },
+            { "label": "Oil Control", "type": "dark" },
+            { "label": "All Skin Tones", "type": "light" },
+            { "label": "Day & Night", "type": "light" }
+          ],
+          "howToUse": "ใช้พัฟแตะแป้งในปริมาณพอเหมาะ · กดเบาๆ ให้ทั่วใบหน้าและลำคอ · ใช้ได้ทั้งกลางวัน/กลางคืน"
+        },
+        {
+          "id": "ultra-bright",
+          "name": "ULTRA BRIGHT",
+          "subname": "SOFT COMPACT POWDER SPF 20 PA+++",
+          "image": "assets/images/products/ultra-bright.png",
+          "tags": [
+            { "label": "SPF 20 PA+++", "type": "dark" },
+            { "label": "Soft Focus Effect", "type": "dark" },
+            { "label": "UV Protection", "type": "light" }
+          ],
+          "howToUse": "ใช้พัฟแตะแป้งในปริมาณที่เหมาะสม · กดเบาๆ ให้ทั่วใบหน้าและลำคอ · ใช้เติมระหว่างวันได้ตามต้องการ"
+        },
+        {
+          "id": "lip-oil",
+          "name": "LIP OIL",
+          "subname": "INSTANT PLUMPER CARE OIL SPF 15 PA++",
+          "image": "assets/images/products/lip-oil.png",
+          "tags": [
+            { "label": "15 Natural Oils", "type": "dark" },
+            { "label": "SPF 15 PA++", "type": "dark" },
+            { "label": "HA Filling Spheres", "type": "light" }
+          ],
+          "howToUse": "จิ้มเนื้อออยล์ · ทาให้ทั่วริมฝีปากทั้งบนและล่าง · ใช้เติมระหว่างวันได้ตามต้องการ"
+        }
+      ]
+    },
+    {
+      "step": 6,
+      "id": "internal",
+      "label": "INTERNAL HEALTH",
+      "labelTh": "สุขภาพภายใน",
+      "tagline": "จบด้วยการดูแลระดับรากฐาน — เสริมสุขภาพจากภายในเพื่อผลลัพธ์ที่ยั่งยืน",
+      "icon": "assets/icons/icon-internal-health.png",
+      "products": [
+        {
+          "id": "solanox",
+          "name": "SOLANOX",
+          "subname": "ALL-IN-ONE INNOVATIVE DIETARY SUPPLEMENT",
+          "image": "assets/images/products/solanox.png",
+          "tags": [
+            { "label": "TETRA SOD®", "type": "dark" },
+            { "label": "PYCNOGENOL®", "type": "dark" },
+            { "label": "450+ Researches", "type": "light" },
+            { "label": "CU Pharma Tested", "type": "light" }
+          ],
+          "howToUse": "รับประทานครั้งละ 1-2 แคปซูลต่อวัน พร้อมมื้ออาหารเป็นประจำทุกวัน"
+        },
+        {
+          "id": "wellsip",
+          "name": "WELLSIP",
+          "subname": "BODY RESET DRINK",
+          "image": "assets/images/products/wellsip.png",
+          "tags": [
+            { "label": "SGS Certified", "type": "dark" },
+            { "label": "6 Researches", "type": "dark" },
+            { "label": "Body Reset", "type": "light" },
+            { "label": "Gut Balance", "type": "light" }
+          ],
+          "howToUse": "ฉีกซองเทผสมน้ำ 150 มิลลิลิตร · คนให้ละลายพร้อมรับประทานวันละ 1 ซอง"
+        }
+      ]
+    }
+  ]
+}

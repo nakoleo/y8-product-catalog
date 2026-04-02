@@ -1,0 +1,7 @@
+node_modules/
+liff/config.js
+.DS_Store
+*.env
+.env.*
+dist/
+.cache/
