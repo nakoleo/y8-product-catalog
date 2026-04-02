@@ -1,18 +1,16 @@
 /* ============================================
    Y8 YOUNG AGE — COMPONENTS
-   Cards · Tags · Buttons · Pills
+   Product Cards · Buttons
    ============================================ */
 
-/* ── Product Card ── */
 .product-card {
   position: relative;
   background: var(--bg-card);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-lg);
+  border: 1px solid rgba(44, 44, 44, 0.06);
+  border-radius: 24px;
   overflow: hidden;
-  transition:
-    transform var(--ease-normal),
-    box-shadow var(--ease-normal);
+  transition: transform var(--ease-normal), box-shadow var(--ease-normal);
+  box-shadow: 0 18px 44px rgba(24, 27, 34, 0.05);
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -21,30 +19,23 @@
 }
 
 .product-card + .product-card {
-  margin-top: var(--space-4);
-}
-
-/* Accent bar top */
-.product-accent {
-  height: 2px;
-  background: linear-gradient(90deg, var(--gray-300) 0%, var(--gray-200) 100%);
+  margin-top: var(--space-5);
 }
 
 .product-body {
-  padding: var(--space-5) var(--space-5) var(--space-4);
+  padding: 24px 22px 18px;
 }
 
-/* Product image */
 .product-img-wrap {
   width: 100%;
-  height: 180px;
+  aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--gray-100);
-  border-radius: var(--radius-md);
+  background: var(--white);
+  border-radius: 22px;
   overflow: hidden;
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-5);
   position: relative;
 }
 
@@ -53,10 +44,10 @@
   height: 100%;
   object-fit: contain;
   object-position: center;
+  background: var(--white);
   transition: opacity var(--ease-normal);
 }
 
-/* Placeholder for missing images */
 .product-img-wrap .img-placeholder {
   display: flex;
   flex-direction: column;
@@ -73,66 +64,41 @@
   opacity: 0.35;
 }
 
-/* Product name */
+.product-name,
+.product-subname,
+.product-desc,
+.product-how-label,
+.product-how-text {
+  text-align: center;
+}
+
 .product-name {
-  font-size: var(--text-xl);
+  font-size: 29px;
   font-weight: var(--weight-bold);
   color: var(--text-heading);
-  letter-spacing: var(--tracking-wide);
-  line-height: var(--leading-tight);
-  margin-bottom: var(--space-1);
+  letter-spacing: 0.04em;
+  line-height: 1.08;
+  margin-bottom: 6px;
 }
 
 .product-subname {
-  font-size: var(--text-sm);
+  font-size: 13px;
   font-weight: var(--weight-light);
   color: var(--text-sub);
-  letter-spacing: var(--tracking-normal);
-  line-height: var(--leading-normal);
-  margin-bottom: var(--space-4);
+  letter-spacing: var(--tracking-wider);
+  line-height: 1.45;
+  margin-bottom: 16px;
+  text-transform: uppercase;
 }
 
-/* Product description */
 .product-desc {
-  font-size: var(--text-sm);
+  font-size: 15px;
   font-weight: var(--weight-regular);
   color: var(--text-body);
-  line-height: var(--leading-loose);
-  margin-bottom: var(--space-4);
+  line-height: 1.75;
+  margin: 0 0 18px;
 }
 
-/* ── Tags ── */
-.product-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-bottom: var(--space-4);
-}
-
-.tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 10px;
-  border-radius: var(--radius-pill);
-  font-size: var(--text-xs);
-  font-weight: var(--weight-medium);
-  letter-spacing: var(--tracking-wide);
-  white-space: nowrap;
-  line-height: 1.4;
-  min-height: 26px;
-}
-
-.tag-dark {
-  background: var(--tag-dark-bg);
-  color: var(--tag-dark-text);
-}
-
-.tag-light {
-  background: var(--tag-light-bg);
-  color: var(--tag-light-text);
-}
-
-/* ── How To Use (collapsible) ── */
 .product-how {
   overflow: hidden;
   max-height: 0;
@@ -140,58 +106,55 @@
 }
 
 .product-card:not(.collapsed) .product-how {
-  max-height: 300px;
+  max-height: 420px;
 }
 
 .product-how-inner {
-  padding: var(--space-4);
-  background: var(--gray-100);
-  border-radius: var(--radius-md);
-  margin-bottom: var(--space-3);
+  padding: 18px 16px;
+  background: #fafafa;
+  border-radius: 18px;
+  margin-bottom: 14px;
+  border: 1px solid rgba(44, 44, 44, 0.05);
 }
 
 .product-how-label {
-  font-size: var(--text-xs);
+  font-size: 11px;
   font-weight: var(--weight-bold);
   color: var(--gray-500);
   letter-spacing: var(--tracking-widest);
   text-transform: uppercase;
-  margin-bottom: var(--space-2);
+  margin-bottom: 8px;
 }
 
 .product-how-text {
-  font-size: var(--text-sm);
+  font-size: 14px;
   font-weight: var(--weight-regular);
   color: var(--text-body);
-  line-height: var(--leading-loose);
+  line-height: 1.75;
 }
 
-/* ── Expand Button ── */
 .expand-btn {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
   width: 100%;
-  min-height: 44px;
-  padding: var(--space-2) var(--space-4);
+  min-height: 46px;
+  padding: 10px 16px;
   background: transparent;
-  border: 1px solid var(--border-mid);
-  border-radius: var(--radius-md);
+  border: 1px solid rgba(44, 44, 44, 0.12);
+  border-radius: 999px;
   font-family: var(--font-main);
-  font-size: var(--text-sm);
+  font-size: 13px;
   font-weight: var(--weight-medium);
-  color: var(--gray-600);
+  color: #555b68;
   letter-spacing: var(--tracking-wide);
-  transition:
-    background var(--ease-fast),
-    color var(--ease-fast),
-    border-color var(--ease-fast);
+  transition: background var(--ease-fast), color var(--ease-fast), border-color var(--ease-fast);
   cursor: pointer;
 }
 
 .expand-btn:active {
-  background: var(--gray-100);
+  background: #f5f5f5;
 }
 
 .expand-btn svg {
@@ -204,14 +167,7 @@
 }
 
 .product-card:not(.collapsed) .expand-btn {
-  color: var(--gray-800);
-  border-color: var(--gray-400);
-  background: var(--gray-100);
-}
-
-/* ── Divider ── */
-.divider {
-  height: 1px;
-  background: var(--border-light);
-  margin: var(--space-6) 0;
+  color: #3f4653;
+  border-color: rgba(76, 80, 93, 0.22);
+  background: #f7f7f8;
 }

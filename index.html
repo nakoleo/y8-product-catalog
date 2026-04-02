@@ -2,39 +2,28 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="theme-color" content="#ffffff" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Y8 Healthy Skin Journey</title>
+  <meta name="description" content="Y8 Product Landing Page for LINE MINI App" />
 
-  <title>Y8 Young Age — Product Catalog</title>
-  <meta name="description" content="Y8 Young Age Corporation — Healthtech & Beautytech. ผลิตภัณฑ์ดูแลผิวครบ 6 Step สำหรับ Healthy Skin Journey ของคุณ" />
+  <link rel="preload" href="assets/fonts/DBHeavent-Bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/DBHeavent-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
 
-  <!-- LINE LIFF SDK -->
-  <script src="https://static.line-scdn.net/liff/edge/versions/2.22.3/sdk.js"></script>
-
-  <!-- LIFF Config (gitignored — insert LIFF ID here) -->
   <script>
     window.LIFF_CONFIG = {
       liffId: '2009682431-nREmiGML',
       lineOaUrl: 'https://line.me/R/ti/p/@y8thailand',
-      shopUrl: 'https://line.me/R/ti/p/@y8thailand',
+      shopUrl: 'https://line.me/R/ti/p/@y8thailand'
     };
   </script>
-
-  <!-- CSS — order matters -->
-  <link rel="stylesheet" href="css/tokens.css" />
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/animations.css" />
-  <link rel="stylesheet" href="css/components.css" />
-  <link rel="stylesheet" href="css/sections.css" />
 </head>
 <body>
-
-  <!-- ═══════════════════════════════════════════
-       TOP BRAND BAR (sticky)
-  ════════════════════════════════════════════ -->
-  <header class="brand-bar" role="banner">
+  <header class="brand-bar">
     <img
       class="brand-bar-logo"
       src="assets/images/logo/y8-logo-dark.png"
@@ -44,306 +33,81 @@
     <span class="brand-bar-tagline">Healthy Skin Journey</span>
   </header>
 
-  <!-- ═══════════════════════════════════════════
-       STEP NAVIGATION (sticky below brand bar)
-  ════════════════════════════════════════════ -->
   <nav class="step-nav" aria-label="Product Steps">
     <ul id="stepNavList" class="step-nav-list" role="list"></ul>
   </nav>
 
-  <!-- ═══════════════════════════════════════════
-       FOUNDER HERO SECTION
-  ════════════════════════════════════════════ -->
-  <section class="founder-section" aria-label="Founder & Philosophy">
-
-    <!-- Full-bleed founder image -->
-    <div class="founder-img-wrap">
+  <section class="founder-section" aria-label="Founder introduction">
+    <div class="founder-hero-frame reveal">
       <img
         src="assets/images/people/founder-hero.png"
-        alt="เป้ (วัจนา รื่นพิทักษ์) — Founder Young Age Corporation"
+        alt="Founder introduction for Y8 Healthy Skin Journey"
         loading="eager"
-        onerror="this.closest('.founder-img-wrap').style.display='none'"
+        onerror="this.closest('.founder-hero-frame').style.display='none'"
       />
     </div>
-
-    <!-- Content -->
-    <div class="founder-content reveal">
-
-      <!-- Quote -->
-      <blockquote class="founder-quote">
-        <strong>เป้เชื่อเสมอว่า การมีสุขภาพผิวที่ดี</strong><br>
-        สามารถเปลี่ยนแปลงชีวิตคนได้ เพราะเป้เองคือหนึ่งในคนที่มีคุณภาพชีวิตที่ดีขึ้น จากการดูแลตัวเองด้วยผลิตภัณฑ์เสริมอาหารและสกินแคร์ที่มีประสิทธิภาพสูง
-      </blockquote>
-
-      <!-- 3 Pillars -->
-      <div class="founder-pillars">
-        <div class="founder-pillar">
-          <div class="pillar-dot"></div>
-          <div class="pillar-text">
-            <strong>CLEAR</strong> (ความซื่อสัตย์): ยึดมั่นในความโปร่งใส ปลอดภัย และตรงไปตรงมาในทุกขั้นตอนการผลิต
-          </div>
-        </div>
-        <div class="founder-pillar">
-          <div class="pillar-dot"></div>
-          <div class="pillar-text">
-            <strong>FACT</strong> (ความจริงที่พิสูจน์ได้): ทุกผลิตภัณฑ์เน้นผลลัพธ์ที่วัดค่าได้จริง มีงานวิจัยและหลักฐานทางวิทยาศาสตร์รองรับ
-          </div>
-        </div>
-        <div class="founder-pillar">
-          <div class="pillar-dot"></div>
-          <div class="pillar-text">
-            <strong>EASY</strong> (ความง่าย): เพราะการดูแลตัวเองต้องทำอย่างต่อเนื่อง เราจึงกำหนดราคาที่ทุกคนสามารถเข้าถึงได้
-          </div>
-        </div>
-      </div>
-
-      <!-- Philosophy -->
-      <div class="founder-philosophy">
-        <div class="founder-philosophy-label">PHILOSOPHY</div>
-        <p class="founder-philosophy-text">
-          มุ่งสร้างประสบการณ์ใหม่ในอุตสาหกรรมสุขภาพและความงาม ด้วยนวัตกรรมที่กลั่นกรองจากหัวใจของผู้บริโภค ส่งมอบผ่านผลิตภัณฑ์ที่คุ้มค่าเกินราคา กับผลลัพธ์ที่ดีเหนือความคาดหวัง
-        </p>
-      </div>
-
-      <!-- Founder credit -->
-      <div class="founder-credit">
-        <img
-          class="founder-credit-portrait"
-          src="assets/images/people/founder-portrait.png"
-          alt="เป้ วัจนา รื่นพิทักษ์"
-          loading="lazy"
-          onerror="this.style.display='none'"
-        />
-        <div class="founder-credit-info">
-          <div class="founder-credit-name">"เป้" (วัจนา รื่นพิทักษ์)</div>
-          <div class="founder-credit-title">FOUNDER — YOUNG AGE CORPORATION</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Welcome tagline -->
-    <div class="founder-welcome">
-      <h2 class="founder-welcome-title">
-        ยินดีต้อนรับสู่ <span>Y8</span> HEALTHY SKIN JOURNEY
-      </h2>
-      <p class="founder-welcome-sub">
-        เส้นทางแห่งการยกระดับคุณภาพชีวิต<br>ด้วยผลิตภัณฑ์คุณภาพสูงที่เราตั้งใจออกแบบมาเพื่อคุณ
-      </p>
-    </div>
-
   </section>
 
-  <!-- ═══════════════════════════════════════════
-       MAIN CONTENT — sections injected by JS
-  ════════════════════════════════════════════ -->
   <main id="mainContent" role="main"></main>
 
-  <!-- ═══════════════════════════════════════════
-       AWARDS & GLOBAL STANDARDS SECTION
-  ════════════════════════════════════════════ -->
-  <section class="awards-section" aria-label="Awards & Standards">
-
+  <section class="awards-section" aria-label="Awards and global standards">
     <div class="awards-header reveal">
-      <h2 class="awards-headline">
-        AWARDS &amp; GLOBAL <span>STANDARDS</span>
-      </h2>
+      <h2 class="awards-headline">AWARDS &amp; GLOBAL STANDARDS</h2>
       <p class="awards-sub">
-        เพราะ "ความสวย" ต้องไม่แลกมาด้วย "ความเสี่ยง" Y8 จึงยกระดับมาตรฐานด้วยการคัดสรรสิ่งที่ดีที่สุดจากทั่วโลก การันตีด้วยการทดสอบ ใบรับรอง และรางวัลระดับสากล
+        Y8 reinforces product quality with international awards, academic and clinical validation, and compliance standards selected to support trust, safety, and long-term skin health.
       </p>
     </div>
 
-    <!-- Award trophies row -->
     <div class="awards-img-row reveal">
-      <img
-        src="assets/images/awards/award-product-of-year.png"
-        alt="Product of the Year Awards 4 ปีซ้อน"
-        loading="lazy"
-        onerror="this.style.display='none'"
-      />
-      <img
-        src="assets/images/awards/award-innovation.png"
-        alt="Product Innovation Awards 3 ปีซ้อน"
-        loading="lazy"
-        onerror="this.style.display='none'"
-      />
-      <img
-        src="assets/images/awards/award-top-sme.png"
-        alt="Thailand Top SME Awards 2 ปีซ้อน"
-        loading="lazy"
-        onerror="this.style.display='none'"
-      />
+      <img src="assets/images/awards/award-product-of-year.png" alt="Product of the Year Awards" loading="lazy" onerror="this.style.display='none'" />
+      <img src="assets/images/awards/award-innovation.png" alt="Product Innovation Awards" loading="lazy" onerror="this.style.display='none'" />
+      <img src="assets/images/awards/award-top-sme.png" alt="Thailand Top SME Awards" loading="lazy" onerror="this.style.display='none'" />
     </div>
 
-    <!-- Brand Prestigious Awards -->
-    <div class="award-group reveal">
-      <div class="award-group-title">BRAND PRESTIGIOUS AWARDS</div>
-      <div class="award-item">
-        <span class="award-item-text">PRODUCT OF THE YEAR AWARDS <em>(4 Consecutive Years)</em></span>
+    <div class="awards-grid reveal">
+      <div class="award-group">
+        <div class="award-group-title">Brand Prestigious Awards</div>
+        <div class="award-item"><span class="award-item-text">Product of the Year Awards <em>(4 consecutive years)</em></span></div>
+        <div class="award-item"><span class="award-item-text">Product Innovation Awards <em>(3 consecutive years)</em></span></div>
+        <div class="award-item"><span class="award-item-text">Thailand Top SME Awards <em>(2 consecutive years)</em></span></div>
       </div>
-      <div class="award-item">
-        <span class="award-item-text">PRODUCT INNOVATION AWARDS <em>(3 Consecutive Years)</em></span>
+
+      <div class="award-group">
+        <div class="award-group-title">Academic &amp; Clinical Validation</div>
+        <div class="award-item"><span class="award-item-text">Faculty of Pharmaceutical Sciences, Chulalongkorn University</span></div>
+        <div class="award-item"><span class="award-item-text">MUPY Dermocosmetic Testing Center</span></div>
+        <div class="award-item"><span class="award-item-text">Dermscan Asia &amp; Spincontrol Asia</span></div>
       </div>
-      <div class="award-item">
-        <span class="award-item-text">THAILAND TOP SME AWARDS <em>(2 Consecutive Years)</em></span>
+
+      <div class="award-group">
+        <div class="award-group-title">Certification &amp; Compliance</div>
+        <div class="award-item"><span class="award-item-text">SGS Certification <em>(ISO / System Certification)</em></span></div>
+        <div class="award-item"><span class="award-item-text">Dermatologically Tested <em>(By DRC Thailand)</em></span></div>
+        <div class="award-item"><span class="award-item-text">Hypoallergenic Tested <em>(By Dermscan Asia)</em></span></div>
+      </div>
+
+      <div class="award-group">
+        <div class="award-group-title">Safety &amp; Regulatory</div>
+        <div class="award-item"><span class="award-item-text">Department of Medical Sciences</span></div>
+        <div class="award-item"><span class="award-item-text">Halal Certificate</span></div>
+        <div class="award-item"><span class="award-item-text">Global sourcing and ingredient screening</span></div>
       </div>
     </div>
-
-    <!-- Academic & Clinical -->
-    <div class="award-group reveal">
-      <div class="award-group-title">ACADEMIC &amp; CLINICAL VALIDATION</div>
-      <div class="award-item">
-        <span class="award-item-text">FACULTY OF PHARMACEUTICAL SCIENCES, CHULALONGKORN UNIVERSITY</span>
-      </div>
-      <div class="award-item">
-        <span class="award-item-text">MUPY DERMOCOSMETIC TESTING CENTER</span>
-      </div>
-      <div class="award-item">
-        <span class="award-item-text">DERMSCAN ASIA &amp; SPINCONTROL ASIA</span>
-      </div>
-    </div>
-
-    <!-- Certification -->
-    <div class="award-group reveal">
-      <div class="award-group-title">CERTIFICATION &amp; COMPLIANCE</div>
-      <div class="award-item">
-        <span class="award-item-text">SGS CERTIFICATION <em>(ISO / System Certification)</em></span>
-      </div>
-      <div class="award-item">
-        <span class="award-item-text">DERMATOLOGICALLY TESTED <em>(By DRC Thailand)</em></span>
-      </div>
-      <div class="award-item">
-        <span class="award-item-text">HYPOALLERGENIC TESTED <em>(By Dermscan Asia)</em></span>
-      </div>
-      <div class="award-item">
-        <span class="award-item-text">DEPARTMENT OF MEDICAL SCIENCES</span>
-      </div>
-      <div class="award-item">
-        <span class="award-item-text">HALAL CERTIFICATE</span>
-      </div>
-    </div>
-
-    <!-- Eco badges -->
-    <div class="eco-strip reveal">
-      <div class="eco-badge">
-        <div class="eco-badge-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
-        </div>
-        <span class="eco-badge-label">SUSTAINABLE<br>SOURCING</span>
-      </div>
-      <div class="eco-badge">
-        <div class="eco-badge-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <circle cx="12" cy="12" r="3"/>
-            <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
-          </svg>
-        </div>
-        <span class="eco-badge-label">GREEN<br>TECHNOLOGY</span>
-      </div>
-      <div class="eco-badge">
-        <div class="eco-badge-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
-            <path d="M8 12l3 3 5-5"/>
-          </svg>
-        </div>
-        <span class="eco-badge-label">VEGAN<br>FRIENDLY</span>
-      </div>
-    </div>
-
-    <!-- Quote -->
-    <div class="awards-quote reveal">
-      <p class="awards-quote-main">"Beyond Awards <em>is</em> Trust"</p>
-      <p class="awards-quote-body">
-        ทุกโล่รางวัลและใบรับรองคือคำยืนยันถึงพันธสัญญาของ Y8 ที่จะไม่หยุดพัฒนาและคิดค้น เพื่อมอบผลิตภัณฑ์ด้านสุขภาพและความงามที่มีประสิทธิภาพสูงสุด คุ้มค่าเกินความคาดหวัง
-      </p>
-    </div>
-
   </section>
 
-  <!-- ═══════════════════════════════════════════
-       MEMBERSHIP CARD
-  ════════════════════════════════════════════ -->
-  <div class="membership-card reveal" role="complementary" aria-label="Y8 Membership Program">
-    <p class="membership-label">Y8 MEMBERSHIP PROGRAM</p>
-    <h2 class="membership-title">
-      สมัครสมาชิก Y8
-      <span>HEALTHY SKIN JOURNEY</span>
-    </h2>
-    <p class="membership-benefit">
-      รับสิทธิ์ <span class="membership-highlight">คูปองส่วนลดพิเศษ 10%</span><br>
-      นำไปใช้ Top Up จากโปรโมชั่นอื่นได้ทันที<br>
-      ใช้ใน Shopee ทันทีหลังสมัครสำเร็จ
-    </p>
-    <a
-      href="https://liff.line.me/2000733931-wPdEZX0R/channels/5000521266/crm/member/my-reward"
-      class="membership-btn"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="สมัครสมาชิก Y8 รับคูปองส่วนลด 10%"
-    >
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-      </svg>
-      สมัครสมาชิก — รับคูปอง 10%
-    </a>
-    <p class="membership-sub">สมัครฟรี · ไม่มีค่าใช้จ่าย · ใช้ได้ทันที</p>
-  </div>
-
-  <!-- ═══════════════════════════════════════════
-       FOOTER
-  ════════════════════════════════════════════ -->
   <footer class="site-footer" role="contentinfo">
-    <img
-      class="footer-logo"
-      src="assets/images/logo/y8-logo-gray.png"
-      alt="Y8 Young Age"
-      onerror="this.style.display='none'"
-    />
-    <p class="footer-tagline">Healthtech &amp; Beautytech<br>Engineering Your Youth</p>
-
-    <div class="footer-cta">
-      <a
-        href="https://liff.line.me/2000733931-wPdEZX0R/channels/5000521266/crm/member/my-reward"
-        class="footer-btn footer-btn-line"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="สมัครสมาชิก Y8"
-      >
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
-        </svg>
-        สมัครสมาชิก Y8
-      </a>
-      <a
-        href="https://line.me/R/ti/p/@y8thailand"
-        class="footer-btn footer-btn-primary"
-        data-social="shop"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="ช้อปสินค้า Y8"
-      >
-        ช้อปสินค้าออนไลน์
-      </a>
+    <div class="footer-brand-art-wrap reveal">
+      <img
+        class="footer-brand-art"
+        src="assets/images/footer/y8-footer-panel.png"
+        alt="Y8 Young8 brand artwork"
+        loading="lazy"
+        onerror="this.closest('.footer-brand-art-wrap').style.display='none'"
+      />
     </div>
-
-    <nav class="footer-links" aria-label="Social links">
-      <a href="#" class="footer-link" data-social="facebook">Facebook</a>
-      <a href="#" class="footer-link" data-social="tiktok">TikTok</a>
-      <a href="#" class="footer-link" data-social="instagram">Instagram</a>
-    </nav>
-
-    <p class="footer-copy">
-      &copy; 2025 Young Age Corporation Co., Ltd.<br>
-      Healthtech &amp; Beautytech Engineering Your Youth
-    </p>
+    <p class="footer-copy">&copy; 2026 Young Age Corporation Co., Ltd. All rights reserved.</p>
   </footer>
 
-  <!-- ═══════════════════════════════════════════
-       BACK TO TOP BUTTON
-  ════════════════════════════════════════════ -->
   <button
     id="backToTop"
     class="back-to-top"
@@ -355,13 +119,10 @@
     </svg>
   </button>
 
-  <!-- ═══════════════════════════════════════════
-       JAVASCRIPT — load order matters
-  ════════════════════════════════════════════ -->
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <script src="js/liff.js"></script>
   <script src="js/scroll-reveal.js"></script>
   <script src="js/card-toggle.js"></script>
   <script src="js/main.js"></script>
-
 </body>
 </html>

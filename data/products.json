@@ -13,26 +13,16 @@
           "name": "FINE ANTI-ACNE",
           "subname": "DETOXIFYING CLEANSING GEL",
           "image": "assets/images/products/fine-antiacne.png",
-          "tags": [
-            { "label": "Detoxifying", "type": "dark" },
-            { "label": "Balancing", "type": "dark" },
-            { "label": "SLS-Free", "type": "light" },
-            { "label": "Hypoallergenic", "type": "light" }
-          ],
-          "howToUse": "บีบเจลในปริมาณที่เหมาะสม · ผสมน้ำนวดเบาๆ ให้ทั่วใบหน้า 30 วินาที · ล้างออก · ใช้ประจำ เช้า-เย็น"
+          "howToUse": "บีบเจลในปริมาณที่เหมาะสม · ผสมน้ำนวดเบาๆ ให้ทั่วใบหน้า 30 วินาที · ล้างออก · ใช้ประจำ เช้า-เย็น",
+          "description": "เจลล้างหน้าสูตรอ่อนโยนพิเศษสำหรับผิวแพ้ง่าย ให้มากกว่าการล้างหน้า ด้วยพลัง Detoxifying ช่วยขจัดสารพิษและมลภาวะตกค้าง พร้อม Cleansing ล้างเมคอัพ สิ่งสกปรก และความมันส่วนเกินได้หมดจด ลดการอุดตัน ช่วยปรับสมดุลผิว และปราศจาก SLS & SLEs เพื่อลดโอกาสการระคายเคืองจากสารทำความสะอาดที่รุนแรง"
         },
         {
           "id": "y8-soap",
           "name": "Y8 SOAP",
           "subname": "ADVANCED SKIN CORRECTIVE SOAP",
           "image": "assets/images/products/y8-soap.png",
-          "tags": [
-            { "label": "Micro-Peeling", "type": "dark" },
-            { "label": "4 สูตร", "type": "dark" },
-            { "label": "Natural 100%", "type": "light" },
-            { "label": "Food Grade", "type": "light" }
-          ],
-          "howToUse": "ทำให้สบู่เกิดฟองด้วยน้ำสะอาด · ฟอกให้ทั่วใบหน้าอย่างอ่อนโยน 30 วินาที · ล้างออก · ใช้ประจำ เช้า-เย็น"
+          "howToUse": "ทำให้สบู่เกิดฟองด้วยน้ำสะอาด · ฟอกให้ทั่วใบหน้าอย่างอ่อนโยน 30 วินาที · ล้างออก · ใช้ประจำ เช้า-เย็น",
+          "description": "สบู่กลีเซอรีนพรีเมียม Food Grade Innovation ปราศจาก SLS & SLEs อ่อนโยนต่อผิว ช่วยดูแลปัญหาผิวได้อย่างตรงจุด พร้อมผลัดเซลล์ผิวอย่างอ่อนโยนด้วยกลไก Micro-Peeling เพื่อเปิดรับการบำรุงได้ดีขึ้น ครอบคลุม 4 สูตรสำหรับผิวเป็นฝ้า-กระ ผิวกระจ่างใส เคลียร์สิว และเพิ่มความชุ่มชื้น เพื่อคืนสมดุลผิวสุขภาพดีโดยไม่ทำให้ผิวแห้งตึง"
         }
       ]
     },
@@ -49,26 +39,16 @@
           "name": "LUMITECH™",
           "subname": "UP MOIST SUPER BRIGHTENING SERUM",
           "image": "assets/images/products/lumitech.png",
-          "tags": [
-            { "label": "In-vivo Tested", "type": "dark" },
-            { "label": "Brightening", "type": "dark" },
-            { "label": "8hr Moisture", "type": "light" },
-            { "label": "Hypoallergenic", "type": "light" }
-          ],
-          "howToUse": "หยดเซรั่ม 1-2 หยด · เกลี่ยให้ทั่วใบหน้าและลำคอ · ใช้ประจำ เช้า-เย็น"
+          "howToUse": "หยดเซรั่ม 1-2 หยด · เกลี่ยให้ทั่วใบหน้าและลำคอ · ใช้ประจำ เช้า-เย็น",
+          "description": "เซรั่มเพื่อฟื้นฟูโครงสร้างผิวให้ดูกระจ่างใสและเรียบเนียนอย่างเป็นธรรมชาติ ผ่านการทดสอบ In-vivo ช่วยให้ผิวดูไบรท์ขึ้นภายใน 14 วัน พร้อมเติมความชุ่มชื้นยาวนานถึง 8 ชั่วโมง ปรับสีผิวให้สม่ำเสมอ และดูแลจุดด่างดำ ฝ้าแดด และรอยสิวให้ดูจางลง โดยผ่านการทดสอบ Hypoallergenic Tested เหมาะสำหรับผิวบอบบางหรือผิวแพ้ง่าย"
         },
         {
           "id": "sebotech",
           "name": "SEBOTECH™",
           "subname": "ACNE PORE CLEAR BALANCE SERUM",
           "image": "assets/images/products/sebotech.png",
-          "tags": [
-            { "label": "4R Technology", "type": "dark" },
-            { "label": "Acne Reset", "type": "dark" },
-            { "label": "ECHIOSEB™", "type": "light" },
-            { "label": "IZAYOI™", "type": "light" }
-          ],
-          "howToUse": "หยดเซรั่ม 1-2 หยด · เกลี่ยให้ทั่วใบหน้าและลำคอ · ใช้ประจำ เช้า-เย็น"
+          "howToUse": "หยดเซรั่ม 1-2 หยด · เกลี่ยให้ทั่วใบหน้าและลำคอ · ใช้ประจำ เช้า-เย็น",
+          "description": "เซรั่มละลายสิวอุดตัน ตัดวงจรสิวอักเสบวนซ้ำด้วยนวัตกรรม 4R Acne Reset Technology ที่ทำงาน 4 กลไกในขวดเดียว ทั้งจัดการเชื้อสิวและการอักเสบ ฟื้นฟูเกราะผิวให้แข็งแรง ลดความแห้งลอก จางรอยดำรอยแดง และช่วยรีเซ็ตกลไกการเกิดสิวซ้ำ ให้ผิวเรียบเนียนสมดุลขึ้นอย่างต่อเนื่อง"
         }
       ]
     },
@@ -85,24 +65,16 @@
           "name": "MELIX14™",
           "subname": "SPOT CORRECTOR CREAM",
           "image": "assets/images/products/melix14.png",
-          "tags": [
-            { "label": "Smart Melasma Mapping", "type": "dark" },
-            { "label": "4 Smart Functions", "type": "dark" },
-            { "label": "Dermatologist Tested", "type": "light" }
-          ],
-          "howToUse": "บีบครีมในปริมาณพอเหมาะ · ทาบางๆ เฉพาะบริเวณฝ้า กระ หรือจุดด่างดำ · ใช้ต่อเนื่อง เช้า-เย็น"
+          "howToUse": "บีบครีมในปริมาณพอเหมาะ · ทาบางๆ เฉพาะบริเวณฝ้า กระ หรือจุดด่างดำ · ใช้ต่อเนื่อง เช้า-เย็น",
+          "description": "นวัตกรรมครีมแก้ฝ้าเฉพาะจุดอัจฉริยะด้วย Smart Melasma Mapping ดูแลปัญหาฝ้า กระ จุดด่างดำ และรอยดำจากสิวแบบตรงจุด จัดการต้นตอฝ้าครบ 4 วงจร ตั้งแต่ระดับเซลล์ เม็ดสี ผิวชั้นนอก และเกราะป้องกันผิว เพื่อให้รอยดูจางลงอย่างต่อเนื่อง ผิวดูสม่ำเสมอ แข็งแรงขึ้น และอ่อนโยนต่อผิวบอบบางแพ้ง่าย"
         },
         {
           "id": "acne-x0",
           "name": "ACNE X0",
           "subname": "CLEAR SPOT GEL",
           "image": "assets/images/products/acne-x0.png",
-          "tags": [
-            { "label": "3-in-1 Mechanism", "type": "dark" },
-            { "label": "Acne Control", "type": "dark" },
-            { "label": "Repair & Fade", "type": "light" }
-          ],
-          "howToUse": "บีบเจลในปริมาณพอเหมาะ · แต้มบางๆ เฉพาะบริเวณที่เป็นสิว เช้า-เย็น"
+          "howToUse": "บีบเจลในปริมาณพอเหมาะ · แต้มบางๆ เฉพาะบริเวณที่เป็นสิว เช้า-เย็น",
+          "description": "เจลแต้มสิวเฉพาะจุดที่จัดการสิวแบบตรงจุดและตรงสาเหตุ ช่วยให้สิวยุบไว ผิวดูเรียบเนียนขึ้นโดยไม่รบกวนสมดุลผิว ด้วย 3 กลไกครบวงจร ทั้ง Calm & Clear ลดการอักเสบและรอยแดง Acne Control ยับยั้งเชื้อสิว C. Acnes และ Repair & Fade ฟื้นฟูผิวพร้อมลดรอยหลังสิวอย่างอ่อนโยน เพื่อให้ผิวแข็งแรงขึ้นโดยไม่ทิ้งรอยดำ รอยแดง และหลุมสิว"
         }
       ]
     },
@@ -119,37 +91,24 @@
           "name": "DERMA CALM",
           "subname": "SUN SHIELD ULTRA CLEAR UV SPF 50 PA++++",
           "image": "assets/images/products/derma-calm.png",
-          "tags": [
-            { "label": "SPF 50 PA++++", "type": "dark" },
-            { "label": "Hybrid Sunscreen", "type": "dark" },
-            { "label": "Invisible Finish", "type": "light" },
-            { "label": "Hypoallergenic", "type": "light" }
-          ],
-          "howToUse": "บีบครีมกันแดด 2 ข้อนิ้ว · เกลี่ยบางๆ ทั่วใบหน้าและลำคอ · ทาก่อนออกแดดอย่างน้อย 15 นาที"
+          "howToUse": "บีบครีมกันแดด 2 ข้อนิ้ว · เกลี่ยบางๆ ทั่วใบหน้าและลำคอ · ทาก่อนออกแดดอย่างน้อย 15 นาที",
+          "description": "Hybrid Sunscreen ปกป้องผิวขั้นสุดโดยไม่เพิ่มภาระให้ผิว ออกแบบมาเพื่อผิวแพ้ง่ายและผิวเป็นสิวง่ายโดยเฉพาะ ปกป้องผิวจากรังสี UVA/UVB ช่วยปลอบประโลมผิว ลดการอักเสบและรอยแดงจากแดด เนื้อสัมผัสบางเบาแบบ Invisible Finish ไม่วอก ไม่ทิ้งคราบ ไม่เหนอะหนะ และช่วยให้เมคอัพติดทนระหว่างวัน"
         },
         {
           "id": "bio-youth",
           "name": "BIO YOUTH",
           "subname": "SUNSCREEN PROTECTION UV SPF 50+ PA++++",
           "image": "assets/images/products/bio-youth.png",
-          "tags": [
-            { "label": "SPF 50+ PA++++", "type": "dark" },
-            { "label": "All-in-one", "type": "dark" },
-            { "label": "Primer + Foundation", "type": "light" }
-          ],
-          "howToUse": "บีบครีมกันแดดในปริมาณที่เหมาะสม · เกลี่ยบางๆ ทั่วใบหน้าและลำคอ · ทาก่อนออกแดดอย่างน้อย 15 นาที"
+          "howToUse": "บีบครีมกันแดดในปริมาณที่เหมาะสม · เกลี่ยบางๆ ทั่วใบหน้าและลำคอ · ทาก่อนออกแดดอย่างน้อย 15 นาที",
+          "description": "นวัตกรรม All-in-one ที่ผสานกันแดด ไพรเมอร์ และรองพื้นไว้ในหนึ่งเดียว เนื้อบางเบาเกลี่ยง่าย กลืนสนิทไปกับผิว ช่วยคุมมัน ปกปิดรูขุมขน รอยแดง และความหมองคล้ำ ให้ผิวดูสวยสุขภาพดีอย่างเป็นธรรมชาติ พร้อมปกป้องผิวจาก UVA/UVB และมลภาวะ และช่วยให้ผิวเนียนสวยติดทนตลอดวัน"
         },
         {
           "id": "8x-blonde",
           "name": "8X BLONDE",
           "subname": "PERFECTING SUNSCREEN PROTECTION SPF 50+ PA++++",
           "image": "assets/images/products/8x-blonde.jpg",
-          "tags": [
-            { "label": "SPF 50+ PA++++", "type": "dark" },
-            { "label": "8X Blonde Formula", "type": "dark" },
-            { "label": "Brightening", "type": "light" }
-          ],
-          "howToUse": "บีบเนื้อผลิตภัณฑ์ในปริมาณที่เหมาะสม · เกลี่ยให้ทั่วใบหน้าอย่างสม่ำเสมอ · ทาก่อนออกแดดอย่างน้อย 15 นาที"
+          "howToUse": "บีบเนื้อผลิตภัณฑ์ในปริมาณที่เหมาะสม · เกลี่ยให้ทั่วใบหน้าอย่างสม่ำเสมอ · ทาก่อนออกแดดอย่างน้อย 15 นาที",
+          "description": "กันแดดปกป้องผิวขั้นสุด เหมาะสำหรับคนเป็นฝ้าและผู้ที่ต้องเจอแดดจัด ให้การปกป้องครอบคลุมทั้ง UVA/UVB, Blue Light และ Infrared พร้อมดูแลลึกถึงระดับ DNA Repair เพื่อช่วยลดวงจรการเกิดฝ้า กระ และผิวหมองคล้ำซ้ำซาก ลดอาการแดง แสบ ระคายเคือง และยังทำหน้าที่เป็น Makeup Base ช่วยเบลอผิวให้ดูเนียนโกลว์อย่างเป็นธรรมชาติ"
         }
       ]
     },
@@ -166,37 +125,24 @@
           "name": "SKINCARE POWDER",
           "subname": "TRANSLUCENT SETTING POWDER",
           "image": "assets/images/products/skincare-powder.png",
-          "tags": [
-            { "label": "Rice Extract", "type": "dark" },
-            { "label": "Oil Control", "type": "dark" },
-            { "label": "All Skin Tones", "type": "light" },
-            { "label": "Day & Night", "type": "light" }
-          ],
-          "howToUse": "ใช้พัฟแตะแป้งในปริมาณพอเหมาะ · กดเบาๆ ให้ทั่วใบหน้าและลำคอ · ใช้ได้ทั้งกลางวัน/กลางคืน"
+          "howToUse": "ใช้พัฟแตะแป้งในปริมาณพอเหมาะ · กดเบาๆ ให้ทั่วใบหน้าและลำคอ · ใช้ได้ทั้งกลางวัน/กลางคืน",
+          "description": "แป้งบำรุงผิวจากสารสกัดข้าวญี่ปุ่น ช่วยเติมความชุ่มชื้นให้ผิวเนียนกระจ่างใส รูขุมขนดูกระชับ รอยดำและรอยแดงดูจางลง ช่วยคุมมันและล็อกเมคอัพให้ติดตลอดวันโดยไม่อุดตันผิว เหมาะกับทุกเฉดผิวและทุกสภาพผิว แม้ผิวบอบบางแพ้ง่ายเป็นพิเศษ และสามารถใช้ได้ทั้งกลางวันและกลางคืน"
         },
         {
           "id": "ultra-bright",
           "name": "ULTRA BRIGHT",
           "subname": "SOFT COMPACT POWDER SPF 20 PA+++",
           "image": "assets/images/products/ultra-bright.png",
-          "tags": [
-            { "label": "SPF 20 PA+++", "type": "dark" },
-            { "label": "Soft Focus Effect", "type": "dark" },
-            { "label": "UV Protection", "type": "light" }
-          ],
-          "howToUse": "ใช้พัฟแตะแป้งในปริมาณที่เหมาะสม · กดเบาๆ ให้ทั่วใบหน้าและลำคอ · ใช้เติมระหว่างวันได้ตามต้องการ"
+          "howToUse": "ใช้พัฟแตะแป้งในปริมาณที่เหมาะสม · กดเบาๆ ให้ทั่วใบหน้าและลำคอ · ใช้เติมระหว่างวันได้ตามต้องการ",
+          "description": "แป้งพับสูตรพิเศษที่ช่วยดูแลและปรับผิวให้ดูสว่างกระจ่างใส พร้อมช่วยปกปิดรอยฝ้า กระ และรอยดำอย่างแนบเนียน ด้วย Soft Focus Effect Technology ที่ช่วยเบลอรูขุมขนและปรับผิวให้ดูเรียบเนียนสม่ำเสมอ เนื้อสัมผัสเนียนนุ่ม ไม่หนา ไม่เทา กลมกลืนไปกับผิวอย่างเป็นธรรมชาติ พร้อมช่วยปกป้องผิวจากรังสี UVA/UVB และมลภาวะ"
         },
         {
           "id": "lip-oil",
           "name": "LIP OIL",
           "subname": "INSTANT PLUMPER CARE OIL SPF 15 PA++",
           "image": "assets/images/products/lip-oil.png",
-          "tags": [
-            { "label": "15 Natural Oils", "type": "dark" },
-            { "label": "SPF 15 PA++", "type": "dark" },
-            { "label": "HA Filling Spheres", "type": "light" }
-          ],
-          "howToUse": "จิ้มเนื้อออยล์ · ทาให้ทั่วริมฝีปากทั้งบนและล่าง · ใช้เติมระหว่างวันได้ตามต้องการ"
+          "howToUse": "จิ้มเนื้อออยล์ · ทาให้ทั่วริมฝีปากทั้งบนและล่าง · ใช้เติมระหว่างวันได้ตามต้องการ",
+          "description": "ออยล์ซ่อมปากฟูสำหรับฟื้นบำรุงริมฝีปากแห้งแตกด้วยพลัง 15 Natural Oils เติมความอิ่มฟูให้ริมฝีปากด้วย Hyaluronic Filling Spheres พร้อมนวัตกรรมหัวแปรงซิลิโคนเกรดพรีเมียมแบบ Seamless Design ให้เนื้อสัมผัสนุ่มละมุน กระจายเนื้อออยล์ได้ดีขึ้น และช่วยให้ริมฝีปากฉ่ำวาวสวยในปาดเดียว"
         }
       ]
     },
@@ -213,26 +159,16 @@
           "name": "SOLANOX",
           "subname": "ALL-IN-ONE INNOVATIVE DIETARY SUPPLEMENT",
           "image": "assets/images/products/solanox.png",
-          "tags": [
-            { "label": "TETRA SOD®", "type": "dark" },
-            { "label": "PYCNOGENOL®", "type": "dark" },
-            { "label": "450+ Researches", "type": "light" },
-            { "label": "CU Pharma Tested", "type": "light" }
-          ],
-          "howToUse": "รับประทานครั้งละ 1-2 แคปซูลต่อวัน พร้อมมื้ออาหารเป็นประจำทุกวัน"
+          "howToUse": "รับประทานครั้งละ 1-2 แคปซูลต่อวัน พร้อมมื้ออาหารเป็นประจำทุกวัน",
+          "description": "นวัตกรรมรีเซ็ตผิวระดับเซลล์ ช่วยแก้ความผิดปกติของเม็ดสีเมลานิน พร้อมฟื้นฟูผิวให้ดูกระจ่างใส แข็งแรง และอ่อนเยาว์ ด้วยพลังแอนติออกซิแดนท์ระดับสูงจาก TETRA SOD และ PYCNOGENOL Super Antioxidant ที่มีงานวิจัยรองรับจำนวนมาก พร้อมผ่านการทดสอบ In vitro โดยคณะเภสัชศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย เพื่อยืนยันประสิทธิภาพด้านการต้านอนุมูลอิสระอย่างโดดเด่น"
         },
         {
           "id": "wellsip",
           "name": "WELLSIP",
           "subname": "BODY RESET DRINK",
           "image": "assets/images/products/wellsip.png",
-          "tags": [
-            { "label": "SGS Certified", "type": "dark" },
-            { "label": "6 Researches", "type": "dark" },
-            { "label": "Body Reset", "type": "light" },
-            { "label": "Gut Balance", "type": "light" }
-          ],
-          "howToUse": "ฉีกซองเทผสมน้ำ 150 มิลลิลิตร · คนให้ละลายพร้อมรับประทานวันละ 1 ซอง"
+          "howToUse": "ฉีกซองเทผสมน้ำ 150 มิลลิลิตร · คนให้ละลายพร้อมรับประทานวันละ 1 ซอง",
+          "description": "ตัวช่วยดูแลรูปร่างและสุขภาพแบบสนับสนุนการเผาผลาญ ลดโอกาสการสะสมไขมันใหม่ ดูแลการดูดซึมน้ำตาลและแป้งจากมื้ออาหาร พร้อมปรับสมดุลลำไส้ให้ขับถ่ายดี ลดความอึดอัดท้อง และช่วยให้สดชื่นโฟกัสดีตลอดวัน โดยมีงานวิจัยรองรับและผ่านการทดสอบ SGS Certified เพื่อความมั่นใจด้านคุณภาพและความปลอดภัย"
         }
       ]
     }
