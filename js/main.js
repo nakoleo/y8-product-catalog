@@ -603,7 +603,6 @@ function initProductActionModal() {
   const howToListEl = modal.querySelector('[data-modal-howto]');
   const promoBtn = modal.querySelector('[data-modal-action="promo"]');
   const infoBtn = modal.querySelector('[data-modal-action="info"]');
-  const fallbackBtn = modal.querySelector('[data-modal-action="fallback"]');
   const noticeEl = modal.querySelector('[data-modal-notice]');
   const closeButtons = modal.querySelectorAll('[data-modal-close]');
 
@@ -693,7 +692,6 @@ function initProductActionModal() {
     modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('modal-open');
     setNotice('');
-    fallbackBtn?.setAttribute('hidden', 'hidden');
   };
 
   const openModal = (product) => {
@@ -719,7 +717,6 @@ function initProductActionModal() {
     renderList(howToListEl, getHowToItems(product));
 
     setNotice('');
-    fallbackBtn?.setAttribute('hidden', 'hidden');
 
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
@@ -762,8 +759,13 @@ function initProductActionModal() {
       }
     }
 
-    setNotice('การส่งข้อความอัตโนมัติใช้ได้เมื่อเปิดจากห้องแชต LINE OA เท่านั้น', 'warning');
-    fallbackBtn?.removeAttribute('hidden');
+    setNotice('กำลังเปิดแชต LINE OA สำหรับสอบถามข้อมูลเพิ่มเติม', 'info');
+    window.setTimeout(() => {
+      hideModal({ keepHistory: true, fromPopState: true });
+      if (window.Y8_LIFF) {
+        Y8_LIFF.openLineOaChat();
+      }
+    }, 180);
   };
 
   main.addEventListener('click', (event) => {
@@ -800,11 +802,6 @@ function initProductActionModal() {
 
   promoBtn?.addEventListener('click', () => runChatAction('promo'));
   infoBtn?.addEventListener('click', () => runChatAction('info'));
-  fallbackBtn?.addEventListener('click', () => {
-    if (window.Y8_LIFF) {
-      Y8_LIFF.openLineOaChat();
-    }
-  });
 
   document.addEventListener('keydown', (event) => {
     if (!state.isOpen) return;
