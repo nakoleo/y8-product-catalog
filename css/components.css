@@ -119,10 +119,46 @@
   display: block;
 }
 
+.product-metrics-block {
+  margin-bottom: 14px;
+}
+
+.product-metrics-panel {
+  overflow: hidden;
+  max-height: 520px;
+  transition: max-height 320ms cubic-bezier(0.4, 0, 0.2, 1), opacity 240ms ease;
+  opacity: 1;
+}
+
+.product-metrics-block.collapsed .product-metrics-panel {
+  max-height: 0;
+  opacity: 0;
+}
+
+.metrics-toggle-btn {
+  width: 100%;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(73, 81, 95, 0.08);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(248, 249, 251, 0.98) 0%, rgba(241, 244, 248, 0.98) 100%);
+  color: #677080;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.product-metrics-block:not(.collapsed) .metrics-toggle-btn svg {
+  transform: rotate(180deg);
+}
+
 .product-metrics {
   display: grid;
   gap: 10px;
-  margin-bottom: 14px;
   padding: 16px 14px;
   border-radius: 22px;
   background: linear-gradient(180deg, #f5f6f8 0%, #eef1f5 100%);

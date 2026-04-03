@@ -223,7 +223,19 @@ function createMetrics(metrics) {
     `;
   }).join('');
 
-  return `<div class="product-metrics">${rows}</div>`;
+  return `
+    <div class="product-metrics-block collapsed">
+      <button class="metrics-toggle-btn" aria-expanded="false" type="button">
+        <span class="btn-text">ดูระดับประสิทธิภาพ</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="product-metrics-panel">
+        <div class="product-metrics">${rows}</div>
+      </div>
+    </div>
+  `;
 }
 
 function createEvidenceBlock(product) {
@@ -443,6 +455,7 @@ function initSoapGalleries() {
         regNo: card.dataset.currentRegNo || ''
       };
       copyEl.innerHTML = `${createMetrics(metrics || [])}<p class="product-desc soap-product-desc">${escapeHtml(description || '')}</p>${createEvidenceBlock(currentProduct)}`;
+      if (window.CardToggle) CardToggle.refresh(card);
     };
 
     const applyImage = (src, alt) => {

@@ -5,6 +5,23 @@
 
 const CardToggle = (() => {
   const attachListeners = (container = document) => {
+    container.querySelectorAll('.metrics-toggle-btn').forEach((btn) => {
+      if (btn.dataset.boundMetrics) return;
+      btn.dataset.boundMetrics = 'true';
+
+      btn.addEventListener('click', () => {
+        const block = btn.closest('.product-metrics-block');
+        if (!block) return;
+
+        const willExpand = block.classList.contains('collapsed');
+        block.classList.toggle('collapsed', !willExpand);
+        btn.setAttribute('aria-expanded', willExpand ? 'true' : 'false');
+
+        const text = btn.querySelector('.btn-text');
+        if (text) text.textContent = willExpand ? 'ซ่อนระดับประสิทธิภาพ' : 'ดูระดับประสิทธิภาพ';
+      });
+    });
+
     container.querySelectorAll('.expand-btn').forEach((btn) => {
       if (btn.dataset.bound) return;
       btn.dataset.bound = 'true';
