@@ -274,6 +274,63 @@
     </svg>
   </button>
 
+  <div id="productActionModal" class="product-action-modal" aria-hidden="true">
+    <div class="product-action-dialog" role="dialog" aria-modal="true" aria-labelledby="productActionTitle">
+      <button class="product-action-close" type="button" aria-label="ปิด" data-modal-close>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <div class="product-action-media">
+        <img data-modal-image src="" alt="" loading="eager" onerror="handleProductImageError(this)" />
+      </div>
+
+      <div class="product-action-content">
+        <h3 id="productActionTitle" class="product-action-title" data-modal-title></h3>
+        <div class="product-action-subname-wrap" data-modal-subname></div>
+        <p class="product-action-description" data-modal-description></p>
+        <p class="product-action-regno" data-modal-regno hidden></p>
+
+        <section class="product-action-section">
+          <div class="product-action-section-label">ระดับ LV 1-10</div>
+          <div class="product-action-metrics" data-modal-metrics></div>
+        </section>
+
+        <section class="product-action-section" hidden>
+          <div class="product-action-section-label">ประโยชน์หลัก</div>
+          <ul class="product-action-list" data-modal-benefits></ul>
+        </section>
+
+        <section class="product-action-section" hidden>
+          <div class="product-action-section-label">วิธีใช้แบบย่อ</div>
+          <ul class="product-action-list" data-modal-howto></ul>
+        </section>
+
+        <p class="product-action-notice" data-modal-notice hidden></p>
+
+        <div class="product-action-buttons">
+          <button class="chrome-btn product-action-btn" type="button" data-modal-action="promo">
+            <span>ราคาโปรโมชั่น</span>
+            <small>ส่งข้อความหาเจ้าหน้าที่</small>
+          </button>
+          <button class="chrome-btn product-action-btn" type="button" data-modal-action="info">
+            <span>ขอข้อมูลสินค้าเพิ่มเติม</span>
+            <small>ส่งข้อความเข้าแชต OA</small>
+          </button>
+          <button class="chrome-btn product-action-btn product-action-fallback" type="button" data-modal-action="fallback" hidden>
+            <span>เปิดแชต LINE OA</span>
+            <small>ใช้เมื่อเปิดจากนอกห้องแชต</small>
+          </button>
+          <button class="chrome-btn product-action-btn product-action-btn-secondary" type="button" data-modal-close>
+            <span>ปิด</span>
+            <small>กลับไปดูสินค้า</small>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <script src="js/liff.js"></script>
   <script src="js/scroll-reveal.js"></script>

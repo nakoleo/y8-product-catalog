@@ -33,6 +33,8 @@ const MANUAL_SUBNAME_LINES = {
   'lip-oil': ['INSTANT PLUMPER CARE OIL', 'SPF15 PA++']
 };
 
+const PRODUCT_LOOKUP = new Map();
+
 document.addEventListener('DOMContentLoaded', async () => {
   if (window.Y8_LIFF) {
     Y8_LIFF.init().catch(() => {});
@@ -41,6 +43,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const data = await loadProductData();
   if (!data?.steps?.length) return;
 
+  buildProductLookup(data.steps);
   renderStepNav(data.steps);
   renderMainSections(data.steps);
 
@@ -50,6 +53,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initCoverScrollCue();
   initScrollUI();
   initSoapGalleries();
+  initProductActionModal();
   initExternalLinks();
 });
 
@@ -87,6 +91,16 @@ function renderMainSections(steps) {
 
   const orderedSteps = [...steps].sort((a, b) => STEP_ORDER.indexOf(a.id) - STEP_ORDER.indexOf(b.id));
   orderedSteps.forEach((step) => main.appendChild(createSection(step)));
+}
+
+function buildProductLookup(steps) {
+  PRODUCT_LOOKUP.clear();
+
+  steps.forEach((step) => {
+    (step.products || []).forEach((product) => {
+      PRODUCT_LOOKUP.set(product.id, product);
+    });
+  });
 }
 
 function createSection(step) {
@@ -187,7 +201,14 @@ function createProductImageStage(src, alt, productId, extraClass = '', fallbackS
   const fallbackAttr = fallbackSrc ? ` data-fallback-src="${fallbackSrc}"` : '';
   return `
     <div class="product-img-wrap">
-      <div class="product-img-stage">
+      <div
+        class="product-img-stage"
+        data-open-product-modal="true"
+        data-product-id="${escapeHtml(productId || '')}"
+        role="button"
+        tabindex="0"
+        aria-label="เปิดรายละเอียดสินค้า ${escapeHtml(alt)}"
+      >
         <div class="product-img-motion">
           <img
             class="${extraClass}"${fallbackAttr}
@@ -503,6 +524,12 @@ function initSoapGalleries() {
       mainImage.alt = stripTrademark(alt || 'Y8 Soap');
     };
 
+    const updateSubname = (id, subname) => {
+      const current = card.querySelector('.soap-product-subname');
+      if (!current) return;
+      current.outerHTML = renderSubnameBlock(id, subname || '', 'product-subname soap-product-subname');
+    };
+
     const renderDefault = () => {
       card.dataset.currentIndex = '-1';
       thumbs.forEach((thumb) => thumb.classList.remove('is-active'));
@@ -558,6 +585,252 @@ function initExternalLinks() {
         window.open(url, '_blank', 'noopener,noreferrer');
       }
     });
+  });
+}
+
+function initProductActionModal() {
+  const modal = document.getElementById('productActionModal');
+  const main = document.getElementById('mainContent');
+  if (!modal || !main) return;
+
+  const dialog = modal.querySelector('.product-action-dialog');
+  const imageEl = modal.querySelector('[data-modal-image]');
+  const titleEl = modal.querySelector('[data-modal-title]');
+  const subnameEl = modal.querySelector('[data-modal-subname]');
+  const descEl = modal.querySelector('[data-modal-description]');
+  const regNoEl = modal.querySelector('[data-modal-regno]');
+  const metricsEl = modal.querySelector('[data-modal-metrics]');
+  const benefitsListEl = modal.querySelector('[data-modal-benefits]');
+  const howToListEl = modal.querySelector('[data-modal-howto]');
+  const promoBtn = modal.querySelector('[data-modal-action="promo"]');
+  const infoBtn = modal.querySelector('[data-modal-action="info"]');
+  const fallbackBtn = modal.querySelector('[data-modal-action="fallback"]');
+  const noticeEl = modal.querySelector('[data-modal-notice]');
+  const closeButtons = modal.querySelectorAll('[data-modal-close]');
+
+  const state = {
+    isOpen: false,
+    historyPushed: false,
+    product: null
+  };
+
+  const setNotice = (message = '', type = 'info') => {
+    if (!noticeEl) return;
+    noticeEl.textContent = message;
+    noticeEl.dataset.state = type;
+    noticeEl.hidden = !message;
+  };
+
+  const getBenefitPoints = (product) => {
+    const claims = Array.isArray(product?.claims) ? product.claims.filter(Boolean) : [];
+    if (claims.length >= 3) return claims.slice(0, 4);
+
+    const metricFallback = Array.isArray(product?.metrics)
+      ? product.metrics
+          .slice(0, Math.max(0, 3 - claims.length))
+          .map((metric) => `${metric.label} ระดับ LV ${metric.value}`)
+      : [];
+
+    return [...claims, ...metricFallback].slice(0, 4);
+  };
+
+  const getHowToItems = (product) => String(product?.howToUse || '')
+    .split(/\n+/)
+    .map((item) => item.trim().replace(/^[•▪■-]\s*/, ''))
+    .filter(Boolean)
+    .slice(0, 3);
+
+  const getMetricSummary = (product) => {
+    const metrics = Array.isArray(product?.metrics) ? product.metrics.slice(0, 3) : [];
+    if (!metrics.length) return '<div class="product-action-empty">ดูรายละเอียดในส่วนประสิทธิภาพของสินค้า</div>';
+
+    return metrics.map((metric) => `
+      <div class="product-action-metric-row">
+        <span class="product-action-metric-label">${escapeHtml(metric.label || '')}</span>
+        <span class="product-action-metric-value">LV ${escapeHtml(metric.value || '')}</span>
+      </div>
+    `).join('');
+  };
+
+  const getSoapModalProduct = (card) => {
+    const soapProduct = PRODUCT_LOOKUP.get(card.dataset.productId);
+    if (!soapProduct) return null;
+
+    const currentIndex = Number(card.dataset.currentIndex || -1);
+    const mainImage = card.querySelector('.soap-main-image');
+    const variant = currentIndex >= 0 ? soapProduct.variants?.[currentIndex] : null;
+
+    return {
+      id: variant?.id || soapProduct.id,
+      name: stripTrademark(variant?.name || soapProduct.name || ''),
+      subname: variant?.subname || soapProduct.subname || '',
+      image: mainImage?.currentSrc || mainImage?.getAttribute('src') || variant?.image || soapProduct.overviewImage || '',
+      description: variant?.description || soapProduct.description || '',
+      metrics: variant?.metrics || soapProduct.familyMetrics || [],
+      claims: variant?.claims || soapProduct.claims || [],
+      regNo: variant?.regNo || soapProduct.regNo || '',
+      howToUse: soapProduct.howToUse || ''
+    };
+  };
+
+  const getModalProduct = (card) => {
+    if (!card) return null;
+    if (card.dataset.slider === 'soap') return getSoapModalProduct(card);
+
+    const product = PRODUCT_LOOKUP.get(card.dataset.productId);
+    if (!product) return null;
+
+    const img = card.querySelector('.product-img-stage img');
+    return {
+      ...product,
+      name: stripTrademark(product.name || ''),
+      image: img?.currentSrc || img?.getAttribute('src') || product.image || ''
+    };
+  };
+
+  const renderList = (element, items) => {
+    if (!element) return;
+    if (!items.length) {
+      element.innerHTML = '';
+      element.closest('.product-action-section')?.setAttribute('hidden', 'hidden');
+      return;
+    }
+
+    element.closest('.product-action-section')?.removeAttribute('hidden');
+    element.innerHTML = items.map((item) => `<li>${escapeHtml(item)}</li>`).join('');
+  };
+
+  const hideModal = ({ fromPopState = false, keepHistory = false } = {}) => {
+    if (!state.isOpen) return;
+
+    if (!fromPopState && state.historyPushed && !keepHistory) {
+      window.history.back();
+      return;
+    }
+
+    state.isOpen = false;
+    state.historyPushed = false;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    setNotice('');
+    fallbackBtn?.setAttribute('hidden', 'hidden');
+  };
+
+  const openModal = (product) => {
+    if (!product || !imageEl || !titleEl || !subnameEl || !descEl || !regNoEl || !metricsEl) return;
+
+    state.product = product;
+    titleEl.textContent = stripTrademark(product.name || '');
+    subnameEl.innerHTML = renderSubnameBlock(product.id, product.subname || '', 'product-action-subname');
+    descEl.textContent = product.description || '';
+    regNoEl.textContent = product.regNo ? `เลขที่จดแจ้ง ${product.regNo}` : '';
+    regNoEl.hidden = !product.regNo;
+    metricsEl.innerHTML = getMetricSummary(product);
+
+    imageEl.src = product.image || '';
+    imageEl.alt = stripTrademark(product.name || 'Y8 Product');
+    imageEl.dataset.fallbackTried = '';
+
+    renderList(benefitsListEl, getBenefitPoints(product));
+    renderList(howToListEl, getHowToItems(product));
+
+    setNotice('');
+    fallbackBtn?.setAttribute('hidden', 'hidden');
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    state.isOpen = true;
+
+    if (!state.historyPushed) {
+      window.history.pushState({ y8Modal: 'product-action' }, '', '#product-action');
+      state.historyPushed = true;
+    }
+
+    window.requestAnimationFrame(() => {
+      promoBtn?.focus();
+    });
+  };
+
+  const runChatAction = async (kind) => {
+    if (!state.product) return;
+
+    const productName = stripTrademark(state.product.name || 'สินค้านี้');
+    const templates = {
+      promo: `สนใจ ${productName} ขอราคาโปรโมชั่นปัจจุบันครับ/ค่ะ`,
+      info: `สนใจ ${productName} อยากสอบถามข้อมูลเพิ่มเติมครับ/ค่ะ`
+    };
+
+    const message = templates[kind];
+    if (!message) return;
+
+    if (window.Y8_LIFF?.canSendMessages()) {
+      setNotice('กำลังส่งข้อความไปยัง LINE OA...', 'info');
+      const sent = await Y8_LIFF.sendTextMessage(message);
+
+      if (sent) {
+        setNotice('ส่งข้อความแล้ว กำลังกลับไปที่แชต LINE OA', 'success');
+        hideModal({ keepHistory: true, fromPopState: true });
+        window.setTimeout(() => {
+          Y8_LIFF.closeWindow();
+        }, 180);
+        return;
+      }
+    }
+
+    setNotice('การส่งข้อความอัตโนมัติใช้ได้เมื่อเปิดจากห้องแชต LINE OA เท่านั้น', 'warning');
+    fallbackBtn?.removeAttribute('hidden');
+  };
+
+  main.addEventListener('click', (event) => {
+    if (event.target.closest('.soap-thumb')) return;
+
+    const stage = event.target.closest('[data-open-product-modal="true"]');
+    if (!stage) return;
+
+    const card = stage.closest('.product-card');
+    const product = getModalProduct(card);
+    if (!product) return;
+    openModal(product);
+  });
+
+  main.addEventListener('keydown', (event) => {
+    const stage = event.target.closest('[data-open-product-modal="true"]');
+    if (!stage) return;
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+
+    event.preventDefault();
+    const card = stage.closest('.product-card');
+    const product = getModalProduct(card);
+    if (!product) return;
+    openModal(product);
+  });
+
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal) hideModal();
+  });
+
+  closeButtons.forEach((button) => {
+    button.addEventListener('click', () => hideModal());
+  });
+
+  promoBtn?.addEventListener('click', () => runChatAction('promo'));
+  infoBtn?.addEventListener('click', () => runChatAction('info'));
+  fallbackBtn?.addEventListener('click', () => {
+    if (window.Y8_LIFF) {
+      Y8_LIFF.openLineOaChat();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (!state.isOpen) return;
+    if (event.key === 'Escape') hideModal();
+  });
+
+  window.addEventListener('popstate', () => {
+    if (!state.isOpen) return;
+    hideModal({ fromPopState: true });
   });
 }
 
@@ -636,8 +909,3 @@ window.handleProductImageError = function handleProductImageError(img) {
   img.style.display = 'none';
   img.parentElement?.classList.add('is-missing');
 };
-    const updateSubname = (id, subname) => {
-      const current = card.querySelector('.soap-product-subname');
-      if (!current) return;
-      current.outerHTML = renderSubnameBlock(id, subname || '', 'product-subname soap-product-subname');
-    };
