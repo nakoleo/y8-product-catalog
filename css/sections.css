@@ -326,7 +326,7 @@ body {
 .step-section {
   position: relative;
   padding: 56px var(--page-padding) 52px;
-  background: #ffffff;
+  background: #f6f7f8;
 }
 
 .section-header {
