@@ -182,10 +182,22 @@ body {
   letter-spacing: 0.18em;
 }
 
+.transition-word-start-inline {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.16em;
+  white-space: nowrap;
+}
+
 .transition-word-amp {
   font-weight: 300;
   opacity: 0.62;
-  margin-right: 0.08em;
+  letter-spacing: 0.04em;
+}
+
+.transition-word-text {
+  display: inline-block;
 }
 
 .brand-bar {
