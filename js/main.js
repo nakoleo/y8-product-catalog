@@ -132,9 +132,9 @@ function createProductCard(product) {
       ${createProductImageStage(product.image, stripTrademark(product.name), product.id)}
       ${renderTitleBlock(product.id, product.name, 'product-name')}
       ${renderSubnameBlock(product.id, product.subname || '', 'product-subname')}
-      ${createMetrics(product.metrics || [])}
       ${product.description ? `<p class="product-desc">${escapeHtml(product.description)}</p>` : ''}
       ${createEvidenceBlock(product)}
+      ${createMetrics(product.metrics || [])}
       ${createHowToUse(product.howToUse)}
     </div>
   `;
@@ -171,9 +171,9 @@ function createSoapGalleryCard(product) {
       ${renderSubnameBlock(product.id, product.subname || '', 'product-subname soap-product-subname')}
       <div class="soap-thumbs">${thumbs}</div>
       <div class="soap-slider-copy" data-soap-copy>
-        ${createMetrics(product.variants?.[0]?.metrics || [])}
         <p class="product-desc soap-product-desc">${escapeHtml(product.description || '')}</p>
         ${createEvidenceBlock(product)}
+        ${createMetrics(product.variants?.[0]?.metrics || [])}
       </div>
       ${createHowToUse(product.howToUse)}
     </div>
@@ -491,7 +491,7 @@ function initSoapGalleries() {
         claims: safeJsonParse(card.dataset.currentClaims, []),
         regNo: card.dataset.currentRegNo || ''
       };
-      copyEl.innerHTML = `${createMetrics(metrics || [])}<p class="product-desc soap-product-desc">${escapeHtml(description || '')}</p>${createEvidenceBlock(currentProduct)}`;
+      copyEl.innerHTML = `<p class="product-desc soap-product-desc">${escapeHtml(description || '')}</p>${createEvidenceBlock(currentProduct)}${createMetrics(metrics || [])}`;
       if (window.CardToggle) CardToggle.refresh(card);
     };
 
