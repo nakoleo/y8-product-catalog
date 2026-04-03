@@ -324,7 +324,7 @@ body {
 
 .step-section {
   position: relative;
-  padding: 44px var(--page-padding) 40px;
+  padding: 56px var(--page-padding) 52px;
   background: #ffffff;
 }
 
@@ -332,9 +332,9 @@ body {
   position: relative;
   display: grid;
   justify-items: center;
-  gap: 16px;
-  margin-bottom: 24px;
-  padding-bottom: 24px;
+  gap: 18px;
+  margin-bottom: 32px;
+  padding-bottom: 28px;
   text-align: center;
 }
 
@@ -415,7 +415,7 @@ body {
 
 .product-list {
   display: grid;
-  gap: 22px;
+  gap: 28px;
 }
 
 .awards-section {
