@@ -136,7 +136,7 @@ body {
 
 .transition-scene {
   position: relative;
-  min-height: 235svh;
+  min-height: 320svh;
   background: #ffffff;
   overflow: clip;
 }
@@ -151,9 +151,9 @@ body {
 .transition-scene-layer {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, #ffffff 34%, #ffffff 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.9) 28%, #ffffff 52%, #ffffff 100%);
   opacity: 0;
-  transform: translateY(32px);
+  transform: translateY(36px);
   will-change: opacity, transform;
 }
 
@@ -168,7 +168,7 @@ body {
   letter-spacing: 0.12em;
   color: #59616f;
   opacity: 0;
-  transform: translate3d(0, 32px, 0) scale(0.98);
+  transform: translate3d(0, 40px, 0) scale(0.975);
   will-change: opacity, transform;
   pointer-events: none;
 }
@@ -278,13 +278,13 @@ body {
 }
 
 .founder-section {
-  padding: 88px 0 64px;
-  background: linear-gradient(180deg, #ffffff 0%, #f2f2f4 16%, #e9e9ed 38%, #eaeaea 58%, #ffffff 100%);
+  padding: 118px 0 64px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfbfc 12%, #f2f2f4 26%, #e9e9ed 44%, #eaeaea 60%, #ffffff 100%);
 }
 
 .founder-hero-frame {
   width: 100%;
-  padding-top: 10px;
+  padding-top: 26px;
 }
 
 .founder-hero-frame img {
@@ -328,6 +328,8 @@ body {
   justify-content: center;
   background: radial-gradient(circle at 28% 28%, #ffffff 0%, #eef1f4 52%, #d6dbe3 100%);
   box-shadow: 0 22px 46px rgba(35, 41, 51, 0.12);
+  transform: translate3d(0, 0, 0) scale(0.96);
+  will-change: transform;
 }
 
 .section-icon-wrap img {
