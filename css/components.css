@@ -60,20 +60,43 @@
 }
 
 .product-name {
+  width: min(90%, 274px);
+  margin: 0 auto;
+  display: grid;
+  gap: 1px;
   text-align: center;
-  font-size: 33px;
-  line-height: 0.94;
-  letter-spacing: 0.05em;
   color: #464d59;
 }
 
-.product-subname {
-  width: min(88%, 280px);
-  margin: 8px auto 16px;
-  text-align: center;
-  font-size: 18px;
+.product-name-line {
+  display: block;
+}
+
+.product-name-normal {
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.product-name-long {
+  font-size: 24px;
   line-height: 1.02;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.03em;
+}
+
+.product-name-xlong {
+  font-size: 21px;
+  line-height: 1.04;
+  letter-spacing: 0.025em;
+}
+
+.product-subname {
+  width: min(88%, 292px);
+  margin: 7px auto 12px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.04;
+  letter-spacing: 0.055em;
   color: #68707f;
   text-transform: uppercase;
 }
@@ -81,7 +104,7 @@
 .product-metrics {
   display: grid;
   gap: 10px;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
   padding: 16px 14px;
   border-radius: 22px;
   background: linear-gradient(180deg, #f5f6f8 0%, #eef1f5 100%);
@@ -127,10 +150,10 @@
 }
 
 .product-desc {
-  margin-bottom: 18px;
-  padding: 0 2px;
-  font-size: 18px;
-  line-height: 1.34;
+  margin-bottom: 14px;
+  padding: 0 4px;
+  font-size: 17px;
+  line-height: 1.3;
   color: #474f5d;
   text-align: left;
 }
@@ -204,32 +227,15 @@
   padding: 7%;
 }
 
-.soap-overview-image,
 .soap-main-image {
-  position: absolute;
-  inset: 0;
-  margin: auto;
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transition: opacity 260ms ease;
-}
-
-.soap-overview-image {
-  opacity: 0.14;
-  transform: scale(0.92);
-}
-
-.soap-main-image {
-  opacity: 0;
-}
-
-.soap-main-image.is-active {
-  opacity: 1;
+  object-position: center;
 }
 
 .soap-series-label {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   text-align: center;
   font-size: 13px;
   letter-spacing: 0.22em;
@@ -238,11 +244,11 @@
 }
 
 .soap-product-name {
-  min-height: 64px;
+  min-height: 58px;
 }
 
 .soap-product-subname {
-  min-height: 36px;
+  min-height: 34px;
 }
 
 .soap-thumbs {
@@ -282,11 +288,6 @@
 }
 
 .soap-slider-copy {
-  opacity: 0.7;
-  transition: opacity 220ms ease;
-}
-
-.soap-slider-copy.is-active {
   opacity: 1;
 }
 
@@ -296,21 +297,19 @@
   align-items: center;
   justify-items: center;
   gap: 1px;
-  min-height: 58px;
-  padding: 12px 18px;
+  min-height: 52px;
+  padding: 10px 18px;
   border-radius: 999px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.78), 0 14px 26px rgba(10, 14, 20, 0.18);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(122, 130, 142, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.84), 0 6px 14px rgba(25, 29, 36, 0.08);
 }
 
 .chrome-btn::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(205, 211, 220, 0.7) 48%, rgba(149, 157, 170, 0.78) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(232, 236, 241, 0.98) 100%);
 }
 
 .chrome-btn::after {
@@ -318,8 +317,8 @@
   position: absolute;
   inset: 3px;
   border-radius: inherit;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.84) 0%, rgba(209, 214, 221, 0.58) 100%);
-  box-shadow: inset 0 -2px 5px rgba(95, 103, 118, 0.18);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(224, 229, 236, 0.8) 100%);
+  box-shadow: inset 0 -1px 3px rgba(95, 103, 118, 0.1);
 }
 
 .chrome-btn span,
@@ -329,14 +328,14 @@
 }
 
 .chrome-btn span {
-  font-size: 19px;
+  font-size: 17px;
   line-height: 1;
   color: #363c47;
   letter-spacing: 0.06em;
 }
 
 .chrome-btn small {
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1;
   letter-spacing: 0.14em;
   color: #626977;
@@ -344,21 +343,15 @@
 }
 
 .chrome-btn-primary {
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 16px 32px rgba(129, 165, 203, 0.18), 0 0 28px rgba(147, 205, 255, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.92), 0 8px 18px rgba(129, 165, 203, 0.12);
 }
 
-.chrome-btn-dark::before {
-  background: linear-gradient(180deg, rgba(243, 245, 247, 0.96) 0%, rgba(192, 198, 206, 0.76) 42%, rgba(119, 127, 139, 0.85) 100%);
+.chrome-btn-shop::before {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(236, 239, 244, 0.98) 100%);
 }
 
-.chrome-btn-soft {
-  min-height: 50px;
-  width: fit-content;
-  min-width: 200px;
-}
-
-.chrome-btn-soft span {
-  font-size: 16px;
+.chrome-btn-shop {
+  min-height: 48px;
 }
 
 @media (max-width: 360px) {
@@ -366,12 +359,20 @@
     padding-inline: 18px;
   }
 
-  .product-name {
-    font-size: 29px;
+  .product-name-normal {
+    font-size: 25px;
+  }
+
+  .product-name-long {
+    font-size: 22px;
+  }
+
+  .product-name-xlong {
+    font-size: 20px;
   }
 
   .product-subname {
-    font-size: 17px;
+    font-size: 15px;
   }
 
   .metric-row {

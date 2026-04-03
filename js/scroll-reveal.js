@@ -29,7 +29,7 @@ const ScrollReveal = (() => {
       { threshold: THRESHOLD, rootMargin: ROOT_MARGIN }
     );
 
-    document.querySelectorAll('.section-header, .hero-content, .reveal').forEach((el) => {
+    document.querySelectorAll('.section-header, .reveal').forEach((el) => {
       sectionObserver.observe(el);
     });
   };

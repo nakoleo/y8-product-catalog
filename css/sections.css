@@ -188,104 +188,6 @@ body {
   object-fit: contain;
 }
 
-.journey-intro {
-  position: relative;
-  background: #ffffff;
-}
-
-.journey-intro-sticky {
-  position: sticky;
-  top: 0;
-  min-height: 100svh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 32px var(--page-padding);
-  overflow: hidden;
-}
-
-.journey-stage {
-  position: relative;
-  width: 100%;
-  min-height: 74svh;
-  display: grid;
-  align-content: center;
-  gap: 24px;
-}
-
-.journey-stage-icon {
-  width: 152px;
-  height: 152px;
-  margin: 0 auto;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(circle at 28% 28%, #ffffff 0%, #edf0f3 58%, #d5dae2 100%);
-  box-shadow: 0 34px 70px rgba(32, 38, 48, 0.14);
-  transform: translateY(var(--journey-rise, 0px));
-  opacity: var(--journey-opacity, 1);
-}
-
-.journey-stage-icon img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.journey-stage-copy {
-  max-width: 290px;
-  display: grid;
-  gap: 8px;
-  transform: translateX(var(--journey-shift, 0px));
-  opacity: var(--journey-opacity, 1);
-}
-
-.journey-stage-copy.is-left {
-  justify-self: start;
-  text-align: left;
-}
-
-.journey-stage-copy.is-right {
-  justify-self: end;
-  text-align: right;
-}
-
-.journey-stage-step {
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  color: #9aa1af;
-}
-
-.journey-stage-copy h2 {
-  font-size: clamp(36px, 12vw, 58px);
-  line-height: 0.9;
-  letter-spacing: 0.02em;
-  color: #474d59;
-}
-
-.journey-stage-th {
-  font-size: 16px;
-  color: #707887;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.journey-stage-desc {
-  font-size: 21px;
-  line-height: 1.18;
-  color: #5d6574;
-}
-
-.journey-intro-track {
-  height: 600svh;
-}
-
-.journey-intro-beat {
-  height: 100svh;
-}
-
 .step-section {
   position: relative;
   padding: 44px var(--page-padding) 40px;
@@ -296,7 +198,7 @@ body {
   position: relative;
   display: grid;
   justify-items: center;
-  gap: 18px;
+  gap: 16px;
   margin-bottom: 24px;
   padding-bottom: 24px;
   text-align: center;
@@ -313,8 +215,6 @@ body {
 }
 
 .section-icon-wrap {
-  --react-x: 0px;
-  --react-y: 0px;
   width: 108px;
   height: 108px;
   border-radius: 50%;
@@ -323,7 +223,6 @@ body {
   justify-content: center;
   background: radial-gradient(circle at 28% 28%, #ffffff 0%, #eef1f4 52%, #d6dbe3 100%);
   box-shadow: 0 22px 46px rgba(35, 41, 51, 0.12);
-  transform: translate3d(var(--react-x), var(--react-y), 0);
 }
 
 .section-icon-wrap img {
@@ -333,23 +232,49 @@ body {
   object-fit: cover;
 }
 
+.section-icon-wrap.is-missing {
+  background: linear-gradient(180deg, #f5f6f8 0%, #e8ecf1 100%);
+}
+
+.section-icon-fallback {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  color: #7a8291;
+}
+
+.section-icon-wrap.is-missing .section-icon-fallback {
+  display: flex;
+}
+
 .section-title-block {
-  max-width: 330px;
+  max-width: 312px;
 }
 
 .section-title {
-  font-size: 32px;
-  line-height: 0.96;
+  font-size: 29px;
+  line-height: 0.98;
   color: #4a5260;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 .section-tagline {
-  margin-top: 10px;
-  font-size: 18px;
-  line-height: 1.18;
+  margin-top: 8px;
+  font-size: 17px;
+  line-height: 1.12;
   color: #697181;
+}
+
+.section-support {
+  max-width: 308px;
+  margin: 8px auto 0;
+  font-size: 17px;
+  line-height: 1.22;
+  color: #646d7d;
 }
 
 .product-list {
@@ -391,11 +316,13 @@ body {
 }
 
 .award-visual-card {
-  min-height: 112px;
+  min-height: 132px;
   padding: 12px;
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.88);
   box-shadow: 0 16px 34px rgba(33, 39, 51, 0.08);
+  display: grid;
+  place-items: center;
 }
 
 .award-visual-card img {
@@ -405,8 +332,8 @@ body {
 }
 
 .award-visual-wide {
-  grid-column: 1 / -1;
-  min-height: 128px;
+  grid-column: auto;
+  min-height: 132px;
 }
 
 .awards-accordion {
@@ -502,10 +429,14 @@ body {
   z-index: 1;
   display: grid;
   gap: 30px;
+  justify-items: center;
 }
 
 .membership-copy {
+  width: 100%;
+  max-width: 360px;
   color: #f7f8fb;
+  text-align: center;
 }
 
 .membership-kicker {
@@ -538,6 +469,7 @@ body {
 .membership-benefits li {
   display: grid;
   gap: 3px;
+  justify-items: center;
 }
 
 .membership-benefits strong {
@@ -556,18 +488,21 @@ body {
 .membership-actions {
   margin-top: 18px;
   display: grid;
-  gap: 12px;
+  gap: 10px;
+  justify-items: center;
 }
 
 .membership-visuals {
+  width: 100%;
   display: grid;
   justify-items: center;
-  gap: 12px;
+  gap: 16px;
 }
 
 .membership-card-stage {
   position: relative;
   width: min(100%, 364px);
+  z-index: 1;
 }
 
 .membership-card-stage::before {
@@ -591,7 +526,8 @@ body {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  color: #ffffff;
+  color: #535966;
+  text-align: center;
 }
 
 .membership-shopname {
@@ -605,7 +541,7 @@ body {
 }
 
 .membership-arrow {
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(93, 101, 114, 0.62);
 }
 
 .membership-coupon-card,
@@ -626,6 +562,35 @@ body {
 
 .membership-coupon-strip {
   width: min(100%, 372px);
+}
+
+.membership-commerce-panel {
+  width: min(100%, 390px);
+  margin-top: -6px;
+  padding: 24px 16px 20px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 249, 251, 0.98) 100%);
+  box-shadow: 0 14px 32px rgba(27, 31, 39, 0.12);
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+}
+
+.membership-actions .chrome-btn,
+.membership-commerce-panel .chrome-btn {
+  width: min(100%, 320px);
+}
+
+.membership-chat-link {
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  color: #707786;
+  text-decoration: none;
+}
+
+.membership-chat-link:hover {
+  color: #4d5563;
 }
 
 .site-footer {

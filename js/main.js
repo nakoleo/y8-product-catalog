@@ -1,12 +1,24 @@
 const STEP_ORDER = ['cleansing', 'health-skin', 'spot', 'sun', 'cosmetics', 'internal'];
 
-const JOURNEY_TITLES = {
-  cleansing: 'Cleansing',
-  'health-skin': 'Health Skin',
-  spot: 'Spot Corrective',
-  sun: 'Sun Protection',
-  cosmetics: 'Cosmetics',
-  internal: 'Internal Health'
+const MANUAL_TITLE_LINES = {
+  'y8-soap': ['ADVANCED SKIN', 'CORRECTIVE SOAP'],
+  'soap-brown': ['LHA ANTI-DARK', 'SPOT SOAP'],
+  'soap-green': ['ANTI-ACNE', 'CLEAR SOAP'],
+  'soap-white': ['HYDRATING SOAP'],
+  'soap-black': ['HYBRIGHTENING SOAP'],
+  'ultra-bright': ['ULTRA BRIGHT'],
+  solanox: ['SOLANOX'],
+  'fine-antiacne': ['FINE ANTI-ACNE'],
+  lumitech: ['LUMITECH'],
+  sebotech: ['SEBOTECH'],
+  melix14: ['MELIX14'],
+  'acne-x0': ['ACNE X0'],
+  '8x-blonde': ['8X BLONDE'],
+  'lip-oil': ['LIP OIL'],
+  'bio-youth': ['BIO YOUTH'],
+  'derma-calm': ['DERMA CALM'],
+  wellsip: ['WELLSIP'],
+  'skincare-powder': ['SKINCARE', 'POWDER']
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -18,20 +30,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (!data?.steps?.length) return;
 
   renderStepNav(data.steps);
-  renderJourneyIntro(data.steps);
   renderMainSections(data.steps);
 
   if (window.ScrollReveal) ScrollReveal.init();
   if (window.CardToggle) CardToggle.init();
 
   initCoverScrollCue();
-  initHeaderVisibility();
-  initActiveNav();
-  initJourneyScroller(data.steps);
-  initReactiveIcons();
-  initSoapSliders();
+  initScrollUI();
+  initSoapGalleries();
   initExternalLinks();
-  initBackToTop();
 });
 
 async function loadProductData() {
@@ -62,25 +69,10 @@ function renderStepNav(steps) {
   });
 }
 
-function renderJourneyIntro(steps) {
-  const track = document.getElementById('journeyIntroTrack');
-  const icon = document.getElementById('journeyStageIcon');
-  const copy = document.getElementById('journeyStageCopy');
-  if (!track || !icon || !copy) return;
-
-  steps.forEach((step, index) => {
-    const beat = document.createElement('div');
-    beat.className = 'journey-intro-beat';
-    beat.dataset.index = String(index);
-    track.appendChild(beat);
-  });
-
-  updateJourneyStage(steps, 0, 0);
-}
-
 function renderMainSections(steps) {
   const main = document.getElementById('mainContent');
   if (!main) return;
+
   const orderedSteps = [...steps].sort((a, b) => STEP_ORDER.indexOf(a.id) - STEP_ORDER.indexOf(b.id));
   orderedSteps.forEach((step) => main.appendChild(createSection(step)));
 }
@@ -93,10 +85,11 @@ function createSection(step) {
 
   const iconHtml = step.icon
     ? `
-      <button class="section-icon-wrap reactive-icon" type="button" aria-label="${escapeHtml(step.label)}">
-        <img src="${step.icon}" alt="${escapeHtml(step.label)} icon" loading="lazy" onerror="this.style.display='none'">
-      </button>`
-    : '';
+      <div class="section-icon-wrap">
+        <img src="${step.icon}" alt="${escapeHtml(step.label)} icon" loading="eager" onerror="this.style.display='none'; this.parentElement.classList.add('is-missing');" />
+        <span class="section-icon-fallback">0${step.step}</span>
+      </div>`
+    : `<div class="section-icon-wrap is-missing"><span class="section-icon-fallback">0${step.step}</span></div>`;
 
   section.innerHTML = `
     <div class="section-header reveal">
@@ -104,44 +97,28 @@ function createSection(step) {
       <div class="section-title-block">
         <div class="section-title">${escapeHtml(stripTrademark(step.label))}</div>
         <div class="section-tagline">${escapeHtml(cleanTagline(step.tagline))}</div>
+        <p class="section-support">${escapeHtml(step.introText || '')}</p>
       </div>
     </div>
     <div class="product-list" id="list-${step.id}"></div>
   `;
 
   const list = section.querySelector('.product-list');
-  step.products.forEach((product) => {
-    list.appendChild(createProductCard(product));
-  });
-
+  step.products.forEach((product) => list.appendChild(createProductCard(product)));
   return section;
 }
 
 function createProductCard(product) {
-  if (product.type === 'soap-slider') {
-    return createSoapSliderCard(product);
-  }
+  if (product.type === 'soap-slider') return createSoapGalleryCard(product);
 
   const card = document.createElement('article');
-  card.className = 'product-card collapsed';
+  card.className = `product-card collapsed ${getTitleSizeClass(product.id, product.name)}`;
   card.dataset.productId = product.id;
 
   card.innerHTML = `
     <div class="product-body">
-      <div class="product-img-wrap">
-        <div class="product-img-stage">
-          <img
-            src="${product.image}"
-            alt="${escapeHtml(stripTrademark(product.name))}"
-            loading="lazy"
-            onerror="this.style.display='none'; this.parentElement.classList.add('is-missing');"
-          />
-          <div class="img-placeholder">
-            <span>Image unavailable</span>
-          </div>
-        </div>
-      </div>
-      <div class="product-name">${escapeHtml(stripTrademark(product.name))}</div>
+      ${createProductImageStage(product.image, stripTrademark(product.name), product.id)}
+      ${renderTitleBlock(product.id, product.name, 'product-name')}
       <div class="product-subname">${escapeHtml(stripTrademark(product.subname || ''))}</div>
       ${createMetrics(product.metrics || [])}
       ${product.description ? `<p class="product-desc">${escapeHtml(product.description)}</p>` : ''}
@@ -152,55 +129,62 @@ function createProductCard(product) {
   return card;
 }
 
-function createSoapSliderCard(product) {
+function createSoapGalleryCard(product) {
   const card = document.createElement('article');
-  card.className = 'product-card product-card-soap collapsed';
+  card.className = 'product-card product-card-soap collapsed product-name-long';
   card.dataset.productId = product.id;
   card.dataset.slider = 'soap';
+  card.dataset.currentIndex = '-1';
+  card.dataset.defaultImage = product.overviewImage;
+  card.dataset.defaultTitle = product.name;
+  card.dataset.defaultSubname = product.subname || '';
+  card.dataset.defaultDescription = product.description || '';
+  card.dataset.defaultMetrics = JSON.stringify(product.familyMetrics || []);
 
   const variants = product.variants || [];
   const thumbs = variants.map((variant, index) => `
-    <button class="soap-thumb${index === 0 ? ' is-active' : ''}" type="button" data-index="${index}" aria-label="${escapeHtml(stripTrademark(variant.name))}">
-      <img src="${variant.image}" alt="${escapeHtml(stripTrademark(variant.name))}" loading="lazy" />
+    <button class="soap-thumb" type="button" data-index="${index}" aria-label="${escapeHtml(stripTrademark(variant.name))}">
+      <img src="${variant.image}" alt="${escapeHtml(stripTrademark(variant.name))}" loading="lazy" onerror="this.style.visibility='hidden'" />
     </button>
   `).join('');
 
-  const first = variants[0] || {};
-
   card.innerHTML = `
     <div class="product-body">
-      <div class="product-img-wrap soap-main-wrap">
-        <div class="product-img-stage soap-stage">
-          <img
-            class="soap-overview-image"
-            src="${product.overviewImage}"
-            alt="${escapeHtml(stripTrademark(product.seriesLabel || product.name))} overview"
-            loading="lazy"
-            onerror="this.style.display='none'"
-          />
-          <img
-            class="soap-main-image is-active"
-            src="${first.image || ''}"
-            alt="${escapeHtml(stripTrademark(first.name || product.name))}"
-            loading="lazy"
-          />
-        </div>
-      </div>
+      ${createProductImageStage(product.overviewImage, stripTrademark(product.name), product.id, 'soap-main-image', 'assets/images/products/y8-soap.png', 'eager')}
       <div class="soap-series-label">${escapeHtml(stripTrademark(product.seriesLabel || 'Y8 SOAP'))}</div>
-      <div class="product-name soap-product-name">${escapeHtml(stripTrademark(first.name || product.name))}</div>
-      <div class="product-subname soap-product-subname">${escapeHtml(stripTrademark(first.subname || product.subname || ''))}</div>
+      <div class="soap-title-slot">${renderTitleBlock(product.id, product.name, 'product-name soap-product-name')}</div>
+      <div class="product-subname soap-product-subname">${escapeHtml(stripTrademark(product.subname || ''))}</div>
       <div class="soap-thumbs">${thumbs}</div>
       <div class="soap-slider-copy" data-soap-copy>
-        ${createMetrics(first.metrics || [])}
-        <p class="product-desc soap-product-desc">${escapeHtml(first.description || product.description || '')}</p>
+        ${createMetrics(product.variants?.[0]?.metrics || [])}
+        <p class="product-desc soap-product-desc">${escapeHtml(product.description || '')}</p>
       </div>
       ${createHowToUse(product.howToUse)}
     </div>
   `;
 
   card.dataset.variants = JSON.stringify(variants);
-  card.dataset.currentIndex = '0';
   return card;
+}
+
+function createProductImageStage(src, alt, productId, extraClass = '', fallbackSrc = '', loading = 'lazy') {
+  const fallbackAttr = fallbackSrc ? ` data-fallback-src="${fallbackSrc}"` : '';
+  return `
+    <div class="product-img-wrap">
+      <div class="product-img-stage">
+        <img
+          class="${extraClass}"${fallbackAttr}
+          src="${src}"
+          alt="${escapeHtml(alt)}"
+          loading="${loading}"
+          onerror="handleProductImageError(this)"
+        />
+        <div class="img-placeholder">
+          <span>${escapeHtml(stripTrademark(productId || alt || 'Product'))}</span>
+        </div>
+      </div>
+    </div>
+  `;
 }
 
 function createMetrics(metrics) {
@@ -245,179 +229,17 @@ function initCoverScrollCue() {
   const cue = document.getElementById('coverScrollCue');
   const founder = document.getElementById('founderSection');
   if (!cue || !founder) return;
-
-  cue.addEventListener('click', () => {
-    founder.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
+  cue.addEventListener('click', () => founder.scrollIntoView({ behavior: 'smooth', block: 'start' }));
 }
 
-function initHeaderVisibility() {
+function initScrollUI() {
   const headerShell = document.getElementById('headerShell');
   const coverHero = document.getElementById('coverHero');
-  if (!headerShell || !coverHero) return;
-
-  const update = () => {
-    const threshold = coverHero.offsetHeight - 72;
-    const visible = window.scrollY > Math.max(120, threshold);
-    headerShell.classList.toggle('is-visible', visible);
-    headerShell.setAttribute('aria-hidden', visible ? 'false' : 'true');
-    document.body.classList.toggle('has-floating-header', visible);
-  };
-
-  update();
-  window.addEventListener('scroll', update, { passive: true });
-  window.addEventListener('resize', update);
-}
-
-function initJourneyScroller(steps) {
-  const intro = document.getElementById('journeyIntro');
-  if (!intro) return;
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  const onScroll = () => {
-    const rect = intro.getBoundingClientRect();
-    const viewport = window.innerHeight;
-    const total = Math.max(1, intro.offsetHeight - viewport);
-    const traveled = clamp(-rect.top, 0, total);
-    const progress = traveled / total;
-    const rawIndex = progress * steps.length;
-    const index = clamp(Math.floor(rawIndex), 0, steps.length - 1);
-    const localProgress = rawIndex - index;
-    updateJourneyStage(steps, index, reduced ? 0 : localProgress);
-  };
-
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-}
-
-function updateJourneyStage(steps, index, localProgress) {
-  const icon = document.getElementById('journeyStageIcon');
-  const copy = document.getElementById('journeyStageCopy');
-  if (!icon || !copy || !steps[index]) return;
-
-  const step = steps[index];
-  const directionClass = index % 2 === 0 ? 'is-left' : 'is-right';
-  const travel = Math.min(1, Math.max(0, localProgress || 0));
-  const fade = 1 - Math.abs((travel - 0.5) * 0.85);
-
-  icon.style.setProperty('--journey-rise', `${(1 - travel) * 32}px`);
-  icon.style.setProperty('--journey-opacity', `${fade}`);
-  icon.innerHTML = step.icon
-    ? `<img src="${step.icon}" alt="${escapeHtml(step.label)} icon" loading="lazy" />`
-    : '';
-
-  copy.className = `journey-stage-copy ${directionClass}`;
-  copy.style.setProperty('--journey-shift', `${(directionClass === 'is-left' ? -1 : 1) * (1 - travel) * 28}px`);
-  copy.style.setProperty('--journey-opacity', `${fade}`);
-  copy.innerHTML = `
-    <span class="journey-stage-step">0${step.step}</span>
-    <h2>${escapeHtml(JOURNEY_TITLES[step.id] || step.label)}</h2>
-    <p class="journey-stage-th">${escapeHtml(step.labelTh || '')}</p>
-    <p class="journey-stage-desc">${escapeHtml(cleanTagline(step.introText || step.tagline || ''))}</p>
-  `;
-}
-
-function initReactiveIcons() {
-  document.querySelectorAll('.reactive-icon').forEach((button) => {
-    button.addEventListener('pointerdown', (event) => {
-      const rect = button.getBoundingClientRect();
-      const dx = event.clientX - (rect.left + rect.width / 2);
-      const dy = event.clientY - (rect.top + rect.height / 2);
-      button.style.setProperty('--react-x', `${clamp(-dx * 0.12, -8, 8)}px`);
-      button.style.setProperty('--react-y', `${clamp(-dy * 0.12, -8, 8)}px`);
-      button.classList.add('is-reacting');
-    });
-
-    const reset = () => {
-      button.classList.remove('is-reacting');
-      button.style.setProperty('--react-x', '0px');
-      button.style.setProperty('--react-y', '0px');
-    };
-
-    button.addEventListener('pointerup', reset);
-    button.addEventListener('pointerleave', reset);
-    button.addEventListener('pointercancel', reset);
-  });
-}
-
-function initSoapSliders() {
-  document.querySelectorAll('[data-slider="soap"]').forEach((card) => {
-    const variants = safeJsonParse(card.dataset.variants, []);
-    if (!variants.length) return;
-
-    const mainImage = card.querySelector('.soap-main-image');
-    const nameEl = card.querySelector('.soap-product-name');
-    const subnameEl = card.querySelector('.soap-product-subname');
-    const copyEl = card.querySelector('[data-soap-copy]');
-    const thumbs = Array.from(card.querySelectorAll('.soap-thumb'));
-    let currentIndex = Number(card.dataset.currentIndex || 0);
-    let timer = null;
-    let startX = 0;
-
-    const render = (index) => {
-      const variant = variants[index];
-      if (!variant) return;
-      currentIndex = index;
-      card.dataset.currentIndex = String(index);
-      thumbs.forEach((thumb, thumbIndex) => thumb.classList.toggle('is-active', thumbIndex === index));
-
-      if (mainImage) {
-        mainImage.classList.remove('is-active');
-        requestAnimationFrame(() => {
-          mainImage.src = variant.image;
-          mainImage.alt = stripTrademark(variant.name || 'Soap');
-          mainImage.classList.add('is-active');
-        });
-      }
-
-      if (nameEl) nameEl.textContent = stripTrademark(variant.name || '');
-      if (subnameEl) subnameEl.textContent = stripTrademark(variant.subname || '');
-      if (copyEl) {
-        copyEl.classList.remove('is-active');
-        requestAnimationFrame(() => {
-          copyEl.innerHTML = `${createMetrics(variant.metrics || [])}<p class="product-desc soap-product-desc">${escapeHtml(variant.description || '')}</p>`;
-          copyEl.classList.add('is-active');
-        });
-      }
-    };
-
-    const next = () => render((currentIndex + 1) % variants.length);
-    const resetTimer = () => {
-      window.clearInterval(timer);
-      timer = window.setInterval(next, 4200);
-    };
-
-    thumbs.forEach((thumb, index) => {
-      thumb.addEventListener('click', () => {
-        render(index);
-        resetTimer();
-      });
-    });
-
-    card.addEventListener('touchstart', (event) => {
-      startX = event.touches[0]?.clientX || 0;
-    }, { passive: true });
-
-    card.addEventListener('touchend', (event) => {
-      const endX = event.changedTouches[0]?.clientX || 0;
-      const delta = endX - startX;
-      if (Math.abs(delta) < 28) return;
-      render(delta < 0 ? (currentIndex + 1) % variants.length : (currentIndex - 1 + variants.length) % variants.length);
-      resetTimer();
-    }, { passive: true });
-
-    render(0);
-    copyEl?.classList.add('is-active');
-    resetTimer();
-  });
-}
-
-function initActiveNav() {
   const navItems = Array.from(document.querySelectorAll('.step-nav-item'));
   const sections = Array.from(document.querySelectorAll('.step-section'));
   const navEl = document.querySelector('.step-nav');
-  if (!navItems.length || !sections.length || !navEl) return;
+  const btn = document.getElementById('backToTop');
+  if (!headerShell || !coverHero || !navEl || !navItems.length || !sections.length) return;
 
   const setActive = (id) => {
     navItems.forEach((item) => item.classList.toggle('active', item.dataset.target === id));
@@ -427,20 +249,100 @@ function initActiveNav() {
     navEl.scrollTo({ left: scrollLeft, behavior: 'smooth' });
   };
 
+  let ticking = false;
+
   const update = () => {
+    ticking = false;
+    const threshold = coverHero.offsetHeight - 72;
+    const headerVisible = window.scrollY > Math.max(120, threshold);
+    headerShell.classList.toggle('is-visible', headerVisible);
+    headerShell.setAttribute('aria-hidden', headerVisible ? 'false' : 'true');
+
     const brandH = document.querySelector('.brand-bar')?.offsetHeight || 0;
-    const navH = navEl?.offsetHeight || 0;
+    const navH = navEl.offsetHeight || 0;
     const offset = brandH + navH + 20;
     let current = sections[0].id;
     sections.forEach((section) => {
       if (section.getBoundingClientRect().top <= offset) current = section.id;
     });
     setActive(current);
+
+    if (btn) btn.classList.toggle('visible', window.scrollY > 900);
+  };
+
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(update);
   };
 
   update();
-  window.addEventListener('scroll', update, { passive: true });
-  window.addEventListener('resize', update);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  if (btn) btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+}
+
+function initSoapGalleries() {
+  document.querySelectorAll('[data-slider="soap"]').forEach((card) => {
+    const variants = safeJsonParse(card.dataset.variants, []);
+    if (!variants.length) return;
+
+    const mainImage = card.querySelector('.soap-main-image');
+    const titleSlot = card.querySelector('.soap-title-slot');
+    const subnameEl = card.querySelector('.soap-product-subname');
+    const copyEl = card.querySelector('[data-soap-copy]');
+    const thumbs = Array.from(card.querySelectorAll('.soap-thumb'));
+
+    const renderCopy = (metrics, description) => {
+      if (!copyEl) return;
+      copyEl.innerHTML = `${createMetrics(metrics || [])}<p class="product-desc soap-product-desc">${escapeHtml(description || '')}</p>`;
+    };
+
+    const applyImage = (src, alt) => {
+      if (!mainImage) return;
+      mainImage.classList.remove('is-missing');
+      mainImage.style.display = '';
+      mainImage.src = src;
+      mainImage.alt = stripTrademark(alt || 'Y8 Soap');
+    };
+
+    const renderDefault = () => {
+      card.dataset.currentIndex = '-1';
+      thumbs.forEach((thumb) => thumb.classList.remove('is-active'));
+      applyImage(card.dataset.defaultImage, card.dataset.defaultTitle || 'Y8 Soap');
+      if (titleSlot) {
+        titleSlot.innerHTML = renderTitleBlock('y8-soap', card.dataset.defaultTitle || 'ADVANCED SKIN CORRECTIVE SOAP', 'product-name soap-product-name');
+      }
+      if (subnameEl) subnameEl.textContent = stripTrademark(card.dataset.defaultSubname || '');
+      renderCopy(safeJsonParse(card.dataset.defaultMetrics, []), card.dataset.defaultDescription || '');
+    };
+
+    const renderVariant = (index) => {
+      const variant = variants[index];
+      if (!variant) return;
+      card.dataset.currentIndex = String(index);
+      thumbs.forEach((thumb, thumbIndex) => thumb.classList.toggle('is-active', thumbIndex === index));
+      applyImage(variant.image, variant.name || 'Soap');
+      if (titleSlot) {
+        titleSlot.innerHTML = renderTitleBlock(variant.id || `soap-${index}`, variant.name || '', 'product-name soap-product-name');
+      }
+      if (subnameEl) subnameEl.textContent = stripTrademark(variant.subname || '');
+      renderCopy(variant.metrics || [], variant.description || '');
+    };
+
+    thumbs.forEach((thumb, index) => {
+      thumb.addEventListener('click', () => {
+        const activeIndex = Number(card.dataset.currentIndex || -1);
+        if (activeIndex === index) {
+          renderDefault();
+          return;
+        }
+        renderVariant(index);
+      });
+    });
+
+    renderDefault();
+  });
 }
 
 function initExternalLinks() {
@@ -458,16 +360,6 @@ function initExternalLinks() {
   });
 }
 
-function initBackToTop() {
-  const btn = document.getElementById('backToTop');
-  if (!btn) return;
-
-  const update = () => btn.classList.toggle('visible', window.scrollY > 900);
-  update();
-  window.addEventListener('scroll', update, { passive: true });
-  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-}
-
 function scrollToSection(id) {
   const target = document.getElementById(id);
   if (!target) return;
@@ -475,6 +367,25 @@ function scrollToSection(id) {
   const navH = document.querySelector('.step-nav')?.offsetHeight || 0;
   const top = target.getBoundingClientRect().top + window.scrollY - brandH - navH - 10;
   window.scrollTo({ top, behavior: 'smooth' });
+}
+
+function getTitleLines(id, name) {
+  return MANUAL_TITLE_LINES[id] || [stripTrademark(name)];
+}
+
+function getTitleSizeClass(id, name) {
+  const lines = getTitleLines(id, name);
+  const joined = lines.join(' ');
+  if (joined.length > 24 || lines.length > 2) return 'product-name-xlong';
+  if (joined.length > 16 || lines.length > 1) return 'product-name-long';
+  return 'product-name-normal';
+}
+
+function renderTitleBlock(id, name, className) {
+  const lines = getTitleLines(id, name);
+  const sizeClass = getTitleSizeClass(id, name);
+  const content = lines.map((line) => `<span class="product-name-line">${escapeHtml(line)}</span>`).join('');
+  return `<div class="${className} ${sizeClass}">${content}</div>`;
 }
 
 function stripTrademark(text = '') {
@@ -505,3 +416,14 @@ function safeJsonParse(text, fallback) {
     return fallback;
   }
 }
+
+window.handleProductImageError = function handleProductImageError(img) {
+  const fallbackSrc = img.getAttribute('data-fallback-src');
+  if (fallbackSrc && !img.dataset.fallbackTried) {
+    img.dataset.fallbackTried = 'true';
+    img.src = fallbackSrc;
+    return;
+  }
+  img.style.display = 'none';
+  img.parentElement?.classList.add('is-missing');
+};
