@@ -599,7 +599,6 @@ function initProductActionModal() {
   const subnameEl = modal.querySelector('[data-modal-subname]');
   const highlightsEl = modal.querySelector('[data-modal-highlights]');
   const ingredientsEl = modal.querySelector('[data-modal-ingredients]');
-  const regNoEl = modal.querySelector('[data-modal-regno]');
   const howToTextEl = modal.querySelector('[data-modal-howto]');
   const promoBtn = modal.querySelector('[data-modal-action="promo"]');
   const infoBtn = modal.querySelector('[data-modal-action="info"]');
@@ -643,7 +642,8 @@ function initProductActionModal() {
       id: variant?.id || soapProduct.id,
       name: stripTrademark(variant?.name || soapProduct.name || ''),
       subname: variant?.subname || soapProduct.subname || '',
-      image: mainImage?.currentSrc || mainImage?.getAttribute('src') || variant?.image || soapProduct.overviewImage || '',
+      image: mainImage?.currentSrc || mainImage?.src || mainImage?.getAttribute('src') || variant?.image || soapProduct.overviewImage || '',
+      fallbackImage: mainImage?.getAttribute('data-fallback-src') || '',
       description: variant?.description || soapProduct.description || '',
       metrics: variant?.metrics || soapProduct.familyMetrics || [],
       claims: variant?.claims || soapProduct.claims || [],
@@ -663,7 +663,8 @@ function initProductActionModal() {
     return {
       ...product,
       name: stripTrademark(product.name || ''),
-      image: img?.currentSrc || img?.getAttribute('src') || product.image || ''
+      image: img?.currentSrc || img?.src || img?.getAttribute('src') || product.image || '',
+      fallbackImage: img?.getAttribute('data-fallback-src') || ''
     };
   };
 
@@ -696,7 +697,7 @@ function initProductActionModal() {
   };
 
   const openModal = (product) => {
-    if (!product || !imageEl || !titleEl || !subnameEl || !ingredientsEl || !regNoEl) return;
+    if (!product || !imageEl || !titleEl || !subnameEl || !ingredientsEl) return;
 
     state.product = product;
     titleEl.textContent = stripTrademark(product.name || '');
@@ -712,12 +713,13 @@ function initProductActionModal() {
     }
     ingredientsEl.textContent = product.ingredientsSummary || '';
     ingredientsEl.hidden = !product.ingredientsSummary;
-    regNoEl.textContent = product.regNo ? `เลขที่จดแจ้ง ${product.regNo}` : '';
-    regNoEl.hidden = !product.regNo;
 
+    imageEl.style.display = '';
+    imageEl.parentElement?.classList.remove('is-missing');
+    imageEl.dataset.fallbackTried = '';
+    imageEl.setAttribute('data-fallback-src', product.fallbackImage || '');
     imageEl.src = product.image || '';
     imageEl.alt = stripTrademark(product.name || 'Y8 Product');
-    imageEl.dataset.fallbackTried = '';
 
     renderParagraph(howToTextEl, getHowToParagraph(product));
 
@@ -743,8 +745,8 @@ function initProductActionModal() {
 
     const productName = stripTrademark(state.product.name || 'สินค้านี้');
     const templates = {
-      promo: `สนใจ ${productName} ขอราคาโปรโมชั่นปัจจุบันครับ/ค่ะ`,
-      info: `สนใจ ${productName} อยากสอบถามข้อมูลเพิ่มเติมครับ/ค่ะ`
+      promo: `สนใจ ${productName} ขอราคาโปรโมชั่นปัจจุบันค่ะ`,
+      info: `สนใจ ${productName} อยากสอบถามข้อมูลเพิ่มเติมค่ะ`
     };
 
     const message = templates[kind];

@@ -99,7 +99,7 @@
                 "ผลัดผิวอย่างอ่อนโยนโดยไม่ทำให้ผิวแห้งตึง",
                 "ผิวดูสม่ำเสมอและสุขภาพดีขึ้นเมื่อใช้ต่อเนื่อง"
               ],
-              "ingredientsSummary": "Melavoid, Tranexamic Acid, Niacinamide, Gluconolactone, Capryloyl Salicylic Acid, Dipotassium Glycyrrhizinate, Cereus Grandiflorus Extract, Garcinia Mangostana Peel Extract, Saccharum Officinarum Extract, Pyrus Malus Fruit Extract, and Boerhavia Diffusa Root Extract."
+              "ingredientsSummary": "Aqua, Sodium Myristate, Sodium Laurate, Glycerine, Propylene Glycol, Niacinamide, Tranexamic Acid, Triethanolamine, Cocamidopropyl Betaine, Gluconolactone, Ethylhexylglycerin, Propanediol, Cereus Grandiflorus Extract, Dipotassium Glycyrrhizinate, Garcinia Mangostana Peel Extract, Saccharum Officinarum Extract, Pyrus Malus Fruit Extract, Boerhavia Diffusa Root Extract, Capryloyl Salicylic Acid, Perfume, CI 19140, and CI 14720."
             },
             {
               "id": "soap-green",
@@ -139,7 +139,7 @@
                 "ช่วยลดความมันส่วนเกินและการสะสมของสิว",
                 "ล้างสะอาดล้ำลึกแต่ยังอ่อนโยนต่อผิว"
               ],
-              "ingredientsSummary": "Salicylic Acid (BHA), Zinc PCA, Novoretin, Allium Cepa Extract, Chamomilla Recutita Extract, Witch Hazel Bark/Leaf Extract, Pistacia Lentiscus Gum, Argania Spinosa Kernel Extract, Serenoa Serrulata Fruit Extract, and Sesamum Indicum Seed Extract."
+              "ingredientsSummary": "Aqua, Sodium Myristate, Sodium Laurate, Glycerine, Propylene Glycol, Triethanolamine, Cocamidopropyl Betaine, Allium Cepa Extract, Ethylhexylglycerin, Propanediol, Chamomilla Recutita Extract, Witch Hazel Bark/Leaf Extract, Zinc PCA, Salicylic Acid, Butylene Glycol, 1,2-Hexanediol, Perfume, Pistacia Lentiscus Gum, Argania Spinosa Kernel Extract, Serenoa Serrulata Fruit Extract, Sesamum Indicum Seed Extract, Capryloyl Glycine, Lecithin, Pentylene Glycol, Glyceryl Caprylate/Caprate, Caprylic/Capric Triglyceride, Beta-Sitosterol, Tocopherol, CI 42090, CI 19140, and CI 14720."
             },
             {
               "id": "soap-white",
@@ -179,7 +179,7 @@
                 "ช่วยให้ผิวสะอาด นุ่ม และไม่แห้งตึง",
                 "เหมาะกับผิวที่ต้องการความชุ่มชื้นทุกวัน"
               ],
-              "ingredientsSummary": "Niacinamide, Alpha-Arbutin, Dipotassium Glycyrrhizinate, Calendula Officinalis Flower Water, Sophora Flavescens Root Extract, Glycyrrhiza Inflata Root Extract, Scutellaria Baicalensis Root Extract, Sodium Hyaluronate, and Linolenic Acid."
+              "ingredientsSummary": "Aqua, Sodium Myristate, Sodium Laurate, Glycerine, Propylene Glycol, Niacinamide, Alpha-Arbutin, Triethanolamine, Cocamidopropyl Betaine, Dipotassium Glycyrrhizinate, Calendula Officinalis Flower Water, Sophora Flavescens Root Extract, Glycyrrhiza Inflata Root Extract, Scutellaria Baicalensis Root Extract, Butylene Glycol, Sodium Hyaluronate, Linolenic Acid, Perfume, CI 14720, CI 19140, and CI 42090."
             },
             {
               "id": "soap-black",
@@ -219,7 +219,7 @@
                 "ผิวดูเรียบเนียน กระจ่างใสขึ้น",
                 "เหมาะกับการล้างหน้าเป็นประจำทุกวัน"
               ],
-              "ingredientsSummary": "Hywhite, Niacinamide, Alpha-Arbutin, Dipotassium Glycyrrhizinate, Calendula Officinalis Flower Water, Sophora Flavescens Root Extract, Glycyrrhiza Inflata Root Extract, Scutellaria Baicalensis Root Extract, and Sodium Hyaluronate."
+              "ingredientsSummary": "Aqua, Sodium Myristate, Sodium Laurate, Glycerine, Propylene Glycol, Niacinamide, Alpha-Arbutin, Triethanolamine, Cocamidopropyl Betaine, Dipotassium Glycyrrhizinate, Calendula Officinalis Flower Water, Sophora Flavescens Root Extract, Glycyrrhiza Inflata Root Extract, Scutellaria Baicalensis Root Extract, Butylene Glycol, Sodium Hyaluronate, Linolenic Acid, Perfume, CI 14720, CI 19140, and CI 42090."
             }
           ],
           "familyMetrics": [
@@ -254,7 +254,7 @@
             "Micro-Peeling อย่างอ่อนโยน ไม่ทำให้ผิวแห้งตึง",
             "ช่วยทำความสะอาดและคืนสมดุลผิวในขั้นตอนเดียว"
           ],
-          "ingredientsSummary": "Niacinamide, Alpha-Arbutin, Dipotassium Glycyrrhizinate, Calendula Officinalis Flower Water, Sophora Flavescens Root Extract, Glycyrrhiza Inflata Root Extract, Scutellaria Baicalensis Root Extract, Sodium Hyaluronate, Salicylic Acid, Zinc PCA, Novoretin, Tranexamic Acid, Melavoid, LHA, and PHA."
+          "ingredientsSummary": "Hywhite, Niacinamide, Alpha-Arbutin, Dipotassium Glycyrrhizinate, Calendula Officinalis Flower Water, Sophora Flavescens Root Extract, Glycyrrhiza Inflata Root Extract, Scutellaria Baicalensis Root Extract, Sodium Hyaluronate, Salicylic Acid, Zinc PCA, Novoretin, Tranexamic Acid, Melavoid, LHA, and PHA."
         }
       ]
     },
@@ -402,7 +402,7 @@
             "ดูแลแบบตรงจุดอย่างแม่นยำ",
             "ผิวบาง แพ้ง่ายใช้ได้"
           ],
-          "ingredientsSummary": "P-Stellight™ (Smart Peptide), COBIOBRIGHT™ (Lucuma Extract), COBIO-αHA Complex (Natural AHA), Niacinamide, Squalane, Urea, Oligosaccharide, Hyaluronic Acid, and Allantoin."
+          "ingredientsSummary": "Aqua, Niacinamide, Caprylic/Capric Triglyceride, Cetyl Alcohol, Glyceryl Glucoside, Glycerin, Helianthus Annuus Seed Oil, Glyceryl Stearate, Ceteareth-20, Ceteareth-12, Cetearyl Alcohol, Cetyl Palmitate, Propanediol, Pouteria Lucuma Pulp Extract, Sodium Lactate, Glycolic Acid, Sucrose, Urea, Sodium Stearate, Malic Acid, Tartaric Acid, Hydrogenated Polydecene, Silanediol Salicylate, Squalane, Butyrospermum Parkii (Shea Butter), Citric Acid, Lactic Acid, Citrus Medica Limonum Fruit Extract, Pyrus Malus Fruit Extract, Saccharum Officinarum Extract, Vaccinium Myrtillus Fruit Extract, Vitis Vinifera Fruit Extract, Hydroxyacetophenone, Caprylyl Glycol, Dipropylene Glycol, Dipotassium Glycyrrhizinate, Sodium Polyacrylate, 1,2-Hexanediol, Acetyl Hexapeptide-1, and Allantoin."
         },
         {
           "id": "acne-x0",
@@ -444,7 +444,7 @@
             "ไม่ทิ้งรอยดำฝังผิว",
             "เสริมเกราะผิวแข็งแรง"
           ],
-          "ingredientsSummary": "Witch Hazel, Vitis Vinifera Juice Extract, Sphingomonas Ferment Extract, Ictasol, Hydrolyzed Rhodophyceae Extract, Tea Tree Leaf Oil, Dipotassium Glycyrrhizate, and Tocopheryl Acetate."
+          "ingredientsSummary": "Aqua, Witch Hazel, PPG-20 Methyl Glucose Ether, Glycerin, Vitis Vinifera Juice Extract, Sphingomonas Ferment Extract, PEG-40 Hydrogenated Castor Oil, Ictasol, Hydroxyacetophenone, Hydrolyzed Rhodophyceae Extract, Caprylyl Glycol, Dipropylene Glycol, Tocopheryl Acetate, Disodium EDTA, Melaleuca Alternifolia Leaf Oil, Benzoic Acid, and Dipotassium Glycyrrhizate."
         }
       ]
     },
@@ -578,7 +578,7 @@
             "ผิวดูเนียนสม่ำเสมอแบบ Invisible Finish",
             "ช่วยปกป้องผิวและต้านอนุมูลอิสระระหว่างวัน"
           ],
-          "ingredientsSummary": "Titanium Dioxide, Zinc Oxide, Silica, Butyrospermum Parkii (Shea Butter), Caesalpinia Spinosa Fruit Extract, Kappaphycus Alvarezii Extract, and Rosa Roxburghii Fruit Extract."
+          "ingredientsSummary": "Cyclopentasiloxane, Titanium Dioxide, Phenyl Trimethicone, Tin Oxide, Aqua, Isoamyl Isononanoate, Silica, C12-15 Alkyl Benzoate, Dimethicone Crosspolymer, Polymethylsilsesquioxane, PEG-10 Dimethicone, Polyhydroxystearic Acid, Cetyl PEG/PPG-10/1 Dimethicone, Caprylyl Methicone, Polyglyceryl-4 Isostearate, Disteardimonium Hectorite, Glycerin, Sodium Chloride, Ethylhexylglycerin, Dimethoxysilyl Ethyl Polydimethylsiloxyethyl Dimethicone, Polysilicone-1 Crosspolymer, Butyrospermum Parkii (Shea Butter), Polyglyceryl-4 Isostearate, PEG-10, Propylene Glycol, Caesalpinia Spinosa Fruit Extract, Kappaphycus Alvarezii Extract, Rosa Roxburghii Fruit Extract, and Sodium Benzoate."
         }
       ]
     },
@@ -712,7 +712,7 @@
             "ช่วยลดแห้งแตกและให้เนื้อสัมผัสเรียบลื่น",
             "ปกป้องริมฝีปากจากแสงแดดด้วย SPF15 PA++"
           ],
-          "ingredientsSummary": "15 Natural Oils, Sodium Hyaluronate, Tocopheryl Acetate, Ascorbyl Tetraisopalmitate, Vitis Vinifera Seed Oil, Argania Spinosa Kernel Oil, Helianthus Annuus Seed Oil, Simmondsia Chinensis Seed Oil, Prunus Amygdalus Dulcis Oil, Oryza Sativa Bran Oil, Limnanthes Alba Seed Oil, Persea Gratissima Oil, Oenothera Biennis Oil, and Punica Granatum Flower Extract."
+          "ingredientsSummary": "Hydrogenated Polyisobutene, Diisostearyl Malate, Ethylhexyl Methoxycinnamate, Pentaerythrityl Tetraethylhexanoate, PPG-3 Ethyl Ether, Propylene/Styrene Copolymer, Diethylamino Hydroxybenzoyl Hexyl Benzoate, Polyglyceryl-2 Triisostearate, Fragrance, Ethylene/Propylene/Styrene Copolymer, BHT, Tocopherol, Lactic Acid, Ascorbyl Tetraisopalmitate, Water, Ethylhexyl Palmitate, Trihydroxystearin, Vitis Vinifera Seed Oil, Argania Spinosa Kernel Oil, Helianthus Annuus Seed Oil, Brassica Campestris Seed Oil, Simmondsia Chinensis Seed Oil, Sodium Hyaluronate, Punica Granatum Flower Extract, Polyglyceryl-3 Diisostearate, Prunus Amygdalus Dulcis Oil, Oryza Sativa Bran Oil, Macadamia Ternifolia Seed Oil, Limnanthes Alba Seed Oil, Butyrospermum Parkii Oil, Persea Gratissima Oil, and Oenothera Biennis Oil."
         }
       ]
     },
