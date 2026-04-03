@@ -18,7 +18,7 @@
     window.LIFF_CONFIG = {
       liffId: '2009682431-nREmiGML',
       lineOaUrl: 'https://line.me/R/ti/p/@y8thailand',
-      shopUrl: 'https://line.me/R/ti/p/@y8thailand'
+      shopUrl: 'https://shopee.co.th/y8thailandstore#product_list'
     };
   </script>
 </head>
@@ -50,47 +50,138 @@
 
   <main id="mainContent" role="main"></main>
 
-  <section class="awards-section" aria-label="Awards and global standards">
+  <section id="awards" class="awards-section" aria-label="Awards and global standards">
     <div class="awards-header reveal">
       <h2 class="awards-headline">AWARDS &amp; GLOBAL STANDARDS</h2>
       <p class="awards-sub">
-        Y8 reinforces product quality with international awards, academic and clinical validation, and compliance standards selected to support trust, safety, and long-term skin health.
+        Y8 supports long-term skin confidence through credible awards, laboratory testing, academic partnerships, and regulatory compliance standards.
       </p>
     </div>
 
-    <div class="awards-img-row reveal">
-      <img src="assets/images/awards/award-product-of-year.png" alt="Product of the Year Awards" loading="lazy" onerror="this.style.display='none'" />
-      <img src="assets/images/awards/award-innovation.png" alt="Product Innovation Awards" loading="lazy" onerror="this.style.display='none'" />
-      <img src="assets/images/awards/award-top-sme.png" alt="Thailand Top SME Awards" loading="lazy" onerror="this.style.display='none'" />
+    <div class="awards-visual-grid reveal">
+      <figure class="award-visual-card">
+        <img src="assets/images/awards/award-product-of-year.png" alt="Product of the Year Awards" loading="lazy" onerror="this.closest('.award-visual-card').style.display='none'" />
+      </figure>
+      <figure class="award-visual-card">
+        <img src="assets/images/awards/award-innovation.png" alt="Product Innovation Awards" loading="lazy" onerror="this.closest('.award-visual-card').style.display='none'" />
+      </figure>
+      <figure class="award-visual-card">
+        <img src="assets/images/awards/award-top-sme.png" alt="Thailand Top SME Awards" loading="lazy" onerror="this.closest('.award-visual-card').style.display='none'" />
+      </figure>
+      <figure class="award-visual-card award-visual-wide">
+        <img src="assets/images/awards/award-certification-strip.png" alt="DRC, SGS, Department of Medical Sciences, and Halal certifications" loading="lazy" onerror="this.closest('.award-visual-card').style.display='none'" />
+      </figure>
     </div>
 
-    <div class="awards-grid reveal">
-      <div class="award-group">
-        <div class="award-group-title">Brand Prestigious Awards</div>
-        <div class="award-item"><span class="award-item-text">Product of the Year Awards <em>(4 consecutive years)</em></span></div>
-        <div class="award-item"><span class="award-item-text">Product Innovation Awards <em>(3 consecutive years)</em></span></div>
-        <div class="award-item"><span class="award-item-text">Thailand Top SME Awards <em>(2 consecutive years)</em></span></div>
+    <div class="awards-accordion reveal">
+      <details class="award-panel" open>
+        <summary>
+          <span class="award-panel-kicker">01</span>
+          <span class="award-panel-title">Brand Prestigious Awards</span>
+        </summary>
+        <ul class="award-panel-list">
+          <li>Product of the Year Awards <em>(4 consecutive years)</em></li>
+          <li>Product Innovation Awards <em>(3 consecutive years)</em></li>
+          <li>Thailand Top SME Awards <em>(2 consecutive years)</em></li>
+        </ul>
+      </details>
+
+      <details class="award-panel">
+        <summary>
+          <span class="award-panel-kicker">02</span>
+          <span class="award-panel-title">Academic &amp; Clinical Validation</span>
+        </summary>
+        <ul class="award-panel-list">
+          <li>Faculty of Pharmaceutical Sciences, Chulalongkorn University</li>
+          <li>MUPY Dermocosmetic Testing Center</li>
+          <li>Dermscan Asia &amp; Spincontrol Asia</li>
+        </ul>
+      </details>
+
+      <details class="award-panel">
+        <summary>
+          <span class="award-panel-kicker">03</span>
+          <span class="award-panel-title">Certification &amp; Compliance</span>
+        </summary>
+        <ul class="award-panel-list">
+          <li>SGS Certification <em>(ISO / System Certification)</em></li>
+          <li>Department of Medical Sciences</li>
+          <li>Halal Certificate</li>
+        </ul>
+      </details>
+
+      <details class="award-panel">
+        <summary>
+          <span class="award-panel-kicker">04</span>
+          <span class="award-panel-title">Safety &amp; Regulatory</span>
+        </summary>
+        <ul class="award-panel-list">
+          <li>Dermatologically Tested <em>(By DRC Thailand)</em></li>
+          <li>Hypoallergenic Tested <em>(By Dermscan Asia)</em></li>
+          <li>Ingredient and batch quality screening for sensitive-skin use</li>
+        </ul>
+      </details>
+    </div>
+  </section>
+
+  <section id="membership" class="membership-section" aria-label="Y8 Membership Program">
+    <div class="membership-shell reveal">
+      <div class="membership-copy">
+        <div class="membership-kicker">Y8 Membership Program</div>
+        <h2 class="membership-title">Join the Y8 inner circle for premium support, exclusive coupon access, and direct shopping with confidence.</h2>
+        <p class="membership-desc">
+          Activate your Y8 membership through LINE, unlock a Shopee top-up coupon, and shop directly from <strong>Y8 Thailand</strong>, the official <strong>Shopee Mall</strong> storefront.
+        </p>
+
+        <ul class="membership-benefits">
+          <li><strong>Exclusive Coupon</strong><span>Receive a 10% Shopee top-up coupon reserved for Y8 members.</span></li>
+          <li><strong>Priority Access</strong><span>Get early updates on launches, education, and campaign privileges.</span></li>
+          <li><strong>Trusted Shopping</strong><span>Buy from Y8 Thailand on Shopee Mall with direct brand presence.</span></li>
+        </ul>
+
+        <div class="membership-actions">
+          <a
+            class="membership-btn membership-btn-primary"
+            href="https://liff.line.me/2000733931-wPdEZX0R/channels/5000521266/crm/member/my-reward"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>JOIN MEMBERSHIP</span>
+            <small>สมัครสมาชิก Y8</small>
+          </a>
+          <a
+            class="membership-btn membership-btn-secondary"
+            href="https://shopee.co.th/y8thailandstore#product_list"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>SHOP NOW</span>
+            <small>Y8 Thailand · Shopee Mall</small>
+          </a>
+        </div>
       </div>
 
-      <div class="award-group">
-        <div class="award-group-title">Academic &amp; Clinical Validation</div>
-        <div class="award-item"><span class="award-item-text">Faculty of Pharmaceutical Sciences, Chulalongkorn University</span></div>
-        <div class="award-item"><span class="award-item-text">MUPY Dermocosmetic Testing Center</span></div>
-        <div class="award-item"><span class="award-item-text">Dermscan Asia &amp; Spincontrol Asia</span></div>
-      </div>
+      <div class="membership-visuals">
+        <div class="membership-card-stage">
+          <img
+            class="membership-card-image"
+            src="assets/images/membership/y8-membership-card.png"
+            alt="Y8 Exclusive Membership card"
+            loading="lazy"
+            onerror="this.closest('.membership-card-stage').style.display='none'"
+          />
+          <div class="membership-shopee-pill">Official store · Y8 Thailand · Shopee Mall</div>
+        </div>
 
-      <div class="award-group">
-        <div class="award-group-title">Certification &amp; Compliance</div>
-        <div class="award-item"><span class="award-item-text">SGS Certification <em>(ISO / System Certification)</em></span></div>
-        <div class="award-item"><span class="award-item-text">Dermatologically Tested <em>(By DRC Thailand)</em></span></div>
-        <div class="award-item"><span class="award-item-text">Hypoallergenic Tested <em>(By Dermscan Asia)</em></span></div>
-      </div>
-
-      <div class="award-group">
-        <div class="award-group-title">Safety &amp; Regulatory</div>
-        <div class="award-item"><span class="award-item-text">Department of Medical Sciences</span></div>
-        <div class="award-item"><span class="award-item-text">Halal Certificate</span></div>
-        <div class="award-item"><span class="award-item-text">Global sourcing and ingredient screening</span></div>
+        <div class="membership-coupon-stage">
+          <img
+            class="membership-coupon-image"
+            src="assets/images/membership/y8-shopee-coupon.png"
+            alt="Y8 10 percent Shopee membership coupon"
+            loading="lazy"
+            onerror="this.closest('.membership-coupon-stage').style.display='none'"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -105,7 +196,7 @@
         onerror="this.closest('.footer-brand-art-wrap').style.display='none'"
       />
     </div>
-    <p class="footer-copy">&copy; 2026 Young Age Corporation Co., Ltd. All rights reserved.</p>
+    <p class="footer-copy">&copy; 2026 Young Age Corporation Co., Ltd. All rights reserved. Y8 and related brand assets are used for official product presentation.</p>
   </footer>
 
   <button

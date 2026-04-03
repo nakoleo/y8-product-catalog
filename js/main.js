@@ -3,6 +3,15 @@
  * Orchestrates: LIFF init · Data fetch · DOM render · Interactions
  */
 
+const STEP_METRIC_LABELS = {
+  cleansing: ['Deep Clean', 'Oil Balance', 'Gentle Care', 'Barrier Comfort'],
+  'health-skin': ['Brightening', 'Moisture Plump', 'Pore Refining', 'Barrier Strength'],
+  spot: ['Blemish Reduction', 'Tone Correction', 'Repair Recovery', 'Calm Control'],
+  sun: ['UV Shield', 'Comfort Wear', 'Tone Support', 'Skin Defense'],
+  cosmetics: ['Tone Perfecting', 'Oil Control', 'Smooth Finish', 'Hydration Comfort'],
+  internal: ['Antioxidant Support', 'Metabolic Support', 'Gut Balance', 'Daily Vitality']
+};
+
 document.addEventListener('DOMContentLoaded', async () => {
   if (window.Y8_LIFF) {
     Y8_LIFF.init().catch(() => {});
@@ -68,8 +77,8 @@ function createSection(step) {
     <div class="section-header reveal" data-parallax>
       ${iconHtml}
       <div class="section-title-block">
-        <div class="section-title">${step.label}</div>
-        <div class="section-tagline">${step.tagline}</div>
+        <div class="section-title">${escapeHtml(stripTrademark(step.label))}</div>
+        <div class="section-tagline">${escapeHtml(cleanTagline(step.tagline))}</div>
       </div>
     </div>
     <div class="product-list" id="list-${step.id}"></div>
@@ -77,49 +86,53 @@ function createSection(step) {
 
   const list = section.querySelector('.product-list');
   step.products.forEach((product) => {
-    list.appendChild(createProductCard(product));
+    list.appendChild(createProductCard(product, step.id));
   });
 
   return section;
 }
 
-function createProductCard(product) {
+function createProductCard(product, stepId) {
   const card = document.createElement('article');
   card.className = 'product-card collapsed';
   card.dataset.productId = product.id;
 
-  const descHtml = product.description
-    ? `<p class="product-desc">${product.description}</p>`
-    : '';
+  const displayName = escapeHtml(stripTrademark(product.name));
+  const subname = escapeHtml(stripTrademark(product.subname || ''));
+  const description = product.description ? `<p class="product-desc">${escapeHtml(product.description)}</p>` : '';
+  const metrics = createMetrics(product.metrics || [], stepId);
 
   card.innerHTML = `
     <div class="product-body">
       <div class="product-img-wrap">
-        <img
-          src="${product.image}"
-          alt="${product.name}"
-          loading="lazy"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-        />
-        <div class="img-placeholder" style="display:none;">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-            <rect width="32" height="32" rx="4" fill="#f2f2f2"/>
-            <path d="M8 22l6-8 4 5 3-3 5 6H8z" fill="#b0b0b0"/>
-            <circle cx="21" cy="11" r="2.5" fill="#b0b0b0"/>
-          </svg>
-          <span>No Image</span>
+        <div class="product-img-stage">
+          <img
+            src="${product.image}"
+            alt="${displayName}"
+            loading="lazy"
+            onerror="this.style.display='none'; this.parentElement.classList.add('is-missing');"
+          />
+          <div class="img-placeholder">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <rect width="32" height="32" rx="8" fill="#f2f2f2"/>
+              <path d="M8 22l6-8 4 5 3-3 5 6H8z" fill="#a3a8b3"/>
+              <circle cx="21" cy="11" r="2.5" fill="#a3a8b3"/>
+            </svg>
+            <span>Image unavailable</span>
+          </div>
         </div>
       </div>
-      <div class="product-name">${product.name}</div>
-      <div class="product-subname">${product.subname}</div>
-      ${descHtml}
+      <div class="product-name">${displayName}</div>
+      <div class="product-subname">${subname}</div>
+      ${metrics}
+      ${description}
       <div class="product-how">
         <div class="product-how-inner">
           <div class="product-how-label">วิธีใช้</div>
-          <div class="product-how-text">${product.howToUse}</div>
+          <div class="product-how-text">${escapeHtml(product.howToUse)}</div>
         </div>
       </div>
-      <button class="expand-btn" aria-expanded="false">
+      <button class="expand-btn" aria-expanded="false" type="button">
         <span class="btn-text">วิธีใช้</span>
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
           <path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -129,6 +142,48 @@ function createProductCard(product) {
   `;
 
   return card;
+}
+
+function createMetrics(values, stepId) {
+  const labels = STEP_METRIC_LABELS[stepId] || [];
+  if (!labels.length || !values.length) return '';
+
+  const rows = labels.map((label, index) => {
+    const value = Math.max(0, Math.min(5, Number(values[index] || 0)));
+    const segments = Array.from({ length: 5 }, (_, segmentIndex) => {
+      const active = segmentIndex < value ? ' active' : '';
+      return `<span class="metric-segment${active}"></span>`;
+    }).join('');
+
+    return `
+      <div class="metric-row">
+        <div class="metric-label">${escapeHtml(label)}</div>
+        <div class="metric-bar" aria-hidden="true">${segments}</div>
+      </div>
+    `;
+  }).join('');
+
+  return `<div class="product-metrics">${rows}</div>`;
+}
+
+function stripTrademark(text = '') {
+  return text.replace(/[™]/g, '').replace(/\s{2,}/g, ' ').trim();
+}
+
+function cleanTagline(text = '') {
+  return text
+    .replace(/\s+[—-]\s+.*$/u, '')
+    .replace(/[—-].*$/u, (match, offset, source) => (offset === 0 ? '' : match))
+    .trim();
+}
+
+function escapeHtml(text = '') {
+  return String(text)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }
 
 function initActiveNav() {
@@ -183,8 +238,8 @@ function initSectionParallax() {
     items.forEach((item) => {
       const rect = item.getBoundingClientRect();
       const viewportCenter = window.innerHeight / 2;
-      const delta = (rect.top + rect.height / 2 - viewportCenter) * -0.04;
-      item.style.setProperty('--parallax-y', `${Math.max(-12, Math.min(12, delta)).toFixed(2)}px`);
+      const delta = (rect.top + rect.height / 2 - viewportCenter) * -0.035;
+      item.style.setProperty('--parallax-y', `${Math.max(-10, Math.min(10, delta)).toFixed(2)}px`);
     });
     ticking = false;
   };
