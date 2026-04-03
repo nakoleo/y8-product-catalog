@@ -41,7 +41,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translate3d(0, 0, 0) scale(0.965);
+  transform: translate3d(0, 0, 0) scale(0.94);
   transform-origin: center center;
   will-change: transform;
 }

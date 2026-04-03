@@ -409,13 +409,13 @@ function initScrollUI() {
         const rect = el.getBoundingClientRect();
         const visible = rect.bottom > 0 && rect.top < vh;
         if (!visible) {
-          el.style.transform = 'translate3d(0, 0, 0) scale(0.965)';
+          el.style.transform = 'translate3d(0, 0, 0) scale(0.94)';
           return;
         }
 
         const centerProgress = clamp((vh - rect.top) / (vh + rect.height), 0, 1);
-        const scale = 0.965 + centerProgress * 0.075;
-        const translateY = (0.5 - centerProgress) * 14;
+        const scale = 0.94 + centerProgress * 0.12;
+        const translateY = (0.5 - centerProgress) * 20;
         el.style.transform = `translate3d(0, ${translateY.toFixed(2)}px, 0) scale(${scale.toFixed(3)})`;
       });
     }
