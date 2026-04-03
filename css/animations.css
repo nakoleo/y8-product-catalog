@@ -6,7 +6,7 @@
 .reveal {
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity 420ms ease, transform 420ms ease;
+  transition: opacity 460ms ease, transform 520ms ease;
 }
 
 .reveal.visible {
@@ -17,12 +17,16 @@
 .product-card {
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity 420ms ease, transform 420ms ease, box-shadow 220ms ease;
+  transition: opacity 460ms ease, transform 520ms ease, box-shadow 220ms ease;
 }
 
 .product-card.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.product-card.visible .product-img-motion {
+  transition: transform 680ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .product-list .product-card:nth-child(1) { transition-delay: 0ms; }

@@ -176,13 +176,15 @@ function createProductImageStage(src, alt, productId, extraClass = '', fallbackS
   return `
     <div class="product-img-wrap">
       <div class="product-img-stage">
-        <img
-          class="${extraClass}"${fallbackAttr}
-          src="${src}"
-          alt="${escapeHtml(alt)}"
-          loading="${loading}"
-          onerror="handleProductImageError(this)"
-        />
+        <div class="product-img-motion">
+          <img
+            class="${extraClass}"${fallbackAttr}
+            src="${src}"
+            alt="${escapeHtml(alt)}"
+            loading="${loading}"
+            onerror="handleProductImageError(this)"
+          />
+        </div>
         <div class="img-placeholder">
           <span>${escapeHtml(stripTrademark(productId || alt || 'Product'))}</span>
         </div>
@@ -239,10 +241,17 @@ function initCoverScrollCue() {
 function initScrollUI() {
   const headerShell = document.getElementById('headerShell');
   const coverHero = document.getElementById('coverHero');
+  const transitionScene = document.getElementById('transitionScene');
+  const transitionLayer = transitionScene?.querySelector('.transition-scene-layer');
+  const transitionYoung = transitionScene?.querySelector('.transition-word-young');
+  const transitionAge = transitionScene?.querySelector('.transition-word-age');
+  const transitionStart = transitionScene?.querySelector('.transition-word-start');
   const navItems = Array.from(document.querySelectorAll('.step-nav-item'));
   const navEl = document.querySelector('.step-nav');
   const btn = document.getElementById('backToTop');
   const trackedSections = Array.from(document.querySelectorAll('.step-section, #awards, #membership'));
+  const productMotionEls = Array.from(document.querySelectorAll('.product-img-motion'));
+  const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
   if (!headerShell || !coverHero || !navEl || !navItems.length || !trackedSections.length) return;
 
   const setActive = (id) => {
@@ -285,6 +294,34 @@ function initScrollUI() {
     setActive(current);
 
     if (btn) btn.classList.toggle('visible', window.scrollY > 900);
+
+    if (!reducedMotion && transitionScene && transitionLayer && transitionYoung && transitionAge && transitionStart) {
+      const rect = transitionScene.getBoundingClientRect();
+      const vh = window.innerHeight || 1;
+      const progress = clamp((vh - rect.top) / (vh + rect.height * 0.58), 0, 1);
+      const layerOpacity = clamp(progress * 1.18, 0, 1);
+      const layerY = 56 - progress * 56;
+      transitionLayer.style.opacity = layerOpacity.toFixed(3);
+      transitionLayer.style.transform = `translate3d(0, ${layerY.toFixed(2)}px, 0)`;
+
+      applyTransitionWord(transitionYoung, progress, 0.04, 0.3, 'float');
+      applyTransitionWord(transitionAge, progress, 0.27, 0.56, 'float');
+      applyTransitionWord(transitionStart, progress, 0.55, 0.88, 'start');
+    }
+
+    if (!reducedMotion) {
+      const vh = window.innerHeight || 1;
+      productMotionEls.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const visible = rect.bottom > 0 && rect.top < vh;
+        if (!visible) return;
+
+        const centerProgress = clamp((vh - rect.top) / (vh + rect.height), 0, 1);
+        const scale = 0.965 + centerProgress * 0.075;
+        const translateY = (0.5 - centerProgress) * 14;
+        el.style.transform = `translate3d(0, ${translateY.toFixed(2)}px, 0) scale(${scale.toFixed(3)})`;
+      });
+    }
   };
 
   const onScroll = () => {
@@ -297,6 +334,36 @@ function initScrollUI() {
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
   if (btn) btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+}
+
+function applyTransitionWord(element, progress, start, end, mode) {
+  const local = clamp((progress - start) / (end - start), 0, 1);
+  if (local <= 0 || local >= 1) {
+    element.style.opacity = local >= 1 ? '0' : '0';
+    if (mode === 'start') {
+      element.style.transform = 'translate3d(0, 52px, 0) scale(0.88)';
+    } else {
+      element.style.transform = 'translate3d(0, 30px, 0) scale(0.98)';
+    }
+    return;
+  }
+
+  let opacity;
+  let translateY;
+  let scale;
+
+  if (mode === 'start') {
+    opacity = local < 0.42 ? local / 0.42 : 1 - ((local - 0.42) / 0.58) * 0.85;
+    translateY = 60 - local * 74;
+    scale = 0.84 + local * 0.24;
+  } else {
+    opacity = local < 0.46 ? local / 0.46 : 1 - ((local - 0.46) / 0.54);
+    translateY = 26 - local * 46;
+    scale = 0.985 + local * 0.03;
+  }
+
+  element.style.opacity = clamp(opacity, 0, 1).toFixed(3);
+  element.style.transform = `translate3d(0, ${translateY.toFixed(2)}px, 0) scale(${scale.toFixed(3)})`;
 }
 
 function initSoapGalleries() {
