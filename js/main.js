@@ -215,11 +215,20 @@ function createMetrics(metrics) {
 }
 
 function createHowToUse(howToUse) {
+  const items = String(howToUse || '')
+    .split(/\n+/)
+    .map((item) => item.trim())
+    .filter(Boolean);
+
+  const content = items.length
+    ? `<ul class="product-how-list">${items.map((item) => `<li>${escapeHtml(item.replace(/^[•▪■-]\s*/, ''))}</li>`).join('')}</ul>`
+    : `<div class="product-how-text"></div>`;
+
   return `
     <div class="product-how">
       <div class="product-how-inner">
         <div class="product-how-label">วิธีใช้</div>
-        <div class="product-how-text">${escapeHtml(howToUse || '')}</div>
+        ${content}
       </div>
     </div>
     <button class="expand-btn" aria-expanded="false" type="button">

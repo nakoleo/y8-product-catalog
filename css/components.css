@@ -177,7 +177,7 @@
 }
 
 .product-card:not(.collapsed) .product-how {
-  max-height: 440px;
+  max-height: 520px;
 }
 
 .product-how-inner {
@@ -201,6 +201,20 @@
   line-height: 1.28;
   color: #4c5463;
   text-align: left;
+}
+
+.product-how-list {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+  font-size: 17px;
+  line-height: 1.28;
+  color: #4c5463;
+}
+
+.product-how-list li {
+  padding-left: 2px;
 }
 
 .expand-btn {
