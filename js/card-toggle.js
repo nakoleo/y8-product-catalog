@@ -18,7 +18,7 @@ const CardToggle = (() => {
         btn.setAttribute('aria-expanded', willExpand ? 'true' : 'false');
 
         const text = btn.querySelector('.btn-text');
-        if (text) text.textContent = willExpand ? 'ซ่อนระดับประสิทธิภาพ' : 'ดูระดับประสิทธิภาพ';
+        if (text) text.textContent = willExpand ? 'ซ่อนประสิทธิภาพ' : 'ประสิทธิภาพ';
       });
     });
 

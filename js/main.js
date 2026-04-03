@@ -226,7 +226,7 @@ function createMetrics(metrics) {
   return `
     <div class="product-metrics-block collapsed">
       <button class="metrics-toggle-btn" aria-expanded="false" type="button">
-        <span class="btn-text">ดูระดับประสิทธิภาพ</span>
+        <span class="btn-text">ประสิทธิภาพ</span>
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
           <path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -280,6 +280,10 @@ function initCoverScrollCue() {
 function initScrollUI() {
   const headerShell = document.getElementById('headerShell');
   const coverHero = document.getElementById('coverHero');
+  const coverArt = coverHero?.querySelector('.cover-hero-art');
+  const coverLogoShell = coverHero?.querySelector('.cover-hero-logo-shell');
+  const coverProduces = coverHero?.querySelector('.cover-hero-produces');
+  const coverScrollCue = document.getElementById('coverScrollCue');
   const transitionScene = document.getElementById('transitionScene');
   const founderSection = document.getElementById('founderSection');
   const transitionLayer = transitionScene?.querySelector('.transition-scene-layer');
@@ -337,6 +341,39 @@ function initScrollUI() {
     setActive(current);
 
     if (btn) btn.classList.toggle('visible', window.scrollY > 900);
+
+    if (coverHero && !reducedMotion) {
+      const coverProgress = clamp(window.scrollY / Math.max(1, coverHero.offsetHeight * 0.92), 0, 1);
+
+      if (coverScrollCue) {
+        const cueY = -coverProgress * 122;
+        const cueOpacity = clamp(1 - coverProgress * 2.6, 0, 1);
+        coverScrollCue.style.transform = `translate3d(0, ${cueY.toFixed(2)}px, 0)`;
+        coverScrollCue.style.opacity = cueOpacity.toFixed(3);
+      }
+
+      if (coverProduces) {
+        const producesProgress = clamp((coverProgress - 0.14) / 0.58, 0, 1);
+        const producesY = -producesProgress * 92;
+        const producesOpacity = clamp(1 - producesProgress * 1.55, 0, 1);
+        coverProduces.style.transform = `translate3d(0, ${producesY.toFixed(2)}px, 0)`;
+        coverProduces.style.opacity = producesOpacity.toFixed(3);
+      }
+
+      if (coverLogoShell) {
+        const logoProgress = clamp((coverProgress - 0.3) / 0.62, 0, 1);
+        const logoY = -logoProgress * 126;
+        const logoScale = 1 - logoProgress * 0.06;
+        const logoOpacity = clamp(1 - logoProgress * 1.12, 0, 1);
+        coverLogoShell.style.transform = `translate3d(0, ${(-10 + logoY).toFixed(2)}px, 0) scale(${logoScale.toFixed(3)})`;
+        coverLogoShell.style.opacity = logoOpacity.toFixed(3);
+      }
+
+      if (coverArt) {
+        const artY = -coverProgress * 34;
+        coverArt.style.transform = `translate3d(0, ${artY.toFixed(2)}px, 0) scale(1.02)`;
+      }
+    }
 
     if (!reducedMotion && transitionScene && transitionLayer && transitionYoung && transitionAge && transitionStart) {
       const rect = transitionScene.getBoundingClientRect();
