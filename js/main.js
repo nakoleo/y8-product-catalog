@@ -384,9 +384,9 @@ function initScrollUI() {
       transitionLayer.style.opacity = layerOpacity.toFixed(3);
       transitionLayer.style.transform = `translate3d(0, ${layerY.toFixed(2)}px, 0)`;
 
-      applyTransitionWord(transitionYoung, progress, 0.03, 0.42, 'float');
-      applyTransitionWord(transitionAge, progress, 0.42, 0.73, 'float');
-      applyTransitionWord(transitionStart, progress, 0.73, 0.97, 'start');
+      applyTransitionWord(transitionYoung, progress, 0.05, 0.44, 'float');
+      applyTransitionWord(transitionAge, progress, 0.44, 0.74, 'float');
+      applyTransitionWord(transitionStart, progress, 0.74, 0.985, 'start');
     }
 
     if (!reducedMotion) {

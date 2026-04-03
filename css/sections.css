@@ -147,7 +147,7 @@ body {
 
 .transition-scene {
   position: relative;
-  min-height: 320svh;
+  min-height: 420svh;
   background: #ffffff;
   overflow: clip;
 }
@@ -307,13 +307,14 @@ body {
 }
 
 .founder-section {
-  padding: 118px 0 72px;
+  min-height: 118svh;
+  padding: 132px 0 120px;
   background: linear-gradient(180deg, #ffffff 0%, #fbfbfc 14%, #f2f2f4 32%, #ececef 56%, #ffffff 100%);
 }
 
 .founder-hero-frame {
   width: 100%;
-  padding-top: 26px;
+  padding-top: 32px;
 }
 
 .founder-hero-frame img {
