@@ -1,35 +1,25 @@
 /* ============================================
    Y8 YOUNG AGE — COMPONENTS
-   Product Cards · Metrics · Buttons
+   Product Cards · Metrics · Soap Slider · Chrome Buttons
    ============================================ */
 
 .product-card {
   position: relative;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, #fbfbfb 100%);
-  border: 1px solid rgba(74, 82, 98, 0.08);
-  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, #fbfbfc 100%);
+  border: 1px solid rgba(73, 81, 95, 0.08);
+  border-radius: 30px;
   overflow: hidden;
-  transition: transform var(--ease-normal), box-shadow var(--ease-normal);
-  box-shadow: 0 18px 46px rgba(33, 39, 51, 0.05);
-  -webkit-tap-highlight-color: transparent;
-}
-
-.product-card:active {
-  transform: scale(0.988);
-}
-
-.product-card + .product-card {
-  margin-top: var(--space-6);
+  box-shadow: 0 22px 48px rgba(33, 39, 51, 0.06);
 }
 
 .product-body {
-  padding: 24px 22px 20px;
+  padding: 24px 20px 20px;
 }
 
 .product-img-wrap {
   width: 100%;
   aspect-ratio: 1 / 1;
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 
 .product-img-stage {
@@ -39,9 +29,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8%;
-  background: #fff;
-  border-radius: 24px;
+  padding: 9%;
+  border-radius: 26px;
+  background: #ffffff;
   overflow: hidden;
 }
 
@@ -50,22 +40,19 @@
   height: 100%;
   object-fit: contain;
   object-position: center;
-  background: #fff;
 }
 
-.product-img-stage .img-placeholder {
+.img-placeholder {
   position: absolute;
   inset: 0;
   display: none;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  color: #8a92a1;
+  color: #8a91a1;
   font-size: 12px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  background: #fff;
+  background: #ffffff;
 }
 
 .product-img-stage.is-missing .img-placeholder {
@@ -74,148 +61,304 @@
 
 .product-name {
   text-align: center;
-  font-size: 34px;
-  font-weight: var(--weight-bold);
-  color: #474f5e;
-  letter-spacing: 0.045em;
-  line-height: 1.02;
-  margin-bottom: 6px;
+  font-size: 33px;
+  line-height: 0.94;
+  letter-spacing: 0.05em;
+  color: #464d59;
 }
 
 .product-subname {
-  max-width: 86%;
-  margin: 0 auto 16px;
+  width: min(88%, 280px);
+  margin: 8px auto 16px;
   text-align: center;
-  font-size: 16px;
-  font-weight: var(--weight-regular);
-  color: #5c6473;
-  letter-spacing: 0.09em;
-  line-height: 1.14;
+  font-size: 18px;
+  line-height: 1.02;
+  letter-spacing: 0.08em;
+  color: #68707f;
   text-transform: uppercase;
 }
 
 .product-metrics {
   display: grid;
-  gap: 9px;
+  gap: 10px;
   margin-bottom: 18px;
-  padding: 14px 15px;
-  background: linear-gradient(180deg, #f7f8fa 0%, #f2f4f7 100%);
-  border-radius: 18px;
+  padding: 16px 14px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, #f5f6f8 0%, #eef1f5 100%);
+  border: 1px solid rgba(90, 98, 112, 0.06);
 }
 
 .metric-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 112px;
-  gap: 12px;
+  grid-template-columns: 102px minmax(0, 1fr) 44px;
+  gap: 8px;
   align-items: center;
 }
 
 .metric-label {
-  font-size: 14px;
-  font-weight: var(--weight-medium);
-  color: #596172;
-  letter-spacing: 0.02em;
-  line-height: 1.05;
+  font-size: 15px;
+  line-height: 1.02;
+  color: #5b6373;
 }
 
 .metric-bar {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 4px;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 3px;
 }
 
 .metric-segment {
-  height: 8px;
+  height: 10px;
   border-radius: 999px;
-  background: rgba(87, 96, 113, 0.13);
+  background: linear-gradient(180deg, rgba(236, 239, 243, 0.95) 0%, rgba(194, 201, 211, 0.9) 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75), inset 0 -1px 0 rgba(109, 116, 128, 0.12);
 }
 
 .metric-segment.active {
-  background: linear-gradient(90deg, #596272 0%, #7f8898 100%);
+  background: linear-gradient(180deg, #e4e8ef 0%, #9ca4b0 42%, #69717e 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.58), 0 0 8px rgba(115, 123, 136, 0.16);
+}
+
+.metric-value {
+  text-align: right;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  color: #616978;
 }
 
 .product-desc {
-  font-size: 17px;
-  font-weight: var(--weight-regular);
-  color: #444c5b;
-  line-height: 1.62;
-  text-align: justify;
-  text-align-last: left;
-  margin: 0 0 18px;
+  margin-bottom: 18px;
+  padding: 0 2px;
+  font-size: 18px;
+  line-height: 1.34;
+  color: #474f5d;
+  text-align: left;
 }
 
 .product-how {
   overflow: hidden;
   max-height: 0;
-  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: max-height 340ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .product-card:not(.collapsed) .product-how {
-  max-height: 420px;
+  max-height: 440px;
 }
 
 .product-how-inner {
-  padding: 18px 16px;
-  background: #f7f8fa;
-  border-radius: 18px;
   margin-bottom: 14px;
-  border: 1px solid rgba(74, 82, 98, 0.06);
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(73, 81, 95, 0.06);
+  background: linear-gradient(180deg, #f7f8fa 0%, #f2f4f7 100%);
 }
 
 .product-how-label {
+  margin-bottom: 7px;
   font-size: 12px;
-  font-weight: var(--weight-bold);
-  color: #667082;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
+  color: #697181;
   text-transform: uppercase;
-  margin-bottom: 8px;
 }
 
 .product-how-text {
-  font-size: 16px;
-  font-weight: var(--weight-regular);
-  color: #49505f;
-  line-height: 1.58;
+  font-size: 17px;
+  line-height: 1.28;
+  color: #4c5463;
   text-align: left;
 }
 
 .expand-btn {
-  display: flex;
+  width: 100%;
+  min-height: 48px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  width: 100%;
-  min-height: 48px;
-  padding: 10px 16px;
-  background: transparent;
-  border: 1px solid rgba(74, 82, 98, 0.14);
+  border: 1px solid rgba(73, 81, 95, 0.12);
   border-radius: 999px;
-  font-family: var(--font-main);
+  color: #5d6675;
   font-size: 14px;
-  font-weight: var(--weight-medium);
-  color: #5b6474;
-  letter-spacing: 0.08em;
-  transition: background var(--ease-fast), color var(--ease-fast), border-color var(--ease-fast);
-  cursor: pointer;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.8);
 }
 
-.expand-btn:active {
+.product-card:not(.collapsed) .expand-btn {
   background: #f5f6f8;
-}
-
-.expand-btn svg {
-  transition: transform var(--ease-normal);
-  flex-shrink: 0;
 }
 
 .product-card:not(.collapsed) .expand-btn svg {
   transform: rotate(180deg);
 }
 
-.product-card:not(.collapsed) .expand-btn {
-  color: #48505f;
-  border-color: rgba(74, 82, 98, 0.18);
-  background: #f7f8fa;
+.product-card-soap .product-body {
+  padding-bottom: 22px;
+}
+
+.soap-main-wrap {
+  margin-bottom: 16px;
+}
+
+.soap-stage {
+  padding: 7%;
+}
+
+.soap-overview-image,
+.soap-main-image {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 260ms ease;
+}
+
+.soap-overview-image {
+  opacity: 0.14;
+  transform: scale(0.92);
+}
+
+.soap-main-image {
+  opacity: 0;
+}
+
+.soap-main-image.is-active {
+  opacity: 1;
+}
+
+.soap-series-label {
+  margin-bottom: 8px;
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #99a0ae;
+}
+
+.soap-product-name {
+  min-height: 64px;
+}
+
+.soap-product-subname {
+  min-height: 36px;
+}
+
+.soap-thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.soap-thumb {
+  position: relative;
+  height: 64px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #ffffff 0%, #f3f4f7 100%);
+  border: 1px solid rgba(82, 88, 98, 0.08);
+  overflow: hidden;
+}
+
+.soap-thumb::after {
+  content: '';
+  position: absolute;
+  inset: auto 14px 7px;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(95, 103, 119, 0.12);
+}
+
+.soap-thumb.is-active::after {
+  background: linear-gradient(90deg, #5b6271 0%, #8e96a3 100%);
+}
+
+.soap-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 9px;
+}
+
+.soap-slider-copy {
+  opacity: 0.7;
+  transition: opacity 220ms ease;
+}
+
+.soap-slider-copy.is-active {
+  opacity: 1;
+}
+
+.chrome-btn {
+  position: relative;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  gap: 1px;
+  min-height: 58px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.78), 0 14px 26px rgba(10, 14, 20, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.chrome-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(205, 211, 220, 0.7) 48%, rgba(149, 157, 170, 0.78) 100%);
+}
+
+.chrome-btn::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.84) 0%, rgba(209, 214, 221, 0.58) 100%);
+  box-shadow: inset 0 -2px 5px rgba(95, 103, 118, 0.18);
+}
+
+.chrome-btn span,
+.chrome-btn small {
+  position: relative;
+  z-index: 1;
+}
+
+.chrome-btn span {
+  font-size: 19px;
+  line-height: 1;
+  color: #363c47;
+  letter-spacing: 0.06em;
+}
+
+.chrome-btn small {
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  color: #626977;
+  text-transform: uppercase;
+}
+
+.chrome-btn-primary {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 16px 32px rgba(129, 165, 203, 0.18), 0 0 28px rgba(147, 205, 255, 0.14);
+}
+
+.chrome-btn-dark::before {
+  background: linear-gradient(180deg, rgba(243, 245, 247, 0.96) 0%, rgba(192, 198, 206, 0.76) 42%, rgba(119, 127, 139, 0.85) 100%);
+}
+
+.chrome-btn-soft {
+  min-height: 50px;
+  width: fit-content;
+  min-width: 200px;
+}
+
+.chrome-btn-soft span {
+  font-size: 16px;
 }
 
 @media (max-width: 360px) {
@@ -228,15 +371,20 @@
   }
 
   .product-subname {
-    font-size: 15px;
+    font-size: 17px;
   }
 
   .metric-row {
-    grid-template-columns: minmax(0, 1fr) 96px;
+    grid-template-columns: 92px minmax(0, 1fr) 40px;
+  }
+
+  .metric-label,
+  .metric-value {
+    font-size: 13px;
   }
 
   .product-desc,
   .product-how-text {
-    font-size: 16px;
+    font-size: 17px;
   }
 }
