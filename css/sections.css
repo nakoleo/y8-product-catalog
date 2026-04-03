@@ -581,11 +581,15 @@ body {
   margin-bottom: 12px;
 }
 
+.membership-title-line {
+  display: block;
+}
+
 .membership-desc {
   font-size: 18px;
   line-height: 1.36;
   color: rgba(245, 247, 251, 0.84);
-  max-width: 350px;
+  max-width: 356px;
   margin: 0 auto;
 }
 
