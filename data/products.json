@@ -42,7 +42,14 @@
             "ผ่านการทดสอบการระคายเคืองจากแพทย์ผิวหนัง",
             "ปราศจาก SLS & SLEs พร้อมลดโอกาสการระคายเคืองจากการล้างหน้า"
           ],
-          "regNo": "11-1-6500016928"
+          "regNo": "11-1-6500016928",
+          "quickHighlights": [
+            "ล้างพิษผิวอย่างอ่อนโยน",
+            "ผิวสะอาดหมด ไม่แห้งตึง",
+            "สูตรอ่อนโยน ผิวเป็นสิวใช้ได้",
+            "ช่วยให้ผิวรับการบำรุงได้ดีขึ้น"
+          ],
+          "ingredientsSummary": "Aurafirm P, Biodtox, MC-BNC, DSCERIX 5, Moistshield HA, BiosecureC160S, Biogenic SA-200, and Amiperfect ER."
         },
         {
           "id": "y8-soap",
@@ -86,7 +93,13 @@
                 "ผ่าน Dermatologically Tested และออกแบบเพื่อดูแลฝ้า กระ และจุดด่างดำแบบเรื้อรัง",
                 "ผสาน Melavoid, Tranexamic Acid, Niacinamide พร้อม LHA และ PHA"
               ],
-              "regNo": "10-1-6700036262"
+              "regNo": "10-1-6700036262",
+              "quickHighlights": [
+                "ดูแลฝ้า กระ และจุดด่างดำเรื้อรัง",
+                "ผลัดผิวอย่างอ่อนโยนโดยไม่ทำให้ผิวแห้งตึง",
+                "ผิวดูสม่ำเสมอและสุขภาพดีขึ้นเมื่อใช้ต่อเนื่อง"
+              ],
+              "ingredientsSummary": "Melavoid, Tranexamic Acid, Niacinamide, LHA, PHA, Dipotassium Glycyrrhizinate, Cereus Grandiflorus Extract, Garcinia Mangostana Peel Extract, Saccharum Officinarum Extract, Pyrus Malus Fruit Extract, and Boerhavia Diffusa Root Extract."
             },
             {
               "id": "soap-green",
@@ -120,7 +133,13 @@
                 "ผ่าน Dermatologically Tested และออกแบบเพื่อดูแลสิวอุดตัน สิวอักเสบ และสิวเรื้อรัง",
                 "ผสาน Salicylic Acid, Zinc PCA และ Novoretin เพื่อดูแลสิวอย่างตรงจุด"
               ],
-              "regNo": "10-1-6700036262"
+              "regNo": "10-1-6700036262",
+              "quickHighlights": [
+                "ดูแลสิวอุดตัน สิวอักเสบ และสิวเรื้อรัง",
+                "ช่วยลดความมันส่วนเกินและการสะสมของสิว",
+                "ล้างสะอาดล้ำลึกแต่ยังอ่อนโยนต่อผิว"
+              ],
+              "ingredientsSummary": "Salicylic Acid (BHA), Zinc PCA, Novoretin, Allium Cepa Extract, Chamomilla Recutita Extract, Witch Hazel Bark/Leaf Extract, Pistacia Lentiscus Gum, Argania Spinosa Kernel Extract, Serenoa Serrulata Fruit Extract, and Sesamum Indicum Seed Extract."
             },
             {
               "id": "soap-white",
@@ -154,7 +173,13 @@
                 "ผ่าน Dermatologically Tested เพื่อการทำความสะอาดอย่างอ่อนโยนสำหรับผิวขาดน้ำ",
                 "ผสาน Niacinamide, Alpha-Arbutin และ Dipotassium Glycyrrhizinate"
               ],
-              "regNo": "10-1-6700036262"
+              "regNo": "10-1-6700036262",
+              "quickHighlights": [
+                "ดูแลผิวขาดน้ำอย่างอ่อนโยน",
+                "ช่วยให้ผิวสะอาด นุ่ม และไม่แห้งตึง",
+                "เหมาะกับผิวที่ต้องการความชุ่มชื้นทุกวัน"
+              ],
+              "ingredientsSummary": "Niacinamide, Alpha-Arbutin, Dipotassium Glycyrrhizinate, Calendula Officinalis Flower Water, Sophora Flavescens Root Extract, Glycyrrhiza Inflata Root Extract, Scutellaria Baicalensis Root Extract, Sodium Hyaluronate, and Linolenic Acid."
             },
             {
               "id": "soap-black",
@@ -188,7 +213,13 @@
                 "ผ่าน Dermatologically Tested เพื่อดูแลผิวหมองคล้ำอย่างอ่อนโยน",
                 "ผสาน Hywhite, Niacinamide และ Alpha-Arbutin เพื่อผิวดูกระจ่างใส"
               ],
-              "regNo": "10-1-6700036262"
+              "regNo": "10-1-6700036262",
+              "quickHighlights": [
+                "ช่วยลดผิวหมองคล้ำอย่างอ่อนโยน",
+                "ผิวดูเรียบเนียน กระจ่างใสขึ้น",
+                "เหมาะกับการล้างหน้าเป็นประจำทุกวัน"
+              ],
+              "ingredientsSummary": "Hywhite, Niacinamide, Alpha-Arbutin, Dipotassium Glycyrrhizinate, Calendula Officinalis Flower Water, Sophora Flavescens Root Extract, Glycyrrhiza Inflata Root Extract, Scutellaria Baicalensis Root Extract, and Sodium Hyaluronate."
             }
           ],
           "familyMetrics": [
@@ -217,7 +248,13 @@
             "Food Grade Innovation ปราศจาก SLS & SLEs พร้อมกลไก Micro-Peeling อย่างอ่อนโยน",
             "รองรับ 4 สูตรเฉพาะสภาพผิว และเลข อย. แยกตามแต่ละสูตร"
           ],
-          "regNo": "10-1-6700036262"
+          "regNo": "10-1-6700036262",
+          "quickHighlights": [
+            "สบู่กลีเซอรีน 4 สูตรสำหรับปัญหาผิวต่างกัน",
+            "Micro-Peeling อย่างอ่อนโยน ไม่ทำให้ผิวแห้งตึง",
+            "ช่วยทำความสะอาดและคืนสมดุลผิวในขั้นตอนเดียว"
+          ],
+          "ingredientsSummary": "Niacinamide, Alpha-Arbutin, Dipotassium Glycyrrhizinate, Calendula Officinalis Flower Water, Sophora Flavescens Root Extract, Glycyrrhiza Inflata Root Extract, Scutellaria Baicalensis Root Extract, Sodium Hyaluronate, Salicylic Acid, Zinc PCA, Novoretin, Tranexamic Acid, Melavoid, LHA, and PHA."
         }
       ]
     },
@@ -263,7 +300,14 @@
             "ผลการทดสอบ Dermscan พบว่าผิวดูกระจ่างใสขึ้นภายใน 14 วัน",
             "เพิ่มความชุ่มชื้นของผิว +23% และความกระจ่างใสของผิว +15%"
           ],
-          "regNo": "74-1-6700025199"
+          "regNo": "74-1-6700025199",
+          "quickHighlights": [
+            "กู้ผิวโทรมผิวหมองคล้ำ",
+            "ปรับให้กระจ่างใส ดูไบร์ท",
+            "ผิวอิ่มฟู ชุ่มชื้นยาวนาน",
+            "ผิวเฟิร์ม กระชับ ดูสุขภาพดี"
+          ],
+          "ingredientsSummary": "Niacinamide, Acetyl Tyrosine, Actiwhite LS, Hydrafence, Alpha-Arbutin, Tranexamic Acid, Glutathione, Glycogen, Pea Extract, and Allantoin."
         },
         {
           "id": "sebotech",
@@ -298,7 +342,14 @@
             "นวัตกรรม 4R Acne Reset Technology เพื่อจัดการวงจรสิวอย่างครบวงจร",
             "Niacinamide PC ช่วยดูแลรอยสิวและผิวดูเรียบขึ้นภายใน 12 วัน"
           ],
-          "regNo": "74-1-6900005636"
+          "regNo": "74-1-6900005636",
+          "quickHighlights": [
+            "ลดการอุดตันสิวที่ต้นเหตุ",
+            "คุมมันและลดโอกาสเกิดสิวซ้ำ",
+            "ฟื้นเกราะผิวให้แข็งแรง ไม่แห้งตึง",
+            "ช่วยให้ผิวเรียบขึ้นและรอยสิวดูจางลง"
+          ],
+          "ingredientsSummary": "Polylysine, Salicylic Acid, Hyaluronate, Amino Acids, and Niacinamide PC."
         }
       ]
     },
@@ -344,7 +395,14 @@
             "4 Smart Functions ดูแลปัญหาฝ้า กระ จุดด่างดำ และรอยสิวครบ 4 ระดับ",
             "ผสาน P-Stellight, COBIOBRIGHT และ COBIO-αHA Complex เพื่อการดูแลเฉพาะจุด"
           ],
-          "regNo": "74-1-6800030342"
+          "regNo": "74-1-6800030342",
+          "quickHighlights": [
+            "ฝ้าเรื้อรัง กระ รอยดำ",
+            "ปัญหาเรื้อรัง วนลูป",
+            "ดูแลแบบตรงจุดอย่างแม่นยำ",
+            "ผิวบาง แพ้ง่ายใช้ได้"
+          ],
+          "ingredientsSummary": "P-Stellight™ (Smart Peptide), COBIOBRIGHT™ (Lucuma Extract), COBIO-αHA Complex (Natural AHA), Niacinamide, Squalane, Allantoin, Urea, and Oligosaccharide."
         },
         {
           "id": "acne-x0",
@@ -379,7 +437,14 @@
             "3 กลไก Calm & Clear, Acne Control และ Repair & Fade เพื่อดูแลสิวครบวงจร",
             "ช่วยลดการอักเสบ ลดเชื้อ C.acnes และฟื้นผิวพร้อมดูแลรอยสิว"
           ],
-          "regNo": "11-1-6400036407"
+          "regNo": "11-1-6400036407",
+          "quickHighlights": [
+            "สิวอักเสบยุบไว",
+            "สิวใหม่ไม่เกิดซ้ำ",
+            "ไม่ทิ้งรอยดำฝังผิว",
+            "เสริมเกราะผิวแข็งแรง"
+          ],
+          "ingredientsSummary": "Witch Hazel, Vitis Vinifera Juice Extract, Sphingomonas Ferment Extract, Ictasol, Hydrolyzed Rhodophyceae Extract, Tea Tree Leaf Oil, Dipotassium Glycyrrhizate, and Tocopheryl Acetate."
         }
       ]
     },
@@ -425,7 +490,13 @@
             "กันแดด Hybrid ปกป้อง UVA I, UVA II และ UVB ด้วย 5 สารกันแดดระดับโลก",
             "ผ่านการทดสอบ Hypoallergenic เหมาะกับผิวแพ้ง่ายและผิวเป็นสิวง่าย"
           ],
-          "regNo": "73-1-6800001902"
+          "regNo": "73-1-6800001902",
+          "quickHighlights": [
+            "กันแดดสำหรับผิวแพ้ง่ายและเป็นสิว",
+            "ลดระคายเคือง รอยแดง และความมันส่วนเกิน",
+            "ผิวชุ่มชื้น ไม่เหนอะ ไม่ทิ้งคราบขาว"
+          ],
+          "ingredientsSummary": "Tinosorb S Lite Aqua, Uvinul T 150, Sunobel OMC, Neutrazen™, Portulaca Extract, Allantoin, Desert Milk™, and Nelupure™."
         },
         {
           "id": "bio-youth",
@@ -460,7 +531,13 @@
             "ปกป้องครบ UVA/UVB, Blue Light และ Infrared สำหรับผิวบอบบางและผู้ที่เผชิญแดดจัด",
             "ผสานสารสกัดจากมะเขือเทศสีทองและฝัก Tara Tannins"
           ],
-          "regNo": "11-1-6700011120"
+          "regNo": "11-1-6700011120",
+          "quickHighlights": [
+            "ปกป้องครบ UVA/UVB, Blue Light และ Infrared",
+            "เหมาะกับผิวบอบบางที่เจอแดดจัด",
+            "ช่วยดูแลผิวหมองคล้ำและใช้เป็นเมคอัพเบสได้"
+          ],
+          "ingredientsSummary": "Golden Tomato Extract (Carotenoids) and Tara Tannins."
         },
         {
           "id": "8x-blonde",
@@ -495,7 +572,13 @@
             "All-in-one Primer, Foundation, Sunscreen และ Rejuvenation ในหนึ่งเดียว",
             "ผ่านการทดสอบ Dermatologist Tested และ SGS Certified"
           ],
-          "regNo": "10-1-6800024426"
+          "regNo": "10-1-6800024426",
+          "quickHighlights": [
+            "กันแดด รองพื้น และไพรเมอร์ในหนึ่งเดียว",
+            "ผิวดูเนียนสม่ำเสมอแบบ Invisible Finish",
+            "ช่วยปกป้องผิวและต้านอนุมูลอิสระระหว่างวัน"
+          ],
+          "ingredientsSummary": "Titanium Dioxide, Zinc Oxide, Silica, Butyrospermum Parkii (Shea Butter), Caesalpinia Spinosa Fruit Extract, Kappaphycus Alvarezii Extract, and Rosa Roxburghii Fruit Extract."
         }
       ]
     },
@@ -540,7 +623,14 @@
           "claims": [
             "แป้งบำรุงเนื้อโปร่งแสง ช่วยคุมมัน เติมความชุ่มชื้น และใช้ได้ทั้งกลางวันและกลางคืน"
           ],
-          "regNo": "74-1-6600035388"
+          "regNo": "74-1-6600035388",
+          "quickHighlights": [
+            "แป้งข้าวหน้าเด็ก ธรรมชาติ 100%",
+            "ล็อกผิวผ่อง เผยงานผิวธรรมชาติ",
+            "ใช้ได้ทั้งกลางวันและกลางคืน",
+            "ไม่อุดตันสะสมและไม่ก่อให้เกิดสิว"
+          ],
+          "ingredientsSummary": "Corn-derived powder and Soft Focus Effect Technology."
         },
         {
           "id": "ultra-bright",
@@ -575,7 +665,13 @@
             "Soft Focus Effect Technology ช่วยเบลอรูขุมขนและปรับผิวให้ดูสม่ำเสมอ",
             "ผสาน Fullerene, Bisabolol, Pearl Powder และ Coenzyme Q10"
           ],
-          "regNo": "10-1-6600034341"
+          "regNo": "10-1-6600034341",
+          "quickHighlights": [
+            "ช่วยให้ผิวดูสว่างและสม่ำเสมอ",
+            "เบลอรูขุมขนและริ้วรอยอย่างเป็นธรรมชาติ",
+            "พร้อมกันแดดและเติมผิวเนียนตลอดวัน"
+          ],
+          "ingredientsSummary": "Fullerene, Bisabolol, Pearl Powder, and Coenzyme Q10."
         },
         {
           "id": "lip-oil",
@@ -610,7 +706,13 @@
             "ผ่าน Dermatologist Test และ 9 Free From เพื่อการดูแลริมฝีปากอย่างอ่อนโยน",
             "ช่วยปกป้องริมฝีปากจากแสงแดดด้วย SPF15 PA++"
           ],
-          "regNo": "11-1-6800015069"
+          "regNo": "11-1-6800015069",
+          "quickHighlights": [
+            "บำรุงริมฝีปากให้ชุ่มชื้นและอิ่มฟู",
+            "ช่วยลดแห้งแตกและให้เนื้อสัมผัสเรียบลื่น",
+            "ปกป้องริมฝีปากจากแสงแดดด้วย SPF15 PA++"
+          ],
+          "ingredientsSummary": "15 Natural Oils, Sodium Hyaluronate, Tocopheryl Acetate, Ascorbyl Tetraisopalmitate, Grape Seed Oil, Argan Oil, Jojoba Seed Oil, Sweet Almond Oil, Rice Bran Oil, Macadamia Seed Oil, Meadowfoam Seed Oil, Avocado Oil, Evening Primrose Oil, and Pomegranate Flower Extract."
         }
       ]
     },
@@ -656,7 +758,13 @@
             "ผสาน TETRA SOD และ PYCNOGENOL เพื่อสนับสนุนการดูแลผิวจากภายใน",
             "ออกแบบเพื่อดูแลปัญหาฝ้า กระ รอยดำ และความไม่สม่ำเสมอของเม็ดสี"
           ],
-          "regNo": "73-1-11365-5-0275"
+          "regNo": "73-1-11365-5-0275",
+          "quickHighlights": [
+            "ดูแลฝ้า กระ และรอยดำจากภายใน",
+            "สนับสนุนผิวกระจ่างใส ตึงกระชับ",
+            "เสริมสารต้านอนุมูลอิสระระดับลึก"
+          ],
+          "ingredientsSummary": "Acerola Cherry Extract, Pomegranate Extract (Pomanox), Artichoke Extract, Blood Orange Extract, L-Glutathione, Indian Gooseberry Extract, Camu Camu Powder, Shitake Mushroom Powder, French Maritime Pine Bark Extract (Pycnogenol), Rice Extract (Phytocera), and Tetraselmis Chuii Algae Powder (TetraSOD)."
         },
         {
           "id": "wellsip",
@@ -691,7 +799,14 @@
             "สูตรสนับสนุนการเผาผลาญ ควบคุมการสะสมไขมันใหม่ และดูแลสมดุลลำไส้",
             "ผ่าน SGS Certified พร้อมโปรไบโอติกส์และสารสกัดจากธรรมชาติ"
           ],
-          "regNo": "10-1-10864-5-0105"
+          "regNo": "10-1-10864-5-0105",
+          "quickHighlights": [
+            "รีเซ็ตระบบภายใน",
+            "เบิร์นไขมันไว ใจไม่สั่น",
+            "น้ำหนักลดอย่างมีสุขภาพดี",
+            "รสชาติอร่อย รับประทานง่าย"
+          ],
+          "ingredientsSummary": "InstaKombu (Fermented Tea), EnXtra (Galangal Extract), Apple Cider Vinegar Powder, Green Tea Extract, L-Carnitine Fumarate, Fructo Oligosaccharide (Prebiotics), Inulin, Date Palm Powder, Apple Juice Powder, and Apple Fiber."
         }
       ]
     }

@@ -597,10 +597,9 @@ function initProductActionModal() {
   const imageEl = modal.querySelector('[data-modal-image]');
   const titleEl = modal.querySelector('[data-modal-title]');
   const subnameEl = modal.querySelector('[data-modal-subname]');
-  const descEl = modal.querySelector('[data-modal-description]');
+  const highlightsEl = modal.querySelector('[data-modal-highlights]');
+  const ingredientsEl = modal.querySelector('[data-modal-ingredients]');
   const regNoEl = modal.querySelector('[data-modal-regno]');
-  const metricsEl = modal.querySelector('[data-modal-metrics]');
-  const benefitsListEl = modal.querySelector('[data-modal-benefits]');
   const howToListEl = modal.querySelector('[data-modal-howto]');
   const promoBtn = modal.querySelector('[data-modal-action="promo"]');
   const infoBtn = modal.querySelector('[data-modal-action="info"]');
@@ -621,36 +620,16 @@ function initProductActionModal() {
     noticeEl.hidden = !message;
   };
 
-  const getBenefitPoints = (product) => {
-    const claims = Array.isArray(product?.claims) ? product.claims.filter(Boolean) : [];
-    if (claims.length >= 3) return claims.slice(0, 4);
-
-    const metricFallback = Array.isArray(product?.metrics)
-      ? product.metrics
-          .slice(0, Math.max(0, 3 - claims.length))
-          .map((metric) => `${metric.label} ระดับ LV ${metric.value}`)
-      : [];
-
-    return [...claims, ...metricFallback].slice(0, 4);
+  const getHighlightPoints = (product) => {
+    const items = Array.isArray(product?.quickHighlights) ? product.quickHighlights : [];
+    return items.filter(Boolean).slice(0, 5);
   };
 
   const getHowToItems = (product) => String(product?.howToUse || '')
     .split(/\n+/)
     .map((item) => item.trim().replace(/^[•▪■-]\s*/, ''))
     .filter(Boolean)
-    .slice(0, 3);
-
-  const getMetricSummary = (product) => {
-    const metrics = Array.isArray(product?.metrics) ? product.metrics.slice(0, 3) : [];
-    if (!metrics.length) return '<div class="product-action-empty">ดูรายละเอียดในส่วนประสิทธิภาพของสินค้า</div>';
-
-    return metrics.map((metric) => `
-      <div class="product-action-metric-row">
-        <span class="product-action-metric-label">${escapeHtml(metric.label || '')}</span>
-        <span class="product-action-metric-value">LV ${escapeHtml(metric.value || '')}</span>
-      </div>
-    `).join('');
-  };
+    .slice(0, 5);
 
   const getSoapModalProduct = (card) => {
     const soapProduct = PRODUCT_LOOKUP.get(card.dataset.productId);
@@ -718,21 +697,25 @@ function initProductActionModal() {
   };
 
   const openModal = (product) => {
-    if (!product || !imageEl || !titleEl || !subnameEl || !descEl || !regNoEl || !metricsEl) return;
+    if (!product || !imageEl || !titleEl || !subnameEl || !ingredientsEl || !regNoEl) return;
 
     state.product = product;
     titleEl.textContent = stripTrademark(product.name || '');
     subnameEl.innerHTML = renderSubnameBlock(product.id, product.subname || '', 'product-action-subname');
-    descEl.textContent = product.description || '';
+    if (highlightsEl) {
+      const points = getHighlightPoints(product);
+      highlightsEl.innerHTML = points.map((item) => `<li>${escapeHtml(item)}</li>`).join('');
+      highlightsEl.hidden = !points.length;
+    }
+    ingredientsEl.textContent = product.ingredientsSummary || '';
+    ingredientsEl.hidden = !product.ingredientsSummary;
     regNoEl.textContent = product.regNo ? `เลขที่จดแจ้ง ${product.regNo}` : '';
     regNoEl.hidden = !product.regNo;
-    metricsEl.innerHTML = getMetricSummary(product);
 
     imageEl.src = product.image || '';
     imageEl.alt = stripTrademark(product.name || 'Y8 Product');
     imageEl.dataset.fallbackTried = '';
 
-    renderList(benefitsListEl, getBenefitPoints(product));
     renderList(howToListEl, getHowToItems(product));
 
     setNotice('');
