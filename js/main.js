@@ -227,19 +227,9 @@ function createMetrics(metrics) {
 }
 
 function createEvidenceBlock(product) {
-  const claims = Array.isArray(product?.claims) ? product.claims.filter(Boolean).slice(0, 2) : [];
   const regNo = String(product?.regNo || '').trim();
-  if (!claims.length && !regNo) return '';
-
-  const claimHtml = claims.length
-    ? `<div class="product-evidence-list">${claims.map((claim) => `<div class="product-evidence-item">${escapeHtml(claim)}</div>`).join('')}</div>`
-    : '';
-
-  const regHtml = regNo
-    ? `<div class="product-regno">เลข อย. ${escapeHtml(regNo)}</div>`
-    : '';
-
-  return `<div class="product-evidence">${claimHtml}${regHtml}</div>`;
+  if (!regNo) return '';
+  return `<div class="product-evidence"><div class="product-regno">เลขที่จดแจ้ง ${escapeHtml(regNo)}</div></div>`;
 }
 
 function createHowToUse(howToUse) {
