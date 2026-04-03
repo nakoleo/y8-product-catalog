@@ -460,7 +460,7 @@ body {
 }
 
 .award-cert-grid img:first-child {
-  transform: translateX(8px);
+  transform: translateX(18px);
 }
 
 .awards-accordion {

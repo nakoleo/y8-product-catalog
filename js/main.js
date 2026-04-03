@@ -25,6 +25,14 @@ const MANUAL_TITLE_LINES = {
   'skincare-powder': ['SKINCARE', 'POWDER']
 };
 
+const MANUAL_SUBNAME_LINES = {
+  'derma-calm': ['SUN SHIELD ULTRA CLEAR UV', 'SPF 50 PA++++'],
+  'bio-youth': ['SUNSCREEN PROTECTION UV', 'SPF 50+ PA++++'],
+  '8x-blonde': ['PERFECTING SUNSCREEN PROTECTION', 'SPF 50+ PA++++'],
+  'ultra-bright': ['SOFT COMPACT POWDER', 'SPF 20 PA+++'],
+  'lip-oil': ['INSTANT PLUMPER CARE OIL', 'SPF15 PA++']
+};
+
 document.addEventListener('DOMContentLoaded', async () => {
   if (window.Y8_LIFF) {
     Y8_LIFF.init().catch(() => {});
@@ -123,9 +131,10 @@ function createProductCard(product) {
     <div class="product-body">
       ${createProductImageStage(product.image, stripTrademark(product.name), product.id)}
       ${renderTitleBlock(product.id, product.name, 'product-name')}
-      <div class="product-subname">${escapeHtml(stripTrademark(product.subname || ''))}</div>
+      ${renderSubnameBlock(product.id, product.subname || '', 'product-subname')}
       ${createMetrics(product.metrics || [])}
       ${product.description ? `<p class="product-desc">${escapeHtml(product.description)}</p>` : ''}
+      ${createEvidenceBlock(product)}
       ${createHowToUse(product.howToUse)}
     </div>
   `;
@@ -144,6 +153,8 @@ function createSoapGalleryCard(product) {
   card.dataset.defaultSubname = product.subname || '';
   card.dataset.defaultDescription = product.description || '';
   card.dataset.defaultMetrics = JSON.stringify(product.familyMetrics || []);
+  card.dataset.defaultClaims = JSON.stringify(product.claims || []);
+  card.dataset.defaultRegNo = product.regNo || '';
 
   const variants = product.variants || [];
   const thumbs = variants.map((variant, index) => `
@@ -157,11 +168,12 @@ function createSoapGalleryCard(product) {
       ${createProductImageStage(product.overviewImage, stripTrademark(product.name), product.id, 'soap-main-image', 'assets/images/products/y8-soap.png', 'eager')}
       <div class="soap-series-label">${escapeHtml(stripTrademark(product.seriesLabel || 'Y8 SOAP'))}</div>
       <div class="soap-title-slot">${renderTitleBlock(product.id, product.name, 'product-name soap-product-name')}</div>
-      <div class="product-subname soap-product-subname">${escapeHtml(stripTrademark(product.subname || ''))}</div>
+      ${renderSubnameBlock(product.id, product.subname || '', 'product-subname soap-product-subname')}
       <div class="soap-thumbs">${thumbs}</div>
       <div class="soap-slider-copy" data-soap-copy>
         ${createMetrics(product.variants?.[0]?.metrics || [])}
         <p class="product-desc soap-product-desc">${escapeHtml(product.description || '')}</p>
+        ${createEvidenceBlock(product)}
       </div>
       ${createHowToUse(product.howToUse)}
     </div>
@@ -212,6 +224,22 @@ function createMetrics(metrics) {
   }).join('');
 
   return `<div class="product-metrics">${rows}</div>`;
+}
+
+function createEvidenceBlock(product) {
+  const claims = Array.isArray(product?.claims) ? product.claims.filter(Boolean).slice(0, 2) : [];
+  const regNo = String(product?.regNo || '').trim();
+  if (!claims.length && !regNo) return '';
+
+  const claimHtml = claims.length
+    ? `<div class="product-evidence-list">${claims.map((claim) => `<div class="product-evidence-item">${escapeHtml(claim)}</div>`).join('')}</div>`
+    : '';
+
+  const regHtml = regNo
+    ? `<div class="product-regno">เลข อย. ${escapeHtml(regNo)}</div>`
+    : '';
+
+  return `<div class="product-evidence">${claimHtml}${regHtml}</div>`;
 }
 
 function createHowToUse(howToUse) {
@@ -415,13 +443,16 @@ function initSoapGalleries() {
 
     const mainImage = card.querySelector('.soap-main-image');
     const titleSlot = card.querySelector('.soap-title-slot');
-    const subnameEl = card.querySelector('.soap-product-subname');
     const copyEl = card.querySelector('[data-soap-copy]');
     const thumbs = Array.from(card.querySelectorAll('.soap-thumb'));
 
     const renderCopy = (metrics, description) => {
       if (!copyEl) return;
-      copyEl.innerHTML = `${createMetrics(metrics || [])}<p class="product-desc soap-product-desc">${escapeHtml(description || '')}</p>`;
+      const currentProduct = {
+        claims: safeJsonParse(card.dataset.currentClaims, []),
+        regNo: card.dataset.currentRegNo || ''
+      };
+      copyEl.innerHTML = `${createMetrics(metrics || [])}<p class="product-desc soap-product-desc">${escapeHtml(description || '')}</p>${createEvidenceBlock(currentProduct)}`;
     };
 
     const applyImage = (src, alt) => {
@@ -439,7 +470,9 @@ function initSoapGalleries() {
       if (titleSlot) {
         titleSlot.innerHTML = renderTitleBlock('y8-soap', card.dataset.defaultTitle || 'ADVANCED SKIN CORRECTIVE SOAP', 'product-name soap-product-name');
       }
-      if (subnameEl) subnameEl.textContent = stripTrademark(card.dataset.defaultSubname || '');
+      updateSubname('y8-soap', card.dataset.defaultSubname || '');
+      card.dataset.currentClaims = card.dataset.defaultClaims || '[]';
+      card.dataset.currentRegNo = card.dataset.defaultRegNo || '';
       renderCopy(safeJsonParse(card.dataset.defaultMetrics, []), card.dataset.defaultDescription || '');
     };
 
@@ -452,7 +485,9 @@ function initSoapGalleries() {
       if (titleSlot) {
         titleSlot.innerHTML = renderTitleBlock(variant.id || `soap-${index}`, variant.name || '', 'product-name soap-product-name');
       }
-      if (subnameEl) subnameEl.textContent = stripTrademark(variant.subname || '');
+      updateSubname(variant.id || `soap-${index}`, variant.subname || '');
+      card.dataset.currentClaims = JSON.stringify(variant.claims || []);
+      card.dataset.currentRegNo = variant.regNo || '';
       renderCopy(variant.metrics || [], variant.description || '');
     };
 
@@ -514,6 +549,14 @@ function renderTitleBlock(id, name, className) {
   return `<div class="${className} ${sizeClass}">${content}</div>`;
 }
 
+function renderSubnameBlock(id, subname, className) {
+  const lines = MANUAL_SUBNAME_LINES[id];
+  const cleaned = stripTrademark(subname || '');
+  if (!cleaned) return `<div class="${className}"></div>`;
+  if (!lines) return `<div class="${className}">${escapeHtml(cleaned)}</div>`;
+  return `<div class="${className}">${lines.map((line) => `<span class="product-subname-line">${escapeHtml(stripTrademark(line))}</span>`).join('')}</div>`;
+}
+
 function stripTrademark(text = '') {
   return String(text).replace(/[™]/g, '').replace(/\s{2,}/g, ' ').trim();
 }
@@ -553,3 +596,8 @@ window.handleProductImageError = function handleProductImageError(img) {
   img.style.display = 'none';
   img.parentElement?.classList.add('is-missing');
 };
+    const updateSubname = (id, subname) => {
+      const current = card.querySelector('.soap-product-subname');
+      if (!current) return;
+      current.outerHTML = renderSubnameBlock(id, subname || '', 'product-subname soap-product-subname');
+    };
