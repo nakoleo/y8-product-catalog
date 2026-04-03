@@ -1,4 +1,8 @@
 const STEP_ORDER = ['cleansing', 'health-skin', 'spot', 'sun', 'cosmetics', 'internal'];
+const EXTRA_NAV_ITEMS = [
+  { id: 'awards', step: 7, label: 'AWARDS' },
+  { id: 'membership', step: 8, label: 'LOYALTY' }
+];
 
 const MANUAL_TITLE_LINES = {
   'y8-soap': ['ADVANCED SKIN', 'CORRECTIVE SOAP'],
@@ -56,7 +60,7 @@ function renderStepNav(steps) {
   const stepNavList = document.getElementById('stepNavList');
   if (!stepNavList) return;
 
-  steps.forEach((step) => {
+  [...steps, ...EXTRA_NAV_ITEMS].forEach((step) => {
     const li = document.createElement('li');
     li.className = 'step-nav-item';
     li.dataset.target = step.id;
@@ -236,10 +240,10 @@ function initScrollUI() {
   const headerShell = document.getElementById('headerShell');
   const coverHero = document.getElementById('coverHero');
   const navItems = Array.from(document.querySelectorAll('.step-nav-item'));
-  const sections = Array.from(document.querySelectorAll('.step-section'));
   const navEl = document.querySelector('.step-nav');
   const btn = document.getElementById('backToTop');
-  if (!headerShell || !coverHero || !navEl || !navItems.length || !sections.length) return;
+  const trackedSections = Array.from(document.querySelectorAll('.step-section, #awards, #membership'));
+  if (!headerShell || !coverHero || !navEl || !navItems.length || !trackedSections.length) return;
 
   const setActive = (id) => {
     navItems.forEach((item) => item.classList.toggle('active', item.dataset.target === id));
@@ -260,11 +264,24 @@ function initScrollUI() {
 
     const brandH = document.querySelector('.brand-bar')?.offsetHeight || 0;
     const navH = navEl.offsetHeight || 0;
-    const offset = brandH + navH + 20;
-    let current = sections[0].id;
-    sections.forEach((section) => {
-      if (section.getBoundingClientRect().top <= offset) current = section.id;
-    });
+    const offset = brandH + navH + 28;
+    let current = trackedSections[0].id;
+
+    for (const section of trackedSections) {
+      const rect = section.getBoundingClientRect();
+      const top = rect.top;
+      const bottom = rect.bottom;
+
+      if (top <= offset && bottom > offset) {
+        current = section.id;
+        break;
+      }
+
+      if (top <= offset) {
+        current = section.id;
+      }
+    }
+
     setActive(current);
 
     if (btn) btn.classList.toggle('visible', window.scrollY > 900);
