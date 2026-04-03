@@ -78,6 +78,7 @@
   gap: 1px;
   text-align: center;
   color: #464d59;
+  font-weight: 700;
 }
 
 .product-name-line {
@@ -120,7 +121,7 @@
 }
 
 .product-metrics-block {
-  margin-bottom: 18px;
+  margin-bottom: 10px;
 }
 
 .product-metrics-panel {
