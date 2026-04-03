@@ -736,6 +736,24 @@ body {
   text-transform: uppercase;
 }
 
+
+.footer-privacy-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.52);
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 180ms ease, opacity 180ms ease;
+}
+
+.footer-privacy-link:hover,
+.footer-privacy-link:focus-visible {
+  color: rgba(255, 255, 255, 0.78);
+}
+
 .back-to-top {
   position: fixed;
   right: 16px;
