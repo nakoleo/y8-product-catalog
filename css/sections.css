@@ -459,6 +459,10 @@ body {
   object-fit: contain;
 }
 
+.award-cert-grid img:first-child {
+  transform: translateX(8px);
+}
+
 .awards-accordion {
   display: grid;
   gap: 12px;
