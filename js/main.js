@@ -600,7 +600,7 @@ function initProductActionModal() {
   const highlightsEl = modal.querySelector('[data-modal-highlights]');
   const ingredientsEl = modal.querySelector('[data-modal-ingredients]');
   const regNoEl = modal.querySelector('[data-modal-regno]');
-  const howToListEl = modal.querySelector('[data-modal-howto]');
+  const howToTextEl = modal.querySelector('[data-modal-howto]');
   const promoBtn = modal.querySelector('[data-modal-action="promo"]');
   const infoBtn = modal.querySelector('[data-modal-action="info"]');
   const noticeEl = modal.querySelector('[data-modal-notice]');
@@ -624,11 +624,12 @@ function initProductActionModal() {
     return items.filter(Boolean).slice(0, 5);
   };
 
-  const getHowToItems = (product) => String(product?.howToUse || '')
+  const getHowToParagraph = (product) => String(product?.howToUse || '')
     .split(/\n+/)
-    .map((item) => item.trim().replace(/^[•▪■-]\s*/, ''))
+    .map((item) => item.trim().replace(/^[•▪■-]\s*/, '').replace(/^\d+\.\s*/, ''))
     .filter(Boolean)
-    .slice(0, 5);
+    .slice(0, 5)
+    .join(' ');
 
   const getSoapModalProduct = (card) => {
     const soapProduct = PRODUCT_LOOKUP.get(card.dataset.productId);
@@ -666,16 +667,16 @@ function initProductActionModal() {
     };
   };
 
-  const renderList = (element, items) => {
+  const renderParagraph = (element, text) => {
     if (!element) return;
-    if (!items.length) {
-      element.innerHTML = '';
+    if (!text) {
+      element.textContent = '';
       element.closest('.product-action-section')?.setAttribute('hidden', 'hidden');
       return;
     }
 
     element.closest('.product-action-section')?.removeAttribute('hidden');
-    element.innerHTML = items.map((item) => `<li>${escapeHtml(item)}</li>`).join('');
+    element.textContent = text;
   };
 
   const hideModal = ({ fromPopState = false, keepHistory = false } = {}) => {
@@ -700,6 +701,10 @@ function initProductActionModal() {
     state.product = product;
     titleEl.textContent = stripTrademark(product.name || '');
     subnameEl.innerHTML = renderSubnameBlock(product.id, product.subname || '', 'product-action-subname');
+    if (dialog) {
+      dialog.scrollTo({ top: 0, behavior: 'auto' });
+    }
+
     if (highlightsEl) {
       const points = getHighlightPoints(product);
       highlightsEl.innerHTML = points.map((item) => `<li>${escapeHtml(item)}</li>`).join('');
@@ -714,7 +719,7 @@ function initProductActionModal() {
     imageEl.alt = stripTrademark(product.name || 'Y8 Product');
     imageEl.dataset.fallbackTried = '';
 
-    renderList(howToListEl, getHowToItems(product));
+    renderParagraph(howToTextEl, getHowToParagraph(product));
 
     setNotice('');
 
@@ -759,11 +764,11 @@ function initProductActionModal() {
       }
     }
 
-    setNotice('กำลังเปิดแชต LINE OA สำหรับสอบถามข้อมูลเพิ่มเติม', 'info');
+    setNotice('กำลังเปิดแชต LINE OA พร้อมข้อความให้กดส่งได้ทันที', 'info');
     window.setTimeout(() => {
       hideModal({ keepHistory: true, fromPopState: true });
       if (window.Y8_LIFF) {
-        Y8_LIFF.openLineOaChat();
+        Y8_LIFF.openLineOaChat(message);
       }
     }, 180);
   };

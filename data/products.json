@@ -99,7 +99,7 @@
                 "ผลัดผิวอย่างอ่อนโยนโดยไม่ทำให้ผิวแห้งตึง",
                 "ผิวดูสม่ำเสมอและสุขภาพดีขึ้นเมื่อใช้ต่อเนื่อง"
               ],
-              "ingredientsSummary": "Melavoid, Tranexamic Acid, Niacinamide, LHA, PHA, Dipotassium Glycyrrhizinate, Cereus Grandiflorus Extract, Garcinia Mangostana Peel Extract, Saccharum Officinarum Extract, Pyrus Malus Fruit Extract, and Boerhavia Diffusa Root Extract."
+              "ingredientsSummary": "Melavoid, Tranexamic Acid, Niacinamide, Gluconolactone, Capryloyl Salicylic Acid, Dipotassium Glycyrrhizinate, Cereus Grandiflorus Extract, Garcinia Mangostana Peel Extract, Saccharum Officinarum Extract, Pyrus Malus Fruit Extract, and Boerhavia Diffusa Root Extract."
             },
             {
               "id": "soap-green",
@@ -307,7 +307,7 @@
             "ผิวอิ่มฟู ชุ่มชื้นยาวนาน",
             "ผิวเฟิร์ม กระชับ ดูสุขภาพดี"
           ],
-          "ingredientsSummary": "Niacinamide, Acetyl Tyrosine, Actiwhite LS, Hydrafence, Alpha-Arbutin, Tranexamic Acid, Glutathione, Glycogen, Pea Extract, and Allantoin."
+          "ingredientsSummary": "Niacinamide, Acetyl Tyrosine, Actiwhite LS, Hydrafence, Alpha-Arbutin, Tranexamic Acid, Glutathione, Glycogen, Pisum Sativum (Pea) Extract, and Allantoin."
         },
         {
           "id": "sebotech",
@@ -402,7 +402,7 @@
             "ดูแลแบบตรงจุดอย่างแม่นยำ",
             "ผิวบาง แพ้ง่ายใช้ได้"
           ],
-          "ingredientsSummary": "P-Stellight™ (Smart Peptide), COBIOBRIGHT™ (Lucuma Extract), COBIO-αHA Complex (Natural AHA), Niacinamide, Squalane, Allantoin, Urea, and Oligosaccharide."
+          "ingredientsSummary": "P-Stellight™ (Smart Peptide), COBIOBRIGHT™ (Lucuma Extract), COBIO-αHA Complex (Natural AHA), Niacinamide, Squalane, Urea, Oligosaccharide, Hyaluronic Acid, and Allantoin."
         },
         {
           "id": "acne-x0",
@@ -712,7 +712,7 @@
             "ช่วยลดแห้งแตกและให้เนื้อสัมผัสเรียบลื่น",
             "ปกป้องริมฝีปากจากแสงแดดด้วย SPF15 PA++"
           ],
-          "ingredientsSummary": "15 Natural Oils, Sodium Hyaluronate, Tocopheryl Acetate, Ascorbyl Tetraisopalmitate, Grape Seed Oil, Argan Oil, Jojoba Seed Oil, Sweet Almond Oil, Rice Bran Oil, Macadamia Seed Oil, Meadowfoam Seed Oil, Avocado Oil, Evening Primrose Oil, and Pomegranate Flower Extract."
+          "ingredientsSummary": "15 Natural Oils, Sodium Hyaluronate, Tocopheryl Acetate, Ascorbyl Tetraisopalmitate, Vitis Vinifera Seed Oil, Argania Spinosa Kernel Oil, Helianthus Annuus Seed Oil, Simmondsia Chinensis Seed Oil, Prunus Amygdalus Dulcis Oil, Oryza Sativa Bran Oil, Limnanthes Alba Seed Oil, Persea Gratissima Oil, Oenothera Biennis Oil, and Punica Granatum Flower Extract."
         }
       ]
     },
@@ -764,7 +764,7 @@
             "สนับสนุนผิวกระจ่างใส ตึงกระชับ",
             "เสริมสารต้านอนุมูลอิสระระดับลึก"
           ],
-          "ingredientsSummary": "Acerola Cherry Extract, Pomegranate Extract (Pomanox), Artichoke Extract, Blood Orange Extract, L-Glutathione, Indian Gooseberry Extract, Camu Camu Powder, Shitake Mushroom Powder, French Maritime Pine Bark Extract (Pycnogenol), Rice Extract (Phytocera), and Tetraselmis Chuii Algae Powder (TetraSOD)."
+          "ingredientsSummary": "Acerola Cherry Extract, Pomegranate Extract (Pomanox), Artichoke Extract, Blood Orange Extract (Red Orange Complex), L-Glutathione, Indian Gooseberry Extract, Camu Camu Powder, Shitake Mushroom Powder, French Maritime Pine Bark Extract (Pycnogenol), Rice Extract (Phytocera), and Tetraselmis Chuii Algae Powder (TetraSOD)."
         },
         {
           "id": "wellsip",

@@ -131,10 +131,13 @@ const Y8_LIFF = (() => {
 
   const openExternalUrl = (url) => openUrl(url, { external: true });
 
-  const openLineOaChat = () => {
-    const lineOaUrl = getConfig().lineOaUrl || '';
-    if (!lineOaUrl) return;
-    openUrl(lineOaUrl, { external: false });
+  const openLineOaChat = (message = '') => {
+    const { lineOaUrl = '', lineOaId = '' } = getConfig();
+    const url = message && lineOaId
+      ? `https://line.me/R/oaMessage/${encodeURIComponent(lineOaId)}/?${encodeURIComponent(message)}`
+      : lineOaUrl;
+    if (!url) return;
+    openUrl(url, { external: false });
   };
 
   const closeWindow = () => {
