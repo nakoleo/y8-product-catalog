@@ -233,15 +233,16 @@ function createHowToUse(howToUse) {
 
 function initCoverScrollCue() {
   const cue = document.getElementById('coverScrollCue');
-  const founder = document.getElementById('founderSection');
-  if (!cue || !founder) return;
-  cue.addEventListener('click', () => founder.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  const transitionScene = document.getElementById('transitionScene');
+  if (!cue || !transitionScene) return;
+  cue.addEventListener('click', () => transitionScene.scrollIntoView({ behavior: 'smooth', block: 'start' }));
 }
 
 function initScrollUI() {
   const headerShell = document.getElementById('headerShell');
   const coverHero = document.getElementById('coverHero');
   const transitionScene = document.getElementById('transitionScene');
+  const founderSection = document.getElementById('founderSection');
   const transitionLayer = transitionScene?.querySelector('.transition-scene-layer');
   const transitionYoung = transitionScene?.querySelector('.transition-word-young');
   const transitionAge = transitionScene?.querySelector('.transition-word-age');
@@ -266,8 +267,10 @@ function initScrollUI() {
 
   const update = () => {
     ticking = false;
-    const threshold = coverHero.offsetHeight - 72;
-    const headerVisible = window.scrollY > Math.max(120, threshold);
+    const founderTrigger = founderSection
+      ? founderSection.getBoundingClientRect().top + window.scrollY - 120
+      : coverHero.offsetHeight - 72;
+    const headerVisible = window.scrollY > Math.max(120, founderTrigger);
     headerShell.classList.toggle('is-visible', headerVisible);
     headerShell.setAttribute('aria-hidden', headerVisible ? 'false' : 'true');
 
@@ -298,15 +301,15 @@ function initScrollUI() {
     if (!reducedMotion && transitionScene && transitionLayer && transitionYoung && transitionAge && transitionStart) {
       const rect = transitionScene.getBoundingClientRect();
       const vh = window.innerHeight || 1;
-      const progress = clamp((vh - rect.top) / (vh + rect.height * 0.58), 0, 1);
-      const layerOpacity = clamp(progress * 1.18, 0, 1);
-      const layerY = 56 - progress * 56;
+      const progress = clamp((-rect.top) / Math.max(1, rect.height - vh), 0, 1);
+      const layerOpacity = clamp(progress * 1.45, 0, 1);
+      const layerY = 32 - progress * 32;
       transitionLayer.style.opacity = layerOpacity.toFixed(3);
       transitionLayer.style.transform = `translate3d(0, ${layerY.toFixed(2)}px, 0)`;
 
-      applyTransitionWord(transitionYoung, progress, 0.04, 0.3, 'float');
-      applyTransitionWord(transitionAge, progress, 0.27, 0.56, 'float');
-      applyTransitionWord(transitionStart, progress, 0.55, 0.88, 'start');
+      applyTransitionWord(transitionYoung, progress, 0.06, 0.34, 'float');
+      applyTransitionWord(transitionAge, progress, 0.34, 0.62, 'float');
+      applyTransitionWord(transitionStart, progress, 0.62, 0.9, 'start');
     }
 
     if (!reducedMotion) {
@@ -341,9 +344,9 @@ function applyTransitionWord(element, progress, start, end, mode) {
   if (local <= 0 || local >= 1) {
     element.style.opacity = local >= 1 ? '0' : '0';
     if (mode === 'start') {
-      element.style.transform = 'translate3d(0, 52px, 0) scale(0.88)';
+      element.style.transform = 'translate3d(0, 68px, 0) scale(0.82)';
     } else {
-      element.style.transform = 'translate3d(0, 30px, 0) scale(0.98)';
+      element.style.transform = 'translate3d(0, 34px, 0) scale(0.975)';
     }
     return;
   }
@@ -353,13 +356,13 @@ function applyTransitionWord(element, progress, start, end, mode) {
   let scale;
 
   if (mode === 'start') {
-    opacity = local < 0.42 ? local / 0.42 : 1 - ((local - 0.42) / 0.58) * 0.85;
-    translateY = 60 - local * 74;
-    scale = 0.84 + local * 0.24;
+    opacity = local < 0.36 ? local / 0.36 : 1 - ((local - 0.36) / 0.64) * 0.8;
+    translateY = 72 - local * 86;
+    scale = 0.8 + local * 0.24;
   } else {
-    opacity = local < 0.46 ? local / 0.46 : 1 - ((local - 0.46) / 0.54);
-    translateY = 26 - local * 46;
-    scale = 0.985 + local * 0.03;
+    opacity = local < 0.34 ? local / 0.34 : 1 - ((local - 0.34) / 0.66);
+    translateY = 24 - local * 52;
+    scale = 0.975 + local * 0.035;
   }
 
   element.style.opacity = clamp(opacity, 0, 1).toFixed(3);

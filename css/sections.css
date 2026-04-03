@@ -136,17 +136,24 @@ body {
 
 .transition-scene {
   position: relative;
-  min-height: 100svh;
+  min-height: 235svh;
   background: #ffffff;
+  overflow: clip;
+}
+
+.transition-scene-stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
   overflow: clip;
 }
 
 .transition-scene-layer {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, #ffffff 36%, #ffffff 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, #ffffff 34%, #ffffff 100%);
   opacity: 0;
-  transform: translateY(56px);
+  transform: translateY(32px);
   will-change: opacity, transform;
 }
 
@@ -159,7 +166,7 @@ body {
   font-size: clamp(46px, 15vw, 92px);
   line-height: 0.9;
   letter-spacing: 0.12em;
-  color: #5b6270;
+  color: #59616f;
   opacity: 0;
   transform: translate3d(0, 32px, 0) scale(0.98);
   will-change: opacity, transform;
@@ -271,12 +278,13 @@ body {
 }
 
 .founder-section {
-  padding: 28px 0 54px;
-  background: linear-gradient(180deg, #e9e9ed 0%, #eaeaea 48%, #ffffff 100%);
+  padding: 88px 0 64px;
+  background: linear-gradient(180deg, #ffffff 0%, #f2f2f4 16%, #e9e9ed 38%, #eaeaea 58%, #ffffff 100%);
 }
 
 .founder-hero-frame {
   width: 100%;
+  padding-top: 10px;
 }
 
 .founder-hero-frame img {

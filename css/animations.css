@@ -38,6 +38,17 @@
   transform: translateY(0);
 }
 
+.founder-hero-frame {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 820ms ease, transform 920ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.founder-hero-frame.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .cover-scroll-cue {
   animation: coverCueFloat 2.8s ease-in-out infinite;
 }
