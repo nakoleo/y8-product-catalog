@@ -45,9 +45,18 @@ body {
 .cover-hero-logo-shell {
   position: relative;
   width: min(72vw, 300px);
-  transform: translate3d(0, -10px, 0);
+  --scroll-logo-shell-y: 0px;
+  --scroll-logo-shell-scale: 1;
+  --scroll-logo-image-y: 0px;
+  --scroll-logo-image-scale: 1;
+  --scroll-logo-glow-y: 0px;
+  --scroll-logo-glow-scale: 1;
+  --scroll-logo-glow-opacity: 1;
+  --scroll-logo-shadow-scale: 1;
+  --scroll-logo-shadow-opacity: 1;
+  transform: translate3d(0, calc(-10px + var(--scroll-logo-shell-y)), 0) scale(var(--scroll-logo-shell-scale));
   animation: coverLogoFloat 7.5s ease-in-out infinite;
-  will-change: transform;
+  will-change: transform, opacity;
 }
 
 .cover-hero-logo-shell::before {
@@ -58,7 +67,8 @@ body {
   background:
     radial-gradient(circle, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.08) 28%, rgba(255, 255, 255, 0) 68%);
   filter: blur(22px);
-  transform: translate3d(0, 16px, 0);
+  transform: translate3d(0, calc(16px + var(--scroll-logo-glow-y)), 0) scale(var(--scroll-logo-glow-scale));
+  opacity: var(--scroll-logo-glow-opacity);
 }
 
 .cover-hero-logo-shell::after {
@@ -71,6 +81,28 @@ body {
   border-radius: 999px;
   background: radial-gradient(circle, rgba(14, 18, 24, 0.46) 0%, rgba(14, 18, 24, 0.16) 42%, rgba(14, 18, 24, 0) 78%);
   filter: blur(16px);
+  transform: scale(var(--scroll-logo-shadow-scale));
+  opacity: var(--scroll-logo-shadow-opacity);
+}
+
+.cover-hero-logo-sheen {
+  position: absolute;
+  inset: 8% 10%;
+  z-index: 2;
+  border-radius: 50%;
+  overflow: hidden;
+  mix-blend-mode: screen;
+  opacity: 0.42;
+  pointer-events: none;
+}
+
+.cover-hero-logo-sheen::before {
+  content: '';
+  position: absolute;
+  inset: -8% -30%;
+  background: linear-gradient(112deg, rgba(255, 255, 255, 0) 22%, rgba(255, 255, 255, 0.06) 36%, rgba(255, 255, 255, 0.22) 50%, rgba(255, 255, 255, 0.08) 62%, rgba(255, 255, 255, 0) 76%);
+  transform: translate3d(-122%, 0, 0) rotate(-8deg);
+  filter: blur(5px);
 }
 
 .cover-hero-logo {
@@ -79,7 +111,7 @@ body {
   display: block;
   width: 100%;
   height: auto;
-  transform: translateZ(0);
+  transform: translate3d(0, var(--scroll-logo-image-y), 0) scale(var(--scroll-logo-image-scale));
   opacity: 0.74;
   filter:
     drop-shadow(0 1px 0 rgba(255, 255, 255, 0.54))

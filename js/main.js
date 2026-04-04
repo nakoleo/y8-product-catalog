@@ -325,6 +325,7 @@ function initScrollUI() {
   const coverHero = document.getElementById('coverHero');
   const coverArt = coverHero?.querySelector('.cover-hero-art');
   const coverLogoShell = coverHero?.querySelector('.cover-hero-logo-shell');
+  const coverLogo = coverHero?.querySelector('.cover-hero-logo');
   const coverProduces = coverHero?.querySelector('.cover-hero-produces');
   const coverScrollCue = document.getElementById('coverScrollCue');
   const transitionScene = document.getElementById('transitionScene');
@@ -408,11 +409,29 @@ function initScrollUI() {
 
       if (coverLogoShell) {
         const logoProgress = clamp((coverProgress - 0.3) / 0.62, 0, 1);
-        const logoY = -logoProgress * 126;
-        const logoScale = 1 - logoProgress * 0.06;
+        const logoShellY = -logoProgress * 126;
+        const logoShellScale = 1 - logoProgress * 0.06;
+        const logoImageY = -logoProgress * 24;
+        const logoImageScale = 1 - logoProgress * 0.024;
         const logoOpacity = clamp(1 - logoProgress * 1.12, 0, 1);
-        coverLogoShell.style.transform = `translate3d(0, ${(-10 + logoY).toFixed(2)}px, 0) scale(${logoScale.toFixed(3)})`;
+        const glowY = logoProgress * 10;
+        const glowScale = 1 + logoProgress * 0.09;
+        const glowOpacity = 1 - logoProgress * 0.22;
+        const shadowScale = 1 - logoProgress * 0.18;
+        const shadowOpacity = 1 + logoProgress * 0.16;
+        coverLogoShell.style.setProperty('--scroll-logo-shell-y', `${logoShellY.toFixed(2)}px`);
+        coverLogoShell.style.setProperty('--scroll-logo-shell-scale', `${logoShellScale.toFixed(3)}`);
+        coverLogoShell.style.setProperty('--scroll-logo-glow-y', `${glowY.toFixed(2)}px`);
+        coverLogoShell.style.setProperty('--scroll-logo-glow-scale', `${glowScale.toFixed(3)}`);
+        coverLogoShell.style.setProperty('--scroll-logo-glow-opacity', `${glowOpacity.toFixed(3)}`);
+        coverLogoShell.style.setProperty('--scroll-logo-shadow-scale', `${shadowScale.toFixed(3)}`);
+        coverLogoShell.style.setProperty('--scroll-logo-shadow-opacity', `${shadowOpacity.toFixed(3)}`);
         coverLogoShell.style.opacity = logoOpacity.toFixed(3);
+
+        if (coverLogo) {
+          coverLogo.style.setProperty('--scroll-logo-image-y', `${logoImageY.toFixed(2)}px`);
+          coverLogo.style.setProperty('--scroll-logo-image-scale', `${logoImageScale.toFixed(3)}`);
+        }
       }
 
       if (coverArt) {
