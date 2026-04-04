@@ -220,6 +220,21 @@
   text-align: left;
 }
 
+.product-desc-soap p {
+  margin: 0 0 14px;
+}
+
+.product-desc-list {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 10px;
+}
+
+.product-desc-list li {
+  padding-left: 2px;
+}
+
 .product-evidence {
   margin: 4px 6px 18px;
   padding: 0;
@@ -571,6 +586,15 @@ body.modal-open {
 .product-action-highlight-list li:first-child {
   border-top: 0;
   box-shadow: none;
+}
+
+.product-action-highlight-list.is-soap-overview {
+  text-align: left;
+}
+
+.product-action-highlight-list.is-soap-overview li {
+  padding-left: 14px;
+  padding-right: 14px;
 }
 
 .product-action-ingredients {

@@ -157,6 +157,23 @@ function createProductCard(product) {
   return card;
 }
 
+function renderProductDescription(product, description) {
+  const text = String(description || '').trim();
+  if (!text) return '';
+
+  if (product?.id === 'y8-soap') {
+    const parts = text.split(/\n{2,}/).map((item) => item.trim()).filter(Boolean);
+    const intro = parts[0] || '';
+    const items = parts.slice(1).join('\n').split(/\n+/).map((item) => item.trim()).filter(Boolean);
+    const list = items.length
+      ? `<ol class="product-desc-list">${items.map((item) => `<li>${escapeHtml(item.replace(/^\d+\.\s*/, ''))}</li>`).join('')}</ol>`
+      : '';
+    return `<div class="product-desc product-desc-soap">${intro ? `<p>${escapeHtml(intro)}</p>` : ''}${list}</div>`;
+  }
+
+  return `<p class="product-desc">${escapeHtml(text)}</p>`;
+}
+
 function createSoapGalleryCard(product) {
   const card = document.createElement('article');
   card.className = 'product-card product-card-soap collapsed product-name-long';
@@ -517,7 +534,10 @@ function initSoapGalleries() {
         claims: safeJsonParse(card.dataset.currentClaims, []),
         regNo: card.dataset.currentRegNo || ''
       };
-      copyEl.innerHTML = `<p class="product-desc soap-product-desc">${escapeHtml(description || '')}</p>${createEvidenceBlock(currentProduct)}${createMetrics(metrics || [])}`;
+      const descHtml = card.dataset.currentIndex === '-1'
+        ? renderProductDescription({ id: 'y8-soap' }, description || '')
+        : `<p class="product-desc soap-product-desc">${escapeHtml(description || '')}</p>`;
+      copyEl.innerHTML = `${descHtml}${createEvidenceBlock(currentProduct)}${createMetrics(metrics || [])}`;
       if (window.CardToggle) CardToggle.refresh(card);
     };
 
@@ -718,6 +738,7 @@ function initProductActionModal() {
       const points = getHighlightPoints(product);
       highlightsEl.innerHTML = points.map((item) => `<li>${escapeHtml(item)}</li>`).join('');
       highlightsEl.hidden = !points.length;
+      highlightsEl.classList.toggle('is-soap-overview', product.id === 'y8-soap');
     }
     ingredientsEl.textContent = product.ingredientsSummary || '';
     ingredientsEl.hidden = !product.ingredientsSummary;
