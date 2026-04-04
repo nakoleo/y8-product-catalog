@@ -73,6 +73,24 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 14px;
+  z-index: 260;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.96);
+  color: #2f3641;
+  box-shadow: 0 10px 24px rgba(20, 25, 32, 0.14);
+  transform: translateY(-140%);
+  transition: transform 180ms ease;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
 img {
   display: block;
   max-width: 100%;

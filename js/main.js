@@ -78,10 +78,12 @@ function renderStepNav(steps) {
     li.className = 'step-nav-item';
     li.dataset.target = step.id;
     li.innerHTML = `
-      <span class="step-nav-num">0${step.step}</span>
-      <span class="step-nav-label">${escapeHtml(stripTrademark(step.label))}</span>
+      <button class="step-nav-trigger" type="button" aria-label="ไปยังหมวด ${escapeHtml(stripTrademark(step.label))}">
+        <span class="step-nav-num">0${step.step}</span>
+        <span class="step-nav-label">${escapeHtml(stripTrademark(step.label))}</span>
+      </button>
     `;
-    li.addEventListener('click', () => scrollToSection(step.id));
+    li.querySelector('.step-nav-trigger')?.addEventListener('click', () => scrollToSection(step.id));
     stepNavList.appendChild(li);
   });
 }
@@ -113,7 +115,7 @@ function createSection(step) {
   const iconHtml = step.icon
     ? `
       <div class="section-icon-wrap">
-        <img src="${step.icon}" alt="${escapeHtml(step.label)} icon" loading="eager" onerror="this.style.display='none'; this.parentElement.classList.add('is-missing');" />
+        <img src="${step.icon}" alt="${escapeHtml(step.label)} icon" loading="eager" width="108" height="108" onerror="this.style.display='none'; this.parentElement.classList.add('is-missing');" />
         <span class="section-icon-fallback">0${step.step}</span>
       </div>`
     : `<div class="section-icon-wrap is-missing"><span class="section-icon-fallback">0${step.step}</span></div>`;
@@ -195,7 +197,7 @@ function createSoapGalleryCard(product) {
     </button>
   ` + variants.map((variant, index) => `
     <button class="soap-thumb" type="button" data-index="${index}" aria-label="${escapeHtml(stripTrademark(variant.name))}">
-      <img src="${variant.image}" alt="${escapeHtml(stripTrademark(variant.name))}" loading="lazy" onerror="this.style.visibility='hidden'" />
+      <img src="${variant.image}" alt="${escapeHtml(stripTrademark(variant.name))}" loading="lazy" width="1024" height="1024" onerror="this.style.visibility='hidden'" />
     </button>
   `).join('');
 
@@ -237,6 +239,8 @@ function createProductImageStage(src, alt, productId, extraClass = '', fallbackS
             src="${src}"
             alt="${escapeHtml(alt)}"
             loading="${loading}"
+            width="1024"
+            height="1024"
             onerror="handleProductImageError(this)"
           />
         </div>
@@ -347,7 +351,15 @@ function initScrollUI() {
   if (!headerShell || !coverHero || !navEl || !navItems.length || !trackedSections.length) return;
 
   const setActive = (id) => {
-    navItems.forEach((item) => item.classList.toggle('active', item.dataset.target === id));
+    navItems.forEach((item) => {
+      const active = item.dataset.target === id;
+      item.classList.toggle('active', active);
+      if (active) {
+        item.querySelector('.step-nav-trigger')?.setAttribute('aria-current', 'page');
+      } else {
+        item.querySelector('.step-nav-trigger')?.removeAttribute('aria-current');
+      }
+    });
     const activeItem = navItems.find((item) => item.dataset.target === id);
     if (!activeItem) return;
     const scrollLeft = activeItem.offsetLeft - navEl.offsetWidth / 2 + activeItem.offsetWidth / 2;
@@ -681,8 +693,18 @@ function initProductActionModal() {
   const state = {
     isOpen: false,
     historyPushed: false,
-    product: null
+    product: null,
+    lastFocused: null
   };
+  const inertSiblings = Array.from(document.body.children).filter((element) => element !== modal && element.tagName !== 'SCRIPT');
+  const focusableSelector = [
+    'a[href]',
+    'button:not([disabled])',
+    'textarea:not([disabled])',
+    'input:not([disabled])',
+    'select:not([disabled])',
+    '[tabindex]:not([tabindex="-1"])'
+  ].join(',');
 
   const setNotice = (message = '', type = 'info') => {
     if (!noticeEl) return;
@@ -778,7 +800,11 @@ function initProductActionModal() {
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('modal-open');
+    inertSiblings.forEach((element) => {
+      element.inert = false;
+    });
     setNotice('');
+    state.lastFocused?.focus?.();
   };
 
   const openModal = (product) => {
@@ -817,6 +843,10 @@ function initProductActionModal() {
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
+    state.lastFocused = document.activeElement;
+    inertSiblings.forEach((element) => {
+      element.inert = true;
+    });
     state.isOpen = true;
 
     if (!state.historyPushed) {
@@ -901,7 +931,27 @@ function initProductActionModal() {
 
   document.addEventListener('keydown', (event) => {
     if (!state.isOpen) return;
-    if (event.key === 'Escape') hideModal();
+    if (event.key === 'Escape') {
+      hideModal();
+      return;
+    }
+    if (event.key !== 'Tab' || !dialog) return;
+
+    const focusable = Array.from(dialog.querySelectorAll(focusableSelector))
+      .filter((element) => !element.hasAttribute('disabled') && element.getAttribute('aria-hidden') !== 'true');
+    if (!focusable.length) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    const active = document.activeElement;
+
+    if (event.shiftKey && active === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && active === last) {
+      event.preventDefault();
+      first.focus();
+    }
   });
 
   window.addEventListener('popstate', () => {
