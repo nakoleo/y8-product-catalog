@@ -714,14 +714,14 @@ body.modal-open {
 }
 
 .chrome-btn-shop::before {
-  background: linear-gradient(180deg, #ef5538 0%, #e34124 100%);
+  background: #d9021b;
 }
 
 .chrome-btn-shop {
   min-height: 48px;
   color: #ffffff;
-  border-color: rgba(185, 42, 21, 0.42);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 12px 24px rgba(161, 48, 28, 0.2);
+  border-color: rgba(161, 0, 20, 0.5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 12px 24px rgba(131, 8, 24, 0.22);
 }
 
 .chrome-btn-shop span,
