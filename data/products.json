@@ -14,7 +14,7 @@
           "name": "FINE ANTI-ACNE",
           "subname": "DETOXIFYING CLEANSING GEL",
           "image": "assets/images/products/web/fine-antiacne.png",
-          "howToUse": "บีบเจลในปริมาณที่เหมาะสม\nผสมน้ำ นวดเบา ๆ ให้ทั่วใบหน้า 30 วินาที\nล้างออก ใช้เป็นประจำ เช้า-เย็น",
+          "howToUse": "บีบเจลล้างหน้าลงบนฝ่ามือเล็กน้อย ผสมน้ำและตีฟองเบา ๆ นวดทำความสะอาดทั่วใบหน้าอย่างอ่อนโยน แล้วล้างออกด้วยน้ำสะอาด ใช้เป็นประจำ เช้า-เย็น เพื่อผลลัพธ์ที่ดีที่สุด",
           "description": "เจลล้างหน้าสูตรอ่อนโยนพิเศษสำหรับผิวแพ้ง่าย ให้มากกว่าแค่การล้างหน้า ด้วยพลัง Detoxifying ช่วยขจัดสารพิษและมลภาวะตกค้าง พร้อม Cleansing ล้างเมคอัพ สิ่งสกปรก และความมันส่วนเกินได้หมดจด ลดการอุดตัน เสริมด้วย Balancing ช่วยปรับสมดุลผิว และคงความชุ่มชื้น ปราศจาก SLS & SLEs ลดโอกาสการระคายเคืองจากสารทำความสะอาดที่รุนแรง",
           "metrics": [
             {
@@ -47,9 +47,9 @@
             "ล้างพิษผิวอย่างอ่อนโยน",
             "ผิวสะอาดหมด ไม่แห้งตึง",
             "สูตรอ่อนโยน ผิวเป็นสิวใช้ได้",
-            "ช่วยให้ผิวรับการบำรุงได้ดีขึ้น"
+            "ให้ผิวรับการบำรุงได้ดีขึ้น"
           ],
-          "ingredientsSummary": "Aurafirm P, Biodtox, MC-BNC, DSCERIX 5, Moistshield HA, BiosecureC160S, Biogenic SA-200, and Amiperfect ER."
+          "ingredientsSummary": "MC-BNC, Biosecur® C160S, Amiperfect ER, BioDTox®, MoistShield™ HA, Encapsulate Salicylic Acid, DS-CERIX 5, and Aurafirm P."
         },
         {
           "id": "y8-soap",
@@ -95,11 +95,12 @@
               ],
               "regNo": "10-1-6700036262",
               "quickHighlights": [
-                "ดูแลฝ้า กระ และจุดด่างดำเรื้อรัง",
-                "ผลัดผิวอย่างอ่อนโยนโดยไม่ทำให้ผิวแห้งตึง",
-                "ผิวดูสม่ำเสมอและสุขภาพดีขึ้นเมื่อใช้ต่อเนื่อง"
+                "ออกแบบมาสำหรับคนที่มีปัญหาฝ้า กระ จุดด่างดำลึกขั้นเรื้อรัง",
+                "ผลัดเซลล์ผิวอย่างอ่อนโยน โดยไม่ทำให้ผิวบางหรือไวต่อแดด",
+                "เทคโนโลยี LHA + Melavoid™ ลดการสร้างเม็ดสีเมลานินจากต้นเหตุ",
+                "ลดความมันส่วนเกิน ฟื้นฟูเกราะผิว ลดโอกาสฝ้ากลับมาเข้มขึ้น"
               ],
-              "ingredientsSummary": "Aqua, Sodium Myristate, Sodium Laurate, Glycerine, Propylene Glycol, Niacinamide, Tranexamic Acid, Triethanolamine, Cocamidopropyl Betaine, Gluconolactone, Ethylhexylglycerin, Propanediol, Cereus Grandiflorus Extract, Dipotassium Glycyrrhizinate, Garcinia Mangostana Peel Extract, Saccharum Officinarum Extract, Pyrus Malus Fruit Extract, Boerhavia Diffusa Root Extract, Capryloyl Salicylic Acid, Perfume, CI 19140, and CI 14720."
+              "ingredientsSummary": "Tranexamic Acid, Niacinamide, Melavoid, LHA (Capryloyl Salicylic Acid), PHA (Gluconolactone), Cereus Grandiflorus Extract, Garcinia Mangostana Peel Extract, Saccharum Officinarum Extract, Pyrus Malus Fruit Extract, Boerhavia Diffusa Root Extract, and Dipotassium Glycyrrhizinate."
             },
             {
               "id": "soap-green",
@@ -135,11 +136,12 @@
               ],
               "regNo": "10-1-6700036262",
               "quickHighlights": [
-                "ดูแลสิวอุดตัน สิวอักเสบ และสิวเรื้อรัง",
-                "ช่วยลดความมันส่วนเกินและการสะสมของสิว",
-                "ล้างสะอาดล้ำลึกแต่ยังอ่อนโยนต่อผิว"
+                "ออกแบบมาสำหรับคนที่มีปัญหาสิวอุดตัน สิวอักเสบ และสิวเรื้อรัง",
+                "ลดสิวเรื้อรังแบบล้ำลึก ด้วย Bio-Retinol (NovoRetin™) ไม่ทำให้ผิวลอกหรือไวต่อแดด",
+                "เคลียร์รูขุมขน ตัดวงจรสิวจากต้นเหตุ ด้วย BHA + Zinc PCA + หอมแดง",
+                "ลดการอักเสบ เติมความชุ่มชื้น ให้ผิวแข็งแรงขึ้น ไม่ทำให้แห้งตึงหรือแพ้ง่าย"
               ],
-              "ingredientsSummary": "Aqua, Sodium Myristate, Sodium Laurate, Glycerine, Propylene Glycol, Triethanolamine, Cocamidopropyl Betaine, Allium Cepa Extract, Ethylhexylglycerin, Propanediol, Chamomilla Recutita Extract, Witch Hazel Bark/Leaf Extract, Zinc PCA, Salicylic Acid, Butylene Glycol, 1,2-Hexanediol, Perfume, Pistacia Lentiscus Gum, Argania Spinosa Kernel Extract, Serenoa Serrulata Fruit Extract, Sesamum Indicum Seed Extract, Capryloyl Glycine, Lecithin, Pentylene Glycol, Glyceryl Caprylate/Caprate, Caprylic/Capric Triglyceride, Beta-Sitosterol, Tocopherol, CI 42090, CI 19140, and CI 14720."
+              "ingredientsSummary": "Salicylic Acid (BHA), Zinc PCA, Novoretin, Allium Cepa Extract, Chamomilla Recutita Extract, Witch Hazel Bark/Leaf Extract, Pistacia Lentiscus Gum, Argania Spinosa Kernel Extract, Serenoa Serrulata Fruit Extract, and Sesamum Indicum Seed Extract."
             },
             {
               "id": "soap-white",
@@ -175,11 +177,12 @@
               ],
               "regNo": "10-1-6700036262",
               "quickHighlights": [
-                "ดูแลผิวขาดน้ำอย่างอ่อนโยน",
-                "ช่วยให้ผิวสะอาด นุ่ม และไม่แห้งตึง",
-                "เหมาะกับผิวที่ต้องการความชุ่มชื้นทุกวัน"
+                "ออกแบบมาสำหรับคนที่มีปัญหาผิวขาดน้ำ แห้งกร้าน ไม่สดใส",
+                "เติมน้ำล็อกความชุ่มชื้น 72 ชั่วโมง ด้วย Moist72™",
+                "ผิวละเอียด รูขุมขนกระชับ อิ่มน้ำ ฉ่ำเด้ง ด้วย GMOIST SEA GEL",
+                "ลดริ้วรอย ฟื้นฟูเกราะป้องกันผิว ด้วย Sodium Hyaluronate + ว่านหางจระเข้"
               ],
-              "ingredientsSummary": "Aqua, Sodium Myristate, Sodium Laurate, Glycerine, Propylene Glycol, Niacinamide, Alpha-Arbutin, Triethanolamine, Cocamidopropyl Betaine, Dipotassium Glycyrrhizinate, Calendula Officinalis Flower Water, Sophora Flavescens Root Extract, Glycyrrhiza Inflata Root Extract, Scutellaria Baicalensis Root Extract, Butylene Glycol, Sodium Hyaluronate, Linolenic Acid, Perfume, CI 14720, CI 19140, and CI 42090."
+              "ingredientsSummary": "Niacinamide, Alpha-Arbutin, Dipotassium Glycyrrhizinate, Calendula Officinalis Flower Water, Sophora Flavescens Root Extract, Glycyrrhiza Inflata Root Extract, Scutellaria Baicalensis Root Extract, Sodium Hyaluronate, and Linolenic Acid."
             },
             {
               "id": "soap-black",
@@ -215,11 +218,12 @@
               ],
               "regNo": "10-1-6700036262",
               "quickHighlights": [
-                "ช่วยลดผิวหมองคล้ำอย่างอ่อนโยน",
-                "ผิวดูเรียบเนียน กระจ่างใสขึ้น",
-                "เหมาะกับการล้างหน้าเป็นประจำทุกวัน"
+                "ออกแบบมาสำหรับคนที่ต้องการปรับโทนสีผิวให้ดูกระจ่างใส ลดความหมองคล้ำ",
+                "ผิวกระจ่างใสลึกระดับด้วย HyWhite™ นวัตกรรมใหม่จากเยอรมนี",
+                "ลดความหมองคล้ำ จุดด่างดำ พร้อมปรับสีผิวให้สม่ำเสมอ ด้วย Niacinamide + Alpha-Arbutin",
+                "เติมความชุ่มชื้น ลดความแห้งกร้าน ให้ผิวโกลว์สุขภาพดี ไม่ทำให้ผิวแห้งเป็นขุย"
               ],
-              "ingredientsSummary": "Aqua, Sodium Myristate, Sodium Laurate, Glycerine, Propylene Glycol, Niacinamide, Alpha-Arbutin, Triethanolamine, Cocamidopropyl Betaine, Dipotassium Glycyrrhizinate, Calendula Officinalis Flower Water, Sophora Flavescens Root Extract, Glycyrrhiza Inflata Root Extract, Scutellaria Baicalensis Root Extract, Butylene Glycol, Sodium Hyaluronate, Linolenic Acid, Perfume, CI 14720, CI 19140, and CI 42090."
+              "ingredientsSummary": "Niacinamide, Alpha-Arbutin, Dipotassium Glycyrrhizinate, Calendula Officinalis Flower Water, Sophora Flavescens Root Extract, Glycyrrhiza Inflata Root Extract, Scutellaria Baicalensis Root Extract, Sodium Hyaluronate, and Linolenic Acid."
             }
           ],
           "familyMetrics": [
@@ -254,7 +258,7 @@
             "Micro-Peeling อย่างอ่อนโยน ไม่ทำให้ผิวแห้งตึง",
             "ช่วยทำความสะอาดและคืนสมดุลผิวในขั้นตอนเดียว"
           ],
-          "ingredientsSummary": "Hywhite, Niacinamide, Alpha-Arbutin, Dipotassium Glycyrrhizinate, Calendula Officinalis Flower Water, Sophora Flavescens Root Extract, Glycyrrhiza Inflata Root Extract, Scutellaria Baicalensis Root Extract, Sodium Hyaluronate, Salicylic Acid, Zinc PCA, Novoretin, Tranexamic Acid, Melavoid, LHA, and PHA."
+          "ingredientsSummary": "Niacinamide, Alpha-Arbutin, Dipotassium Glycyrrhizinate, Calendula Officinalis Flower Water, Sophora Flavescens Root Extract, Glycyrrhiza Inflata Root Extract, Scutellaria Baicalensis Root Extract, Sodium Hyaluronate, Linolenic Acid, Salicylic Acid (BHA), Zinc PCA, Novoretin, Tranexamic Acid, Melavoid, LHA (Capryloyl Salicylic Acid), PHA (Gluconolactone), Cereus Grandiflorus Extract, Garcinia Mangostana Peel Extract, Saccharum Officinarum Extract, Pyrus Malus Fruit Extract, and Boerhavia Diffusa Root Extract."
         }
       ]
     },
@@ -397,10 +401,11 @@
           ],
           "regNo": "74-1-6800030342",
           "quickHighlights": [
-            "ฝ้าเรื้อรัง กระ รอยดำ",
-            "ปัญหาเรื้อรัง วนลูป",
-            "ดูแลแบบตรงจุดอย่างแม่นยำ",
-            "ผิวบาง แพ้ง่ายใช้ได้"
+            "จัดการเม็ดสีได้อย่างแม่นยำแบบเฉพาะจุด",
+            "ตัดวงจรการสื่อสารในระดับเซลล์",
+            "สกัดกระบวนการผลิตเม็ดสี (ฝ้า) ที่ต้นทาง",
+            "ฝ้าเก่าจางไว ฝ้าใหม่ไม่เกิดซ้ำ",
+            "อ่อนโยน ผิวบอบบาง แพ้ง่าย ใช้ได้"
           ],
           "ingredientsSummary": "Aqua, Niacinamide, Caprylic/Capric Triglyceride, Cetyl Alcohol, Glyceryl Glucoside, Glycerin, Helianthus Annuus Seed Oil, Glyceryl Stearate, Ceteareth-20, Ceteareth-12, Cetearyl Alcohol, Cetyl Palmitate, Propanediol, Pouteria Lucuma Pulp Extract, Sodium Lactate, Glycolic Acid, Sucrose, Urea, Sodium Stearate, Malic Acid, Tartaric Acid, Hydrogenated Polydecene, Silanediol Salicylate, Squalane, Butyrospermum Parkii (Shea Butter), Citric Acid, Lactic Acid, Citrus Medica Limonum Fruit Extract, Pyrus Malus Fruit Extract, Saccharum Officinarum Extract, Vaccinium Myrtillus Fruit Extract, Vitis Vinifera Fruit Extract, Hydroxyacetophenone, Caprylyl Glycol, Dipropylene Glycol, Dipotassium Glycyrrhizinate, Sodium Polyacrylate, 1,2-Hexanediol, Acetyl Hexapeptide-1, and Allantoin."
         },
@@ -494,7 +499,8 @@
           "quickHighlights": [
             "กันแดดสำหรับผิวแพ้ง่ายและเป็นสิว",
             "ลดระคายเคือง รอยแดง และความมันส่วนเกิน",
-            "ผิวชุ่มชื้น ไม่เหนอะ ไม่ทิ้งคราบขาว"
+            "ผิวชุ่มชื้น ไม่เหนอะ ไม่ทิ้งคราบขาว",
+            "ปกป้องด้วย SPF สูงสุด แต่เนื้อบางเบา สบายผิว"
           ],
           "ingredientsSummary": "Tinosorb S Lite Aqua, Uvinul T 150, Sunobel OMC, Neutrazen™, Portulaca Extract, Allantoin, Desert Milk™, and Nelupure™."
         },
@@ -535,6 +541,8 @@
           "quickHighlights": [
             "ปกป้องครบ UVA/UVB, Blue Light และ Infrared",
             "เหมาะกับผิวบอบบางที่เจอแดดจัด",
+            "ออกแบบมาสำหรับคนเป็นฝ้าโดยเฉพาะ",
+            "ตัดวงจรการเกิดฝ้า กระ รอยดำ ซ้ำวนลูป",
             "ช่วยดูแลผิวหมองคล้ำและใช้เป็นเมคอัพเบสได้"
           ],
           "ingredientsSummary": "Golden Tomato Extract (Carotenoids) and Tara Tannins."
@@ -574,9 +582,11 @@
           ],
           "regNo": "10-1-6800024426",
           "quickHighlights": [
-            "กันแดด รองพื้น และไพรเมอร์ในหนึ่งเดียว",
-            "ผิวดูเนียนสม่ำเสมอแบบ Invisible Finish",
-            "ช่วยปกป้องผิวและต้านอนุมูลอิสระระหว่างวัน"
+            "นวัตกรรมล่าสุด จบงานผิวแบบ 4 in 1",
+            "ปกปิดฝ้า กระ จุดด่างดำได้อย่างเรียบเนียน",
+            "ให้ผิวชุ่มชื้น ไม่ลอย ไม่ตกร่อง หน้าไม่ดรอป",
+            "ยกระดับเฉดผิว เผยผิวโกลว์สวย ดุจผิวลูกแก้ว",
+            "ปกป้องผิวจากแสงแดดและมลภาวะด้วย SPF สูงสุด"
           ],
           "ingredientsSummary": "Cyclopentasiloxane, Titanium Dioxide, Phenyl Trimethicone, Tin Oxide, Aqua, Isoamyl Isononanoate, Silica, C12-15 Alkyl Benzoate, Dimethicone Crosspolymer, Polymethylsilsesquioxane, PEG-10 Dimethicone, Polyhydroxystearic Acid, Cetyl PEG/PPG-10/1 Dimethicone, Caprylyl Methicone, Polyglyceryl-4 Isostearate, Disteardimonium Hectorite, Glycerin, Sodium Chloride, Ethylhexylglycerin, Dimethoxysilyl Ethyl Polydimethylsiloxyethyl Dimethicone, Polysilicone-1 Crosspolymer, Butyrospermum Parkii (Shea Butter), Polyglyceryl-4 Isostearate, PEG-10, Propylene Glycol, Caesalpinia Spinosa Fruit Extract, Kappaphycus Alvarezii Extract, Rosa Roxburghii Fruit Extract, and Sodium Benzoate."
         }
@@ -667,9 +677,11 @@
           ],
           "regNo": "10-1-6600034341",
           "quickHighlights": [
-            "ช่วยให้ผิวดูสว่างและสม่ำเสมอ",
-            "เบลอรูขุมขนและริ้วรอยอย่างเป็นธรรมชาติ",
-            "พร้อมกันแดดและเติมผิวเนียนตลอดวัน"
+            "แป้งพัฟหน้าเป๊ะ เบลอฝ้า กระ รอยดำ",
+            "ปรับโทนผิวสว่างใส สม่ำเสมอ",
+            "เนื้อแป้งนวัตกรรมกระจายแสง",
+            "ปกปิดขั้นสุด ติดทน ไม่กลัวเหงื่อ",
+            "ให้ผิวเนียนละเอียด ผิวดูแพง"
           ],
           "ingredientsSummary": "Fullerene, Bisabolol, Pearl Powder, and Coenzyme Q10."
         },
@@ -708,9 +720,11 @@
           ],
           "regNo": "11-1-6800015069",
           "quickHighlights": [
-            "บำรุงริมฝีปากให้ชุ่มชื้นและอิ่มฟู",
-            "ช่วยลดแห้งแตกและให้เนื้อสัมผัสเรียบลื่น",
-            "ปกป้องริมฝีปากจากแสงแดดด้วย SPF15 PA++"
+            "เสริมริมฝีปากให้ดูอิ่มฟูขึ้นได้ทันที",
+            "บำรุงล้ำลึกด้วย 15 ออยล์สกัดพรีเมียม",
+            "ปกป้องแสงแดดและมลภาวะด้วย SPF 15 PA++",
+            "ฟื้นฟูความหมองคล้ำระดับลึกด้วยวิตามินซีออยล์",
+            "ให้ปากสวยแลดูสุขภาพดี ไม่กลับมาคล้ำ"
           ],
           "ingredientsSummary": "Hydrogenated Polyisobutene, Diisostearyl Malate, Ethylhexyl Methoxycinnamate, Pentaerythrityl Tetraethylhexanoate, PPG-3 Ethyl Ether, Propylene/Styrene Copolymer, Diethylamino Hydroxybenzoyl Hexyl Benzoate, Polyglyceryl-2 Triisostearate, Fragrance, Ethylene/Propylene/Styrene Copolymer, BHT, Tocopherol, Lactic Acid, Ascorbyl Tetraisopalmitate, Water, Ethylhexyl Palmitate, Trihydroxystearin, Vitis Vinifera Seed Oil, Argania Spinosa Kernel Oil, Helianthus Annuus Seed Oil, Brassica Campestris Seed Oil, Simmondsia Chinensis Seed Oil, Sodium Hyaluronate, Punica Granatum Flower Extract, Polyglyceryl-3 Diisostearate, Prunus Amygdalus Dulcis Oil, Oryza Sativa Bran Oil, Macadamia Ternifolia Seed Oil, Limnanthes Alba Seed Oil, Butyrospermum Parkii Oil, Persea Gratissima Oil, and Oenothera Biennis Oil."
         }
@@ -760,9 +774,10 @@
           ],
           "regNo": "73-1-11365-5-0275",
           "quickHighlights": [
-            "ดูแลฝ้า กระ และรอยดำจากภายใน",
-            "สนับสนุนผิวกระจ่างใส ตึงกระชับ",
-            "เสริมสารต้านอนุมูลอิสระระดับลึก"
+            "ฟื้นฟูให้ผิวเนียน ละเอียด นุ่มลื่น",
+            "ต้านอนุมูลอิสระประสิทธิภาพสูงสุด",
+            "ซ่อมเซลล์ที่เสื่อมสภาพ (ต้านแก่)",
+            "ปรับสมดุลองค์รวม นอนหลับดีขึ้น"
           ],
           "ingredientsSummary": "Acerola Cherry Extract, Pomegranate Extract (Pomanox), Artichoke Extract, Blood Orange Extract (Red Orange Complex), L-Glutathione, Indian Gooseberry Extract, Camu Camu Powder, Shitake Mushroom Powder, French Maritime Pine Bark Extract (Pycnogenol), Rice Extract (Phytocera), and Tetraselmis Chuii Algae Powder (TetraSOD)."
         },
