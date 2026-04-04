@@ -166,7 +166,7 @@ function createFaqSection(faq) {
     const rawGroupTitle = group.title || '';
     const groupTitle = escapeHtml(rawGroupTitle);
     const groupTitleHtml = rawGroupTitle.startsWith('Q&A เกี่ยวกับ ')
-      ? `<span class="faq-group-prefix">${escapeHtml('Q&A')}</span><span class="faq-group-main">${escapeHtml(rawGroupTitle.replace(/^Q&A เกี่ยวกับ\s*/, 'เกี่ยวกับ '))}</span>`
+      ? `<span class="faq-group-prefix">${escapeHtml('Q&A :')}</span><span class="faq-group-main">${escapeHtml(rawGroupTitle.replace(/^Q&A เกี่ยวกับ\s*/, 'เกี่ยวกับ '))}</span>`
       : groupTitle;
     const itemsHtml = (group.items || []).map((item, itemIndex) => {
       const itemNumber = itemIndex + 1;

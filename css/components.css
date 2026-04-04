@@ -798,7 +798,8 @@ body.modal-open {
 }
 
 .faq-group-prefix {
-  color: #b8bec8;
+  margin-right: 0.45em;
+  color: #c1a36a;
 }
 
 .faq-group-main {
