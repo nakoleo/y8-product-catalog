@@ -795,40 +795,6 @@ function initFaqAccordion() {
   const main = document.getElementById('mainContent');
   if (!main) return;
 
-  const animatePanel = (panel, expand) => {
-    if (!panel) return;
-
-    panel.hidden = false;
-    const startHeight = expand ? 0 : panel.scrollHeight;
-    const endHeight = expand ? panel.scrollHeight : 0;
-
-    panel.style.overflow = 'hidden';
-    panel.style.height = `${startHeight}px`;
-    panel.style.opacity = expand ? '0' : '1';
-
-    requestAnimationFrame(() => {
-      panel.style.transition = 'height 260ms ease, opacity 220ms ease';
-      panel.style.height = `${endHeight}px`;
-      panel.style.opacity = expand ? '1' : '0';
-    });
-
-    const onEnd = (event) => {
-      if (event.target !== panel || event.propertyName !== 'height') return;
-      panel.removeEventListener('transitionend', onEnd);
-      panel.style.transition = '';
-      panel.style.height = '';
-      panel.style.overflow = '';
-      if (!expand) {
-        panel.hidden = true;
-        panel.style.opacity = '';
-      } else {
-        panel.style.opacity = '';
-      }
-    };
-
-    panel.addEventListener('transitionend', onEnd);
-  };
-
   main.addEventListener('click', (event) => {
     const groupTrigger = event.target.closest('[data-faq-group-trigger="true"]');
     if (groupTrigger) {
@@ -838,7 +804,7 @@ function initFaqAccordion() {
 
       const isExpanded = groupTrigger.getAttribute('aria-expanded') === 'true';
       groupTrigger.setAttribute('aria-expanded', String(!isExpanded));
-      animatePanel(groupPanel, !isExpanded);
+      groupPanel.hidden = isExpanded;
 
       const group = groupTrigger.closest('.faq-group');
       if (group) group.classList.toggle('is-open', !isExpanded);
@@ -854,7 +820,7 @@ function initFaqAccordion() {
 
     const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
     trigger.setAttribute('aria-expanded', String(!isExpanded));
-    animatePanel(panel, !isExpanded);
+    panel.hidden = isExpanded;
 
     const item = trigger.closest('.faq-item');
     if (item) {
