@@ -26,6 +26,7 @@ const MANUAL_TITLE_LINES = {
 };
 
 const MANUAL_SUBNAME_LINES = {
+  'y8-soap': ['ADVANCED SKIN', 'CORRECTIVE SOAP'],
   'derma-calm': ['SUN SHIELD ULTRA CLEAR UV', 'SPF 50 PA++++'],
   'bio-youth': ['SUNSCREEN PROTECTION UV', 'SPF 50+ PA++++'],
   '8x-blonde': ['PERFECTING SUNSCREEN PROTECTION', 'SPF 50+ PA++++'],
@@ -171,7 +172,11 @@ function createSoapGalleryCard(product) {
   card.dataset.defaultRegNo = product.regNo || '';
 
   const variants = product.variants || [];
-  const thumbs = variants.map((variant, index) => `
+  const thumbs = `
+    <button class="soap-thumb soap-thumb-reset is-active" type="button" data-index="-1" aria-label="Y8 SOAP set overview">
+      <span>SET</span>
+    </button>
+  ` + variants.map((variant, index) => `
     <button class="soap-thumb" type="button" data-index="${index}" aria-label="${escapeHtml(stripTrademark(variant.name))}">
       <img src="${variant.image}" alt="${escapeHtml(stripTrademark(variant.name))}" loading="lazy" onerror="this.style.visibility='hidden'" />
     </button>
@@ -558,14 +563,15 @@ function initSoapGalleries() {
       renderCopy(variant.metrics || [], variant.description || '');
     };
 
-    thumbs.forEach((thumb, index) => {
+    thumbs.forEach((thumb) => {
       thumb.addEventListener('click', () => {
         const activeIndex = Number(card.dataset.currentIndex || -1);
-        if (activeIndex === index) {
+        const thumbIndex = Number(thumb.dataset.index || -1);
+        if (thumbIndex < 0 || activeIndex === thumbIndex) {
           renderDefault();
           return;
         }
-        renderVariant(index);
+        renderVariant(thumbIndex);
       });
     });
 
@@ -700,7 +706,9 @@ function initProductActionModal() {
     if (!product || !imageEl || !titleEl || !subnameEl || !ingredientsEl) return;
 
     state.product = product;
-    titleEl.textContent = stripTrademark(product.name || '');
+    titleEl.innerHTML = getTitleLines(product.id, product.name || '')
+      .map((line) => `<span class="product-name-line">${escapeHtml(stripTrademark(line))}</span>`)
+      .join('');
     subnameEl.innerHTML = renderSubnameBlock(product.id, product.subname || '', 'product-action-subname');
     if (dialog) {
       dialog.scrollTo({ top: 0, behavior: 'auto' });
