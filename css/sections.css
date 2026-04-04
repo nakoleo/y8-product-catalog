@@ -213,7 +213,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 12px var(--page-padding) 14px;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(246, 247, 248, 0.94);
   border-bottom: 1px solid rgba(82, 88, 98, 0.08);
   backdrop-filter: saturate(180%) blur(18px);
   -webkit-backdrop-filter: saturate(180%) blur(18px);
@@ -246,7 +246,7 @@ body {
 }
 
 .step-nav {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(246, 247, 248, 0.96);
   border-bottom: 1px solid rgba(82, 88, 98, 0.06);
   margin-top: 10px;
   overflow-x: auto;
@@ -309,7 +309,7 @@ body {
 .founder-section {
   min-height: 118svh;
   padding: 132px 0 120px;
-  background: linear-gradient(180deg, #ffffff 0%, #fbfbfc 14%, #f2f2f4 32%, #ececef 56%, #ffffff 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #fbfbfc 10%, #f2f3f5 28%, #eef1f4 56%, #f6f7f8 100%);
 }
 
 .founder-hero-frame {
