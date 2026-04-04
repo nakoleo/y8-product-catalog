@@ -798,8 +798,11 @@ body {
 }
 
 .footer-copy {
+  position: relative;
   display: grid;
   gap: 3px;
+  margin-top: 14px;
+  padding-top: 12px;
   font-size: 10px;
   line-height: 1.18;
   letter-spacing: 0.05em;
@@ -807,10 +810,20 @@ body {
   text-transform: uppercase;
 }
 
+.footer-copy::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 108px;
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.24) 18%, rgba(255, 255, 255, 0.24) 82%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: 0 1px 6px rgba(255, 255, 255, 0.1);
+}
 
 .footer-privacy-link {
   display: inline-block;
-  margin-top: 10px;
   font-size: 10px;
   line-height: 1;
   letter-spacing: 0.08em;
