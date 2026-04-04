@@ -593,8 +593,9 @@ body.modal-open {
 }
 
 .product-action-highlight-list.is-soap-overview li {
-  padding-left: 14px;
-  padding-right: 14px;
+  white-space: pre-line;
+  line-height: 1.55;
+  padding: 14px;
 }
 
 .product-action-ingredients {

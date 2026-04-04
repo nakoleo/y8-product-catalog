@@ -59,7 +59,7 @@
           "subname": "",
           "overviewImage": "assets/images/products/web/y8-soap-overview.png",
           "howToUse": "ทำให้สบู่เกิดฟองด้วยน้ำสะอาด\nฟอกให้ทั่วใบหน้าอย่างอ่อนโยน 30 วินาที\nล้างออก ใช้เป็นประจำ เช้า-เย็น",
-          "description": "Y8 SOAP เป็นสบู่กลีเซอรีนสูตรพิเศษ มีทั้งหมด 4 สูตร แต่ละสูตรมีส่วนผสมหลักแตกต่างกันเพื่อแก้ปัญหาผิวเฉพาะบุคคล\n\n1. #สีน้ำตาล - LHA ANTI-DARK SPOT SOAP (สูตรลดฝ้า กระ จุดด่างดำลึกขั้นเรื้อรัง)\n2. #สีเขียว - ANTI-ACNE CLEAR SOAP (สูตรสิวอุดตัน สิวอักเสบ และสิวเรื้อรัง)\n3. #สีขาว - HYDRATING SOAP (สูตรชุ่มชื้นผิวขาดน้ำ)\n4. #สีดำ - LHA ANTI-DARK SPOT SOAP (สูตรลดฝ้า กระ จุดด่างดำลึกขั้นเรื้อรัง)",
+          "description": "Y8 SOAP เป็นสบู่กลีเซอรีนสูตรพิเศษ มีทั้งหมด 4 สูตร แต่ละสูตรมีส่วนผสมหลักแตกต่างกันเพื่อแก้ปัญหาผิวเฉพาะบุคคล",
           "variants": [
             {
               "id": "soap-brown",
@@ -254,10 +254,10 @@
           ],
           "regNo": "10-1-6700036262",
           "quickHighlights": [
-            "#สีน้ำตาล — LHA ANTI-DARK SPOT SOAP (สูตรลดฝ้า กระ จุดด่างดำลึกขั้นเรื้อรัง)",
-            "#สีเขียว — ANTI-ACNE CLEAR SOAP (สูตรสิวอุดตัน สิวอักเสบ และสิวเรื้อรัง)",
-            "#สีขาว — HYDRATING SOAP (สูตรชุ่มชื้นผิวขาดน้ำ)",
-            "#สีดำ — LHA ANTI-DARK SPOT SOAP (สูตรลดฝ้า กระ จุดด่างดำลึกขั้นเรื้อรัง)"
+            "🟠 สีน้ำตาล\nLHA ANTI-DARK SPOT SOAP\n(สูตรลดฝ้า กระ จุดด่างดำลึกขั้นเรื้อรัง)",
+            "🟢 สีเขียว\nANTI-ACNE CLEAR SOAP\n(สูตรสิวอุดตัน สิวอักเสบ และสิวเรื้อรัง)",
+            "⚪️ สีขาว\nHYDRATING SOAP\n(สูตรชุ่มชื้นผิวขาดน้ำ)",
+            "⚫️ สีดำ\nLHA ANTI-DARK SPOT SOAP\n(สูตรลดฝ้า กระ จุดด่างดำลึกขั้นเรื้อรัง)"
           ],
           "ingredientsSummary": "Niacinamide, Alpha-Arbutin, Dipotassium Glycyrrhizinate, Calendula Officinalis Flower Water, Sophora Flavescens Root Extract, Glycyrrhiza Inflata Root Extract, Scutellaria Baicalensis Root Extract, Sodium Hyaluronate, Linolenic Acid, Salicylic Acid (BHA), Zinc PCA, Novoretin, Tranexamic Acid, Melavoid, LHA (Capryloyl Salicylic Acid), PHA (Gluconolactone), Cereus Grandiflorus Extract, Garcinia Mangostana Peel Extract, Saccharum Officinarum Extract, Pyrus Malus Fruit Extract, and Boerhavia Diffusa Root Extract."
         }
