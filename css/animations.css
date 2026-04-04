@@ -65,6 +65,18 @@
   animation: coverLogoShadow 7.5s ease-in-out infinite;
 }
 
+.membership-card-stage::before {
+  animation: membershipAuraFloat 8.8s ease-in-out infinite;
+}
+
+.membership-card-stage::after {
+  animation: membershipShadowFloat 8.8s ease-in-out infinite;
+}
+
+.membership-card-image {
+  animation: membershipCardDrift 8.8s ease-in-out infinite;
+}
+
 @keyframes coverCueFloat {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(5px); }
@@ -95,13 +107,31 @@
   50% { transform: scale(0.94); opacity: 0.5; }
 }
 
+@keyframes membershipAuraFloat {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.82; }
+  50% { transform: translate3d(0, -10px, 0) scale(1.04); opacity: 1; }
+}
+
+@keyframes membershipShadowFloat {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.66; }
+  50% { transform: translate3d(0, 8px, 0) scale(0.9); opacity: 0.42; }
+}
+
+@keyframes membershipCardDrift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(0, -8px, 0) scale(1.012); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .cover-scroll-cue,
   .cover-scroll-cue svg,
   .cover-hero-logo-shell,
   .cover-hero-logo,
   .cover-hero-logo-shell::before,
-  .cover-hero-logo-shell::after {
+  .cover-hero-logo-shell::after,
+  .membership-card-stage::before,
+  .membership-card-stage::after,
+  .membership-card-image {
     animation: none !important;
   }
 }

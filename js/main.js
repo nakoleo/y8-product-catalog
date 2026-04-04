@@ -329,6 +329,9 @@ function initScrollUI() {
   const coverScrollCue = document.getElementById('coverScrollCue');
   const transitionScene = document.getElementById('transitionScene');
   const founderSection = document.getElementById('founderSection');
+  const membershipSection = document.getElementById('membership');
+  const membershipCardStage = membershipSection?.querySelector('.membership-card-stage');
+  const membershipCardImage = membershipSection?.querySelector('.membership-card-image');
   const transitionLayer = transitionScene?.querySelector('.transition-scene-layer');
   const transitionYoung = transitionScene?.querySelector('.transition-word-young');
   const transitionAge = transitionScene?.querySelector('.transition-word-age');
@@ -438,14 +441,17 @@ function initScrollUI() {
         const rect = el.getBoundingClientRect();
         const visible = rect.bottom > 0 && rect.top < vh;
         if (!visible) {
-          el.style.transform = 'translate3d(0, 0, 0) scale(0.96)';
+          el.style.transform = 'translate3d(0, 18px, 0) scale(0.9)';
+          el.style.boxShadow = '0 20px 42px rgba(35, 41, 51, 0.09), 0 10px 22px rgba(255, 255, 255, 0.58) inset';
           return;
         }
 
         const centerProgress = clamp((vh - rect.top) / (vh + rect.height), 0, 1);
-        const iconScale = 0.94 + centerProgress * 0.16;
-        const iconY = (0.5 - centerProgress) * 18;
+        const iconScale = 0.9 + centerProgress * 0.2;
+        const iconY = (0.56 - centerProgress) * 34;
+        const iconLift = 0.25 + centerProgress * 0.12;
         el.style.transform = `translate3d(0, ${iconY.toFixed(2)}px, 0) scale(${iconScale.toFixed(3)})`;
+        el.style.boxShadow = `0 ${(26 + centerProgress * 16).toFixed(2)}px ${(48 + centerProgress * 12).toFixed(2)}px rgba(35, 41, 51, ${iconLift.toFixed(3)}), 0 10px 22px rgba(255, 255, 255, 0.58) inset`;
       });
 
       productMotionEls.forEach((el) => {
@@ -461,6 +467,28 @@ function initScrollUI() {
         const translateY = (0.5 - centerProgress) * 20;
         el.style.transform = `translate3d(0, ${translateY.toFixed(2)}px, 0) scale(${scale.toFixed(3)})`;
       });
+
+      if (membershipCardStage && membershipCardImage) {
+        const rect = membershipCardStage.getBoundingClientRect();
+        const visible = rect.bottom > 0 && rect.top < vh;
+
+        if (!visible) {
+          membershipCardStage.style.transform = 'translate3d(0, 36px, 0) scale(0.965)';
+          membershipCardStage.style.filter = 'drop-shadow(0 24px 42px rgba(15, 18, 24, 0.12))';
+          membershipCardImage.style.transform = 'translate3d(0, 0, 0) scale(1)';
+          membershipCardImage.style.filter = 'drop-shadow(0 28px 34px rgba(13, 15, 20, 0.18))';
+        } else {
+          const centerProgress = clamp((vh - rect.top) / (vh + rect.height), 0, 1);
+          const stageY = (0.62 - centerProgress) * 48;
+          const stageScale = 0.965 + centerProgress * 0.08;
+          const imageY = (0.54 - centerProgress) * 16;
+          const imageScale = 1.005 + centerProgress * 0.032;
+          membershipCardStage.style.transform = `translate3d(0, ${stageY.toFixed(2)}px, 0) scale(${stageScale.toFixed(3)})`;
+          membershipCardStage.style.filter = `drop-shadow(0 ${(26 + centerProgress * 22).toFixed(2)}px ${(44 + centerProgress * 18).toFixed(2)}px rgba(15, 18, 24, ${(0.14 + centerProgress * 0.14).toFixed(3)}))`;
+          membershipCardImage.style.transform = `translate3d(0, ${imageY.toFixed(2)}px, 0) scale(${imageScale.toFixed(3)})`;
+          membershipCardImage.style.filter = `drop-shadow(0 ${(32 + centerProgress * 18).toFixed(2)}px ${(38 + centerProgress * 14).toFixed(2)}px rgba(13, 15, 20, ${(0.18 + centerProgress * 0.12).toFixed(3)}))`;
+        }
+      }
     }
   };
 
