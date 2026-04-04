@@ -150,7 +150,7 @@ function createSection(step) {
 }
 
 function createFaqSection(faq) {
-  if (!faq || !Array.isArray(faq.items) || !faq.items.length) return null;
+  if (!faq || !Array.isArray(faq.groups) || !faq.groups.length) return null;
 
   const faqId = faq.id || 'faq';
   const titleId = `${faqId}-title`;
@@ -159,40 +159,77 @@ function createFaqSection(faq) {
   section.className = 'faq-section';
   section.setAttribute('aria-labelledby', titleId);
 
-  const itemsHtml = faq.items.map((item, index) => {
-    const itemNumber = index + 1;
-    const question = escapeHtml(item.question || '');
-    const answer = escapeHtml(item.answer || '').replace(/\n/g, '<br>');
-    const triggerId = `${faqId}-trigger-${itemNumber}`;
-    const panelId = `${faqId}-panel-${itemNumber}`;
+  const groupsHtml = faq.groups.map((group, groupIndex) => {
+    const groupNumber = groupIndex + 1;
+    const groupTriggerId = `${faqId}-group-trigger-${groupNumber}`;
+    const groupPanelId = `${faqId}-group-panel-${groupNumber}`;
+    const groupTitle = escapeHtml(group.title || '');
+    const itemsHtml = (group.items || []).map((item, itemIndex) => {
+      const itemNumber = itemIndex + 1;
+      const question = escapeHtml(item.question || '');
+      const answer = escapeHtml(item.answer || '').replace(/\n/g, '<br>');
+      const triggerId = `${faqId}-trigger-${groupNumber}-${itemNumber}`;
+      const panelId = `${faqId}-panel-${groupNumber}-${itemNumber}`;
+
+      return `
+        <article class="faq-item">
+          <h3 class="faq-question">
+            <button
+              id="${triggerId}"
+              class="faq-trigger"
+              type="button"
+              aria-expanded="false"
+              aria-controls="${panelId}"
+              data-faq-trigger="true"
+            >
+              <span class="faq-question-text"><span class="faq-question-mark" aria-hidden="true">𝗤</span><span class="faq-question-copy">${question}</span></span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div
+            id="${panelId}"
+            class="faq-answer"
+            role="region"
+            aria-labelledby="${triggerId}"
+            hidden
+            data-faq-panel="true"
+          >
+            <div class="faq-answer-inner">
+              <p><span class="faq-answer-mark" aria-hidden="true">𝗔</span><span class="faq-answer-copy">${answer}</span></p>
+            </div>
+          </div>
+        </article>
+      `;
+    }).join('');
 
     return `
-      <article class="faq-item reveal">
-        <h3 class="faq-question">
+      <section class="faq-group reveal">
+        <h3 class="faq-group-title">
           <button
-            id="${triggerId}"
-            class="faq-trigger"
+            id="${groupTriggerId}"
+            class="faq-group-trigger"
             type="button"
             aria-expanded="false"
-            aria-controls="${panelId}"
-            data-faq-trigger="true"
+            aria-controls="${groupPanelId}"
+            data-faq-group-trigger="true"
           >
-            <span class="faq-question-text">${question}</span>
-            <span class="faq-icon" aria-hidden="true"></span>
+            <span class="faq-group-title-text">${groupTitle}</span>
+            <span class="faq-group-icon" aria-hidden="true"></span>
           </button>
         </h3>
         <div
-          id="${panelId}"
-          class="faq-answer"
+          id="${groupPanelId}"
+          class="faq-group-panel"
           role="region"
-          aria-labelledby="${triggerId}"
+          aria-labelledby="${groupTriggerId}"
           hidden
+          data-faq-group-panel="true"
         >
-          <div class="faq-answer-inner">
-            <p>${answer}</p>
+          <div class="faq-group-panel-inner">
+            ${itemsHtml}
           </div>
         </div>
-      </article>
+      </section>
     `;
   }).join('');
 
@@ -206,7 +243,7 @@ function createFaqSection(faq) {
       </div>
     </div>
     <div class="faq-list">
-      ${itemsHtml}
+      ${groupsHtml}
     </div>
   `;
 
@@ -753,7 +790,56 @@ function initFaqAccordion() {
   const main = document.getElementById('mainContent');
   if (!main) return;
 
+  const animatePanel = (panel, expand) => {
+    if (!panel) return;
+
+    panel.hidden = false;
+    const startHeight = expand ? 0 : panel.scrollHeight;
+    const endHeight = expand ? panel.scrollHeight : 0;
+
+    panel.style.overflow = 'hidden';
+    panel.style.height = `${startHeight}px`;
+    panel.style.opacity = expand ? '0' : '1';
+
+    requestAnimationFrame(() => {
+      panel.style.transition = 'height 260ms ease, opacity 220ms ease';
+      panel.style.height = `${endHeight}px`;
+      panel.style.opacity = expand ? '1' : '0';
+    });
+
+    const onEnd = (event) => {
+      if (event.target !== panel || event.propertyName !== 'height') return;
+      panel.removeEventListener('transitionend', onEnd);
+      panel.style.transition = '';
+      panel.style.height = '';
+      panel.style.overflow = '';
+      if (!expand) {
+        panel.hidden = true;
+        panel.style.opacity = '';
+      } else {
+        panel.style.opacity = '';
+      }
+    };
+
+    panel.addEventListener('transitionend', onEnd);
+  };
+
   main.addEventListener('click', (event) => {
+    const groupTrigger = event.target.closest('[data-faq-group-trigger="true"]');
+    if (groupTrigger) {
+      const groupPanelId = groupTrigger.getAttribute('aria-controls');
+      const groupPanel = groupPanelId ? document.getElementById(groupPanelId) : null;
+      if (!groupPanel) return;
+
+      const isExpanded = groupTrigger.getAttribute('aria-expanded') === 'true';
+      groupTrigger.setAttribute('aria-expanded', String(!isExpanded));
+      animatePanel(groupPanel, !isExpanded);
+
+      const group = groupTrigger.closest('.faq-group');
+      if (group) group.classList.toggle('is-open', !isExpanded);
+      return;
+    }
+
     const trigger = event.target.closest('[data-faq-trigger="true"]');
     if (!trigger) return;
 
@@ -763,7 +849,7 @@ function initFaqAccordion() {
 
     const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
     trigger.setAttribute('aria-expanded', String(!isExpanded));
-    panel.hidden = isExpanded;
+    animatePanel(panel, !isExpanded);
 
     const item = trigger.closest('.faq-item');
     if (item) {
