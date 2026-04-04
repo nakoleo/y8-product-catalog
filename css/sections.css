@@ -920,6 +920,17 @@ body {
   max-width: 860px;
 }
 
+.faq-display-title {
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: clamp(28px, 5vw, 40px);
+  line-height: 1;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  color: #cfd4dd;
+  text-transform: uppercase;
+}
+
 .section-title-eyebrow {
   margin-bottom: 10px;
   font-size: 12px;

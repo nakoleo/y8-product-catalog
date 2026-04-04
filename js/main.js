@@ -236,6 +236,7 @@ function createFaqSection(faq) {
   section.innerHTML = `
     <div class="section-header reveal faq-header">
       <div class="section-title-block faq-title-block">
+        <div class="faq-display-title">Q&amp;A</div>
         <div class="section-title-eyebrow">Y8 EXPERT ANSWERS</div>
         <div class="section-title" id="${titleId}">${escapeHtml(faq.title || 'คำตอบจากผู้เชี่ยวชาญ Y8')}</div>
         ${faq.tagline ? `<div class="section-tagline">${escapeHtml(cleanTagline(faq.tagline))}</div>` : ''}
