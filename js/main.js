@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   buildProductLookup(data.steps);
   renderStepNav(data.steps);
   renderMainSections(data.steps);
+  renderSupplementarySections(data);
 
   if (window.ScrollReveal) ScrollReveal.init();
   if (window.CardToggle) CardToggle.init();
@@ -56,6 +57,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initSoapGalleries();
   initProductActionModal();
   initExternalLinks();
+  initFaqAccordion();
 });
 
 async function loadProductData() {
@@ -96,6 +98,16 @@ function renderMainSections(steps) {
   orderedSteps.forEach((step) => main.appendChild(createSection(step)));
 }
 
+function renderSupplementarySections(data) {
+  const main = document.getElementById('mainContent');
+  if (!main || !data?.faq) return;
+
+  const faqSection = createFaqSection(data.faq);
+  if (faqSection) {
+    main.appendChild(faqSection);
+  }
+}
+
 function buildProductLookup(steps) {
   PRODUCT_LOOKUP.clear();
 
@@ -134,6 +146,70 @@ function createSection(step) {
 
   const list = section.querySelector('.product-list');
   step.products.forEach((product) => list.appendChild(createProductCard(product)));
+  return section;
+}
+
+function createFaqSection(faq) {
+  if (!faq || !Array.isArray(faq.items) || !faq.items.length) return null;
+
+  const faqId = faq.id || 'faq';
+  const titleId = `${faqId}-title`;
+  const section = document.createElement('section');
+  section.id = faqId;
+  section.className = 'faq-section';
+  section.setAttribute('aria-labelledby', titleId);
+
+  const itemsHtml = faq.items.map((item, index) => {
+    const itemNumber = index + 1;
+    const question = escapeHtml(item.question || '');
+    const answer = escapeHtml(item.answer || '').replace(/\n/g, '<br>');
+    const triggerId = `${faqId}-trigger-${itemNumber}`;
+    const panelId = `${faqId}-panel-${itemNumber}`;
+
+    return `
+      <article class="faq-item reveal">
+        <h3 class="faq-question">
+          <button
+            id="${triggerId}"
+            class="faq-trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="${panelId}"
+            data-faq-trigger="true"
+          >
+            <span class="faq-question-text">${question}</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+        </h3>
+        <div
+          id="${panelId}"
+          class="faq-answer"
+          role="region"
+          aria-labelledby="${triggerId}"
+          hidden
+        >
+          <div class="faq-answer-inner">
+            <p>${answer}</p>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join('');
+
+  section.innerHTML = `
+    <div class="section-header reveal faq-header">
+      <div class="section-title-block faq-title-block">
+        <div class="section-title-eyebrow">Y8 EXPERT ANSWERS</div>
+        <div class="section-title" id="${titleId}">${escapeHtml(faq.title || 'คำตอบจากผู้เชี่ยวชาญ Y8')}</div>
+        ${faq.tagline ? `<div class="section-tagline">${escapeHtml(cleanTagline(faq.tagline))}</div>` : ''}
+        ${faq.introText ? `<p class="section-support faq-support">${escapeHtml(faq.introText)}</p>` : ''}
+      </div>
+    </div>
+    <div class="faq-list">
+      ${itemsHtml}
+    </div>
+  `;
+
   return section;
 }
 
@@ -670,6 +746,29 @@ function initExternalLinks() {
         window.open(url, '_blank', 'noopener,noreferrer');
       }
     });
+  });
+}
+
+function initFaqAccordion() {
+  const main = document.getElementById('mainContent');
+  if (!main) return;
+
+  main.addEventListener('click', (event) => {
+    const trigger = event.target.closest('[data-faq-trigger="true"]');
+    if (!trigger) return;
+
+    const panelId = trigger.getAttribute('aria-controls');
+    const panel = panelId ? document.getElementById(panelId) : null;
+    if (!panel) return;
+
+    const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+    trigger.setAttribute('aria-expanded', String(!isExpanded));
+    panel.hidden = isExpanded;
+
+    const item = trigger.closest('.faq-item');
+    if (item) {
+      item.classList.toggle('is-open', !isExpanded);
+    }
   });
 }
 

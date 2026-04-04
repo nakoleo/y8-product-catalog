@@ -906,3 +906,28 @@ body {
   pointer-events: auto;
   transform: translateY(0);
 }
+
+.faq-section {
+  padding: 14px 0 0;
+}
+
+.faq-header {
+  margin-bottom: 26px;
+}
+
+.faq-title-block {
+  max-width: 860px;
+}
+
+.section-title-eyebrow {
+  margin-bottom: 10px;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #7b8391;
+}
+
+.faq-support {
+  max-width: 760px;
+}
