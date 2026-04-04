@@ -593,9 +593,37 @@ body.modal-open {
 }
 
 .product-action-highlight-list.is-soap-overview li {
-  white-space: pre-line;
-  line-height: 1.55;
   padding: 14px;
+}
+
+.product-action-highlight-soap {
+  display: grid;
+  gap: 4px;
+}
+
+.product-action-highlight-tone,
+.product-action-highlight-name,
+.product-action-highlight-detail {
+  display: block;
+}
+
+.product-action-highlight-tone {
+  font-size: 15px;
+  line-height: 1.25;
+  color: #5c6472;
+}
+
+.product-action-highlight-name {
+  font-size: 16px;
+  line-height: 1.34;
+  letter-spacing: 0.02em;
+  color: #49515f;
+}
+
+.product-action-highlight-detail {
+  font-size: 15px;
+  line-height: 1.4;
+  color: #6b7381;
 }
 
 .product-action-ingredients {

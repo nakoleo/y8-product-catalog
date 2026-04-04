@@ -677,6 +677,18 @@ function initProductActionModal() {
     return items.filter(Boolean).slice(0, 5);
   };
 
+  const renderHighlightItem = (item, isSoapOverview = false) => {
+    if (!isSoapOverview) return `<li>${escapeHtml(item)}</li>`;
+    const [tone = '', title = '', detail = ''] = String(item).split('\n');
+    return `
+      <li class="product-action-highlight-soap">
+        <span class="product-action-highlight-tone">${escapeHtml(tone)}</span>
+        <span class="product-action-highlight-name">${escapeHtml(title)}</span>
+        <span class="product-action-highlight-detail">${escapeHtml(detail)}</span>
+      </li>
+    `;
+  };
+
   const getHowToParagraph = (product) => String(product?.howToUse || '')
     .split(/\n+/)
     .map((item) => item.trim().replace(/^[•▪■-]\s*/, '').replace(/^\d+\.\s*/, ''))
@@ -764,9 +776,10 @@ function initProductActionModal() {
 
     if (highlightsEl) {
       const points = getHighlightPoints(product);
-      highlightsEl.innerHTML = points.map((item) => `<li>${escapeHtml(item)}</li>`).join('');
+      const isSoapOverview = product.id === 'y8-soap';
+      highlightsEl.innerHTML = points.map((item) => renderHighlightItem(item, isSoapOverview)).join('');
       highlightsEl.hidden = !points.length;
-      highlightsEl.classList.toggle('is-soap-overview', product.id === 'y8-soap');
+      highlightsEl.classList.toggle('is-soap-overview', isSoapOverview);
     }
     ingredientsEl.textContent = product.ingredientsSummary || '';
     ingredientsEl.hidden = !product.ingredientsSummary;
