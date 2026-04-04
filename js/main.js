@@ -163,7 +163,11 @@ function createFaqSection(faq) {
     const groupNumber = groupIndex + 1;
     const groupTriggerId = `${faqId}-group-trigger-${groupNumber}`;
     const groupPanelId = `${faqId}-group-panel-${groupNumber}`;
-    const groupTitle = escapeHtml(group.title || '');
+    const rawGroupTitle = group.title || '';
+    const groupTitle = escapeHtml(rawGroupTitle);
+    const groupTitleHtml = rawGroupTitle.startsWith('Q&A เกี่ยวกับ ')
+      ? `<span class="faq-group-prefix">${escapeHtml('Q&A')}</span><span class="faq-group-main">${escapeHtml(rawGroupTitle.replace(/^Q&A เกี่ยวกับ\s*/, 'เกี่ยวกับ '))}</span>`
+      : groupTitle;
     const itemsHtml = (group.items || []).map((item, itemIndex) => {
       const itemNumber = itemIndex + 1;
       const question = escapeHtml(item.question || '');
@@ -213,7 +217,7 @@ function createFaqSection(faq) {
             aria-controls="${groupPanelId}"
             data-faq-group-trigger="true"
           >
-            <span class="faq-group-title-text">${groupTitle}</span>
+            <span class="faq-group-title-text">${groupTitleHtml}</span>
             <span class="faq-group-icon" aria-hidden="true"></span>
           </button>
         </h3>

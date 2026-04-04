@@ -797,6 +797,14 @@ body.modal-open {
   color: #464d59;
 }
 
+.faq-group-prefix {
+  color: #b8bec8;
+}
+
+.faq-group-main {
+  color: #464d59;
+}
+
 .faq-question {
   margin: 0;
 }
@@ -851,7 +859,6 @@ body.modal-open {
 
 .faq-group-panel {
   display: block;
-  opacity: 0;
 }
 
 .faq-group-panel[hidden],
@@ -935,7 +942,6 @@ body.modal-open {
 }
 
 .faq-answer {
-  opacity: 0;
   padding: 0 20px 20px;
 }
 
